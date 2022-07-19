@@ -1,57 +1,47 @@
-import { useState } from 'react'
-import Router from 'next/router'
-import { useUser } from '../lib/hooks'
-import Layout from '../components/layout'
-import Form from '../components/form'
+import { useState } from "react";
+import Router from "next/router";
+import { useUser } from "../lib/hooks";
+import Form from "../components/form";
 
 const Login = () => {
-  useUser({ redirectTo: '/', redirectIfFound: true })
+  useUser({ redirectTo: "/", redirectIfFound: true });
 
-  const [errorMsg, setErrorMsg] = useState('')
+  const [errorMsg, setErrorMsg] = useState("");
 
   async function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
 
-    if (errorMsg) setErrorMsg('')
+    if (errorMsg) setErrorMsg("");
 
     const body = {
       username: e.currentTarget.username.value,
+      email: e.currentTarget.email.value,
+      company: e.currentTarget.company.value,
       password: e.currentTarget.password.value,
-    }
+    };
 
     try {
-      const res = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
-      })
+      });
       if (res.status === 200) {
-        Router.push('/')
+        Router.push("/");
       } else {
-        throw new Error(await res.text())
+        throw new Error(await res.text());
       }
     } catch (error) {
-      console.error('An unexpected error happened occurred:', error)
-      setErrorMsg(error.message)
+      console.error("An unexpected error happened occurred:", error);
+      setErrorMsg(error.message);
     }
   }
 
   return (
-    <Layout>
-      <div className="login">
-        <Form isLogin errorMessage={errorMsg} onSubmit={handleSubmit} />
-      </div>
-      <style jsx>{`
-        .login {
-          max-width: 21rem;
-          margin: 0 auto;
-          padding: 1rem;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-        }
-      `}</style>
-    </Layout>
-  )
-}
+    <div className='container'>
+      <Form isLogin errorMessage={errorMsg} onSubmit={handleSubmit} />
+    </div>
+  );
+};
 
-export default Login
+export default Login;

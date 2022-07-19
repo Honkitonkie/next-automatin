@@ -1,27 +1,25 @@
-import { useUser } from '../lib/hooks'
-import Layout from '../components/layout'
+import { useUser } from "../lib/hooks";
+import Layout from "./../components/layout";
 
 const Profile = () => {
-  const user = useUser({ redirectTo: '/login' })
+  const user = useUser({ redirectTo: "/login" });
+
+  // Server-render loading state
+  if (!user || user.isLoggedIn === false) {
+    return <Layout>Loading...</Layout>;
+  }
 
   return (
-    <Layout>
-      <h1>Profile</h1>
+    <div className='md:w-1/2 mx-auto my-10  text-3xl overflow-x-hidden'>
+      <h1>Profiel</h1>
       {user && (
         <>
           <p>Your session:</p>
           <pre>{JSON.stringify(user, null, 2)}</pre>
         </>
       )}
+    </div>
+  );
+};
 
-      <style jsx>{`
-        pre {
-          white-space: pre-wrap;
-          word-wrap: break-word;
-        }
-      `}</style>
-    </Layout>
-  )
-}
-
-export default Profile
+export default Profile;
