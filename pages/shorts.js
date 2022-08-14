@@ -1,39 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import data from "/public/templates.json";
 import { useUser } from "../lib/hooks";
+import LinkedinPost from "../components/LinkedinPost";
 
-const Shorts = (company) => {
+const Shorts = () => {
   const user = useUser();
-  // console.log("user", user);
-  company = user ? company : "automatin";
-  console.log("company", company);
+  const [feedType, setFeedType] = useState("person");
+  // Server-render loading state
+  if (!user || user.isLoggedIn === false) {
+    return <Layout>Loading...</Layout>;
+  }
+
+  const company = user[0] ? user[0]?.company : "automatin";
   const templates = data.templates;
+
   return (
-    <div className='flex flex-col md:flex-row flex-wrap gap-4 container mt-10 mx-auto'>
-      {/* {templates.map((template, i) => (
-        <div key={i}>
-          <div className='w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'>
-            <a href='#'>
-              <img className='rounded-t-lg' src={"/gif/" + company + i} alt=''></img>
-            </a>
-            <div className='p-5'>
-              <p className='mb-3 font-normal text-gray-700 dark:text-gray-400'>{template.text}</p>
-            </div>
-          </div>
-        </div>
-      ))} */}
-      {templates.map((template, i) => (
-        <div key={i}>
-          {!template.long && template.bewegend && template.beschikbaar && (
-            <div className='w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'>
-              <a href='#'>
-                <img className='rounded-t-lg' src={"/gif/" + company + "/" + i + ".gif"} alt=''></img>
-              </a>
-              <div className='p-5'>
-                <p className='mb-3 font-normal text-gray-700 dark:text-gray-400'>{template.text}</p>
-              </div>
-            </div>
-          )}
+    <div className='text-automatin-grey-900 font-serif flex flex-col md:flex-row items-center md:items-start flex-wrap my-4 justify-center'>
+      {templates.map((template, index) => (
+        <div key={index}>
+          {!template.long && template.bewegend && template.beschikbaar && <LinkedinPost template={template} index={index} company={company} user={user} feedType={feedType}></LinkedinPost>}
         </div>
       ))}
     </div>

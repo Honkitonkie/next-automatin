@@ -1,20 +1,23 @@
-import Head from "next/head";
-// import Header from "./header";
-import Navbar from "./navbar";
+import { useUser } from "../lib/hooks";
+import Navbar from "./Navbar";
 
-const Layout = (props) => (
-  <>
-    <Head>
-      <title>With Cookies</title>
-    </Head>
+const Layout = (props) => {
+  const user = useUser();
+  const hasUser = user[0] ? true : false;
 
-    {/* <Header /> */}
-    <Navbar />
+  // Server-render loading state
+  if (!user || user.isLoggedIn === false) {
+    return <Layout>Loading...</Layout>;
+  }
 
-    <main className='text-automatin-grey overflow-x-hidden'>
-      <div>{props.children}</div>
-    </main>
-  </>
-);
+  return (
+    <>
+      <Navbar hasUser={hasUser} />
+      <main className='text-automatin-grey overflow-x-hidden bg-automatin-lightGrey min-h-screen'>
+        <div className='container'>{props.children}</div>
+      </main>
+    </>
+  );
+};
 
 export default Layout;

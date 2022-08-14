@@ -10,6 +10,11 @@ module.exports = {
           blue: "#4874AE",
           orange: "#D1703C",
           grey: "#3F3D56",
+          lightGrey: "#F2F0F2",
+        },
+        linkedin: {
+          imagetext: "#EEF3F8",
+          link: "#0a66c2",
         },
       },
       container: {
@@ -22,6 +27,11 @@ module.exports = {
           "2xl": "6rem",
         },
       },
+    },
+    fontFamily: {
+      head: '"Roboto", "Noto Serif"',
+      sans: '"Montserrat", "Noto Serif"',
+      serif: '"apple-system", "system-ui","Segoe UI", Helvetica, Arial',
     },
   },
   plugins: [],

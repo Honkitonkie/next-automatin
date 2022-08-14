@@ -1,16 +1,20 @@
 import { useUser } from "../lib/hooks";
-import Videobg from "../components/videobg";
+import Videobg from "../components/Videobg";
+import Pricing from "../components/Pricing";
 import Typewriter from "typewriter-effect";
 
 const Home = () => {
   const user = useUser();
 
-  console.log("user", user);
+  // Server-render loading state
+  if (!user || user.isLoggedIn === false) {
+    return <Layout>Loading...</Layout>;
+  }
 
   return (
     <div>
       <Videobg>
-        <div className='text-white text-5xl mx-auto text-center items-center mt-48 md:mt-64'>
+        <div className='font-serif text-automatin-grey text-4xl md:text-7xl mt-24 md:mt-auto w-screen mx-auto text-center md:text-left container'>
           <Typewriter
             options={{
               autoStart: true,
@@ -18,10 +22,10 @@ const Home = () => {
             }}
             onInit={(typewriter) => {
               typewriter
-                .typeString("Linkedin<br> automatisering")
+                .typeString("Linkedin<br> Automatisering")
                 .pauseFor(2500)
                 .deleteChars(14)
-                .typeString("branding")
+                .typeString("Branding")
                 .pauseFor(250)
                 .deleteChars(8)
                 .typeString("Optimalisatie")
@@ -43,10 +47,13 @@ const Home = () => {
           <li>Click Logout and try to go to Profile again. You'll get redirected to Login.</li>
         </ol>
 
-        {user && (
+        <Pricing></Pricing>
+
+        {user[0]?.name && (
           <>
             <p>Currently logged in as:</p>
-            <pre>{JSON.stringify(user.name, null, 2)}</pre>
+            <pre>{JSON.stringify(user[0].name, null, 2)}</pre>
+            <pre>{user[0].name}</pre>
           </>
         )}
       </div>

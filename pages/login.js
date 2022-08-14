@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Router from "next/router";
 import { useUser } from "../lib/hooks";
-import Form from "../components/form";
+import Form from "../components/Form";
 
 const Login = () => {
   useUser({ redirectTo: "/", redirectIfFound: true });
@@ -14,9 +14,9 @@ const Login = () => {
     if (errorMsg) setErrorMsg("");
 
     const body = {
-      username: e.currentTarget.username.value,
+      // username: e.currentTarget.username.value,
       email: e.currentTarget.email.value,
-      company: e.currentTarget.company.value,
+      // company: e.currentTarget.company.value,
       password: e.currentTarget.password.value,
     };
 

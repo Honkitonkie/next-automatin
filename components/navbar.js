@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useUser } from "../lib/hooks";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Logo from "/public/automatin.svg";
-import MobileNav from "../components/mobile-nav";
+import MobileNav from "./Mobile-nav";
 
 const links = [
   {
@@ -32,6 +31,10 @@ const links = [
         url: "/longs",
       },
       {
+        text: "Stilstaand",
+        url: "/plaatjes",
+      },
+      {
         text: "Foto's",
         url: "/fotos",
       },
@@ -39,15 +42,13 @@ const links = [
   },
 ];
 
-const Navbar = () => {
+const Navbar = ({ hasUser }) => {
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false);
   const [showSettingsDropdown, setShowSettingsDropdown] = useState(false);
   const [showGallerijDropdown, setShowGallerijDropdown] = useState(false);
   const router = useRouter();
   const [current, setCurrent] = useState(router.pathname);
   const dropdown = useRef(null);
-  const user = useUser();
-  // console.log("user", user);
 
   useEffect(() => {
     // only add the event listener when the dropdown is opened
@@ -65,7 +66,6 @@ const Navbar = () => {
   }, [showSettingsDropdown, mobileMenuIsShown, showGallerijDropdown]);
 
   const changeCurrent = function (element) {
-    console.log("element", element);
     setCurrent(element);
   };
 
@@ -145,7 +145,7 @@ const Navbar = () => {
                       </button>
                     </div>
 
-                    {user && showSettingsDropdown && (
+                    {hasUser && showSettingsDropdown && (
                       <div ref={dropdown} className='origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 z-50'>
                         <div className='py-1 ' role='menu' aria-orientation='vertical' aria-labelledby='options-menu'>
                           <a
@@ -185,7 +185,7 @@ const Navbar = () => {
                       </div>
                     )}
 
-                    {!user && showSettingsDropdown && (
+                    {!hasUser && showSettingsDropdown && (
                       <div ref={dropdown} className='origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 z-50'>
                         <div className='py-1 ' role='menu' aria-orientation='vertical' aria-labelledby='options-menu'>
                           <a
@@ -233,7 +233,7 @@ const Navbar = () => {
               )}
             </div>
           </div>
-          {mobileMenuIsShown && <MobileNav links={links} changeCurrent={changeCurrent} closeSelf={() => setMobileMenuIsShown(false)} />}
+          {mobileMenuIsShown && <MobileNav hasUser={hasUser} links={links} changeCurrent={changeCurrent} closeSelf={() => setMobileMenuIsShown(false)} />}
         </div>
       </nav>
     </header>

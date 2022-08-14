@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Router from "next/router";
 import { useUser } from "../lib/hooks";
-import Form from "../components/form";
+import Form from "../components/Form";
 
 const Signup = () => {
   useUser({ redirectTo: "/", redirectIfFound: true });

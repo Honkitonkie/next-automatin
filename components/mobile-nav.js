@@ -1,15 +1,11 @@
-import Link from "next/link";
-import { useUser } from "../lib/hooks";
-import { useRouter } from "next/router";
 import React, { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-const MobileNav = ({ links, closeSelf }) => {
-  const user = useUser();
-
+const MobileNav = ({ links, closeSelf, hasUser }) => {
   const router = useRouter();
   const [current, setCurrent] = useState(router.pathname);
   const changeCurrent = function (element) {
-    console.log("element", element);
     setCurrent(element);
   };
 
@@ -54,7 +50,7 @@ const MobileNav = ({ links, closeSelf }) => {
               </li>
             ))}
 
-            {user ? (
+            {hasUser ? (
               <>
                 <li>
                   <Link href='/profile'>

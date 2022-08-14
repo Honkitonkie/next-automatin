@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 import crypto from "crypto";
 
-var max = 120;
-var fillArr = fillArray(new Array(), max);
+var fillArr = fillArray(new Array(), 120);
+var fillArrTwo = fillArray(new Array(), 46, true);
 var secret = crypto.randomBytes(32).toString("hex");
 
 const TemplatesSchema = mongoose.Schema({
@@ -23,21 +23,26 @@ const TemplatesSchema = mongoose.Schema({
     default: [0],
   },
 });
-const wantedPics = mongoose.Schema({
+const WantedPicsSchema = mongoose.Schema({
   linksboven: {
     type: Array,
+    default: fillArrTwo,
   },
   linksonder: {
     type: Array,
+    default: fillArrTwo,
   },
   rechtsboven: {
     type: Array,
+    default: fillArrTwo,
   },
   rechtsonder: {
     type: Array,
+    default: fillArrTwo,
   },
   center: {
     type: Array,
+    default: [0],
   },
 });
 const LinkedinSchema = mongoose.Schema({
@@ -134,133 +139,8 @@ const UserSchema = new mongoose.Schema({
   },
   wantedPics: {
     type: Object,
-    type: wantedPics,
-  },
-  form_id: {
-    type: Array,
-    default: [
-      "zero",
-      "one",
-      "two",
-      "three",
-      "four",
-      "five",
-      "six",
-      "seven",
-      "eight",
-      "nine",
-      "ten",
-      "eleven",
-      "twelve",
-      "thirteen",
-      "fourteen",
-      "fifteen",
-      "sixteen",
-      "seventeen",
-      "eighteen",
-      "nineteen",
-      "twenty",
-      "twentyone",
-      "twentytwo",
-      "twentythree",
-      "twentyfour",
-      "twentyfive",
-      "twentysix",
-      "twentyseven",
-      "twentyeight",
-      "twentynine",
-      "thirty",
-      "thirtyone",
-      "thirtytwo",
-      "thirtythree",
-      "thirtyfour",
-      "thirtyfive",
-      "thirtysix",
-      "thirtyseven",
-      "thirtyeight",
-      "thirtynine",
-      "fourty",
-      "fourtyone",
-      "fourtytwo",
-      "fourtythree",
-      "fourtyfour",
-      "fourtyfive",
-      "fourtysix",
-      "fourtyseven",
-      "fourtyeight",
-      "fourtynine",
-      "fifty",
-      "fiftyone",
-      "fiftytwo",
-      "fiftythree",
-      "fiftyfour",
-      "fiftyfive",
-      "fiftysix",
-      "fiftyseven",
-      "fiftyeight",
-      "fiftynine",
-      "sixty",
-      "sixtyone",
-      "sixtytwo",
-      "sixtythree",
-      "sixtyfour",
-      "sixtyfive",
-      "sixtysix",
-      "sixtyseven",
-      "sixtyeight",
-      "sixtynine",
-      "seventy",
-      "seventyone",
-      "seventytwo",
-      "seventythree",
-      "seventyfour",
-      "seventyfive",
-      "seventysix",
-      "seventyseven",
-      "seventyeight",
-      "seventynine",
-      "eighty",
-      "eightyone",
-      "eightytwo",
-      "eightythree",
-      "eightyfour",
-      "eightyfive",
-      "eightysix",
-      "eightyseven",
-      "eightyeight",
-      "eightynine",
-      "ninety",
-      "ninetyone",
-      "ninetytwo",
-      "ninetythree",
-      "ninetyfour",
-      "ninetyfive",
-      "ninetysix",
-      "ninetyseven",
-      "ninetyeight",
-      "ninetynine",
-      "hundred",
-      "hundredone",
-      "hundredtwo",
-      "hundredthree",
-      "hundredfour",
-      "hundredfive",
-      "hundredsix",
-      "hundredseven",
-      "hundredeight",
-      "hundrednine",
-      "hundredten",
-      "hundredeleven",
-      "hundredtwelve",
-      "hundredthirteen",
-      "hundredfourteen",
-      "hundredfifteen",
-      "hundredsixteen",
-      "hundredseventeen",
-      "hundredeightteen",
-      "hundrednineteen",
-      "hundredtwenty",
-    ],
+    type: WantedPicsSchema,
+    default: {},
   },
   linkedin: {
     type: Object,
@@ -269,12 +149,18 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
-function fillArray(arr, index) {
+function fillArray(arr, index, allTrue) {
   arr.length = index;
-  for (let i = 0; i < arr.length; i++) {
-    arr[i] = true;
-    if ((i > 3 && i < 11) || (i > 42 && i < 50) || i > 97) {
-      arr[i] = false;
+  if (!allTrue) {
+    for (let i = 0; i < arr.length; i++) {
+      arr[i] = true;
+      if ((i > 3 && i < 11) || (i > 42 && i < 50) || i > 97) {
+        arr[i] = false;
+      }
+    }
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      arr[i] = true;
     }
   }
   return arr;
