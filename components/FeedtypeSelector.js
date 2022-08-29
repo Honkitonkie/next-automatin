@@ -1,68 +1,45 @@
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import React, { useState, useEffect, useRef } from "react";
 import { useUser } from "../lib/hooks";
 
 export default function FeedtypeSelector(props) {
   const user = useUser()[0];
-  const { pathname } = useRouter();
-  const [isOpen, setIsOpen] = useState();
-
-  const [errorMsg, setErrorMsg] = useState("");
-  const fotos = pathname === "/fotos";
+  const [isOpen, setIsOpen] = useState(false);
+  const init = props.pathname === "/fotos" ? "linksboven" : "person";
+  const [currentVal, setCurrentVal] = useState(init);
+  const fotos = props.pathname === "/fotos";
 
   const fotoFeedTypeOptions = ["linksboven", "linksonder", "rechtsboven", "rechtsonder", "center"];
   const templateFeedTypeOptions = ["person", "organization"];
+  const dropdown = useRef(null);
 
-  // LOGIN
-  async function handleSubmit() {
-    // e.preventDefault();
+  useEffect(() => {}, [currentVal]);
 
-    console.log("user in handelsubmut", user);
-    if (errorMsg) setErrorMsg("");
-    const body = {
-      email: user?.email,
-      feedType: feedType,
-    };
-    try {
-      const res = await fetch("/api/update", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-      if (res.status === 200) {
-        // console.log("body", body);
-        Router.push("/");
-      } else {
-        throw new Error(await res.text());
-      }
-    } catch (error) {
-      console.error("An unexpected error happened occurred:", error);
-      setErrorMsg(error.message);
-    }
-  }
-  // END LOGINSTUFF
-
-  // useEffect(() => {
-  //   // if (pathname === "/fotos") {
-  //   //   setFeedType("linksboven");
-  //   // } else {
-  //   //   setFeedType("person");
-  //   // }
-  //   // handleSubmit();
-  // }, [feedType]);
-
-  const handleSlide = (val, index) => {
+  const handleSlide = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleClick = (e) => {
-    setFeedType(e.target.innerHTML);
-    console.log("e", e.target.innerHTML);
+  const handleClick = (e, i) => {
+    let wantedVal = lowerCaseFirstLetter(e.target.innerHTML);
+    setCurrentVal(wantedVal);
+    props.changeFeedType(wantedVal);
   };
+
+  useEffect(() => {
+    // only add the event listener when the dropdown is opened
+    if (!isOpen) return;
+    function handleClickOutsideBox(event) {
+      if (dropdown.current && !dropdown.current.contains(event.target)) {
+        setIsOpen(!isOpen);
+      }
+    }
+    window.addEventListener("click", handleClickOutsideBox);
+    // clean up
+    return () => window.removeEventListener("click", handleClickOutsideBox);
+  }, [isOpen]);
 
   return (
     <>
-      <div className='relative inline-block text-left'>
+      <div className='relative text-left'>
         <div>
           <button
             type='button'
@@ -71,8 +48,9 @@ export default function FeedtypeSelector(props) {
             aria-expanded='true'
             aria-haspopup='true'
             onClick={() => handleSlide((b) => !b)}
+            ref={dropdown}
           >
-            Options
+            {capitalizeFirstLetter(currentVal)}
             {/* <!-- Heroicon name: solid/chevron-down --> */}
             <svg className='-mr-1 ml-2 h-5 w-5' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'>
               <path fillRule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clipRule='evenodd' />
@@ -99,29 +77,48 @@ export default function FeedtypeSelector(props) {
             tabIndex='-1'
           >
             <div className='py-1' role='none'>
-              {fotoFeedTypeOptions.map((option, index) => (
-                <a
-                  key={index}
-                  onClick={(e) => {
-                    handleClick(e);
-                  }}
-                  className='text-gray-700 block px-4 py-2 text-sm'
-                  role='menuitem'
-                  tabIndex='-1'
-                  id={`menu-item-${index}`}
-                >
-                  {option}
-                </a>
-              ))}
-              {/* <form method='POST' action='#' role='none'>
-                <button type='submit' className='text-gray-700 block w-full text-left px-4 py-2 text-sm' role='menuitem' tabIndex='-1' id='menu-item-3'>
-                  Sign out
-                </button>
-              </form> */}
+              {fotos &&
+                fotoFeedTypeOptions.map((option, i) => (
+                  <a
+                    key={i}
+                    onClick={(e) => {
+                      handleClick(e, i);
+                    }}
+                    className='text-gray-700 block px-4 py-2 text-sm'
+                    role='menuitem'
+                    tabIndex='-1'
+                    id={`menu-item-${i}`}
+                  >
+                    {capitalizeFirstLetter(option)}
+                  </a>
+                ))}
+              {!fotos &&
+                templateFeedTypeOptions.map((option, i) => (
+                  <a
+                    key={i}
+                    onClick={(e) => {
+                      handleClick(e, i);
+                    }}
+                    className='text-gray-700 block px-4 py-2 text-sm'
+                    role='menuitem'
+                    tabIndex='-1'
+                    id={`menu-item-${i}`}
+                  >
+                    {capitalizeFirstLetter(option)}
+                  </a>
+                ))}
             </div>
           </div>
         )}
       </div>
     </>
   );
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+function lowerCaseFirstLetter(string) {
+  // used to communicate with database
+  return string.charAt(0).toLowerCase() + string.slice(1);
 }

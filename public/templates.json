@@ -1,7 +1,250 @@
 {
 "name":"templates",
 "aantal":97,
-"templates":[
+"person":[
+    {
+    "name":"woordzoeker",
+    "intro":"Met de #woordzoeker kan je niet verkeerd.",
+    "text":"Ik heb er de woorden niet voor.",
+    "groep":null,
+    "bewegend":false,
+    "beschikbaar":false,
+    "long":false,
+    "num":0
+    },
+    {
+    "name":"miniLogo",
+    "intro":"#miniLogo brengt je secundaire logo in beeld.",
+    "text":"Beeldend!",
+    "groep":null,
+    "bewegend":false,
+    "beschikbaar":true,
+    "long":false,
+    "num":1
+    },
+    {
+    "name":"rechtsInBeeld",
+    "intro":"Meer dan 25 verschillende afbeeldingen #inBeeld met dit template.",
+    "text":"Een goed showmodel.",
+    "groep":"inbeeld",
+    "bewegend":false,
+    "beschikbaar":true,
+    "long":false,
+    "num":2
+    },
+    {
+    "name":"linksInBeeld",
+    "intro":"Ook hier 25+ afbeeldingen #inBeeld die elkaar afwisselen.",
+    "text":"Wat een plaatje.",
+    "groep":"inbeeld",
+    "beschikbaar":true,
+    "bewegend":false,
+    "long":false,
+    "num":3
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":4
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":5
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":6
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":7
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":8
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":9
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":10
+    },
+    {
+    "name":"typeWriter",
+    "intro":"Met de #typeWriter heb je een klassieke look in een hippe jas.",
+    "text":"Helemaal jouw type.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":11
+    },
+    {
+    "name":"writeWord",
+    "intro":"De #writeWord was de eerste animatie met losse woorden.",
+    "text":"Hier komt uiteraard jouw tekst te staan.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":12
+    },
+    {
+    "name":"slideInTop",
+    "intro":"De #slideInTop is de eerste template van de #slideIn reeks.",
+    "text":"Check de gif drop! Ook deze zegt genoeg.",
+    "beschikbaar":true,
+    "groep":"slideIn",
+    "bewegend":true,
+    "long":false,
+    "num":13
+    },
+    {
+    "name":"slideInLeft",
+    "intro":"De #slideInLeft is de eerste template van de #slideIn reeks.",
+    "text":"Recht(s)-zo-die-gaat.",
+    "beschikbaar":true,
+    "groep":"slideIn",
+    "bewegend":true,
+    "long":false,
+    "num":14
+    },
+    {
+    "name":"slideInRight",
+    "intro":"De #slideInRight. Elke variant een aanwinst voor je feed. ",
+    "text":"Pas op, dit is een (s)linkse.",
+    "beschikbaar":true,
+    "groep":"slideIn",
+    "bewegend":true,
+    "long":false,
+    "num":15
+    },
+    {
+    "name":"slideInBottom",
+    "intro":"De #slideInBottom Elke variant een aanwinst voor je feed",
+    "text":"Haalt het onderste uit de kan.",
+    "beschikbaar":true,
+    "groep":"slideIn",
+    "bewegend":true,
+    "long":false,
+    "num":16
+    },
+    {
+    "name":"zoomIn",
+    "intro":"De #zoomIn duwt je boodschap vriendelijk in het gezicht geduwd.",
+    "text":"Ook de oudere doelgroep bereiken? Neem dan de zoomIn!.",
+    "beschikbaar":true,
+    "groep":"zoom",
+    "bewegend":true,
+    "long":false,
+    "num":17
+    },
+    {
+    "name":"zoomOut",
+    "intro":"De #zoomOut is de tegenpool van de ZoomIn",
+    "text":"Zoom Out of here.",
+    "beschikbaar":true,
+    "groep":"slideIn",
+    "bewegend":true,
+    "long":false,
+    "num":18
+    },
+    {
+    "name":"spinAndZoom",
+    "intro":"De #spinAndZoom. Speels en recht voor de raap.",
+    "text":"Draait mee met de beste!",
+    "beschikbaar":true,
+    "groep":"zoom",
+    "bewegend":true,
+    "long":false,
+    "num":19
+    },
+    {
+    "name":"spin",
+    "intro":"De #spin spreekt voor zich. Een duidelijke titel die opvalt.",
+    "text":"Met de spin kun je gegarandeerd het web op.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":20
+    },
+    {
+    "name":"steering",
+    "intro":"#steering valt goed op.",
+    "text":"Een krachtige verschijning.",
+    "beschikbaar":true,
+    "groep":"zoom",
+    "bewegend":true,
+    "long":false,
+    "num":21
+    },
+    {
+    "name":"steeringWords",
+    "intro":"Een sterke animatie die de aandacht grijpt. #steeringWords",
+    "text":"Alles gaat woord voor woord.",
+    "beschikbaar":true,
+    "groep":"zoom",
+    "bewegend":true,
+    "long":false,
+    "num":22
+    },
+    {
+    "name":"confetti",
+    "intro":"Het is feest met de confetti achtergrond",
+    "text":"Houd zich op de achtergrond",
+    "beschikbaar":true,
+    "groep":"achtergrond",
+    "bewegend":true,
+    "long":false,
+    "num":97
+    }
+
+],
+"organization":[
     {
     "name":"woordzoeker",
     "intro":"Met de #woordzoeker kan je niet verkeerd.",
