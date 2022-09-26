@@ -69,6 +69,8 @@ const ResetPassword = () => {
             <strong>Wachtoord wijzigen:</strong>
           </label>
           <input
+            pattern='[^()/><\][\\\x22,;|]+'
+            title='Voor de veiligheid van jouw gegevens accepteren wij geen brackets, haken of slashes in dit veld'
             autoComplete='off'
             onChange={(e) => {
               updatePassword(e);
@@ -91,6 +93,8 @@ const ResetPassword = () => {
                 <strong>Herhaal wachtwoord:</strong>
               </label>
               <input
+                pattern='[^()/><\][\\\x22,;|]+'
+                title='Voor de veiligheid van jouw gegevens accepteren wij geen brackets, haken of slashes in dit veld'
                 autoComplete='off'
                 onChange={(e) => {
                   updateSecondPassword(e);

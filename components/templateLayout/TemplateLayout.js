@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useUser } from "../../lib/hooks";
 import LinkedinPost from "./LinkedinPost";
 import FeedtypeSelector from "./FeedtypeSelector";
 import LinkedinAccesTokenCheck from "./LinkedinAccesTokenCheck";
 import { useRouter } from "next/router";
+import { useUser } from "../../lib/hooks";
 
 const TemplateLayout = ({ arr }) => {
   const user = useUser();
@@ -54,7 +54,7 @@ const TemplateLayout = ({ arr }) => {
           <div key={index}>
             {!foto && counter === index && examples[index] && (
               <>
-                <button className='p-3 bg-automatin-blue text-white rounded-xl my-4' cname='capitalize flex' value={examples[index]} onClick={(e) => changeCompanyTemplates(e, index)}>
+                <button className='p-3 bg-automatin-blue text-white rounded-md my-4' cname='capitalize flex' value={examples[index]} onClick={(e) => changeCompanyTemplates(e, index)}>
                   Bekijk met andere branding
                 </button>
               </>
@@ -78,6 +78,7 @@ const TemplateLayout = ({ arr }) => {
       {/* Laat de templates zien (als niet ingelogd pak een willekeurige feedType om wel resultaten zichtbaar te maken)  */}
       {arr[feedType].map((item, index) => (
         <div key={index} className='block font-head'>
+          {/* {index === 1 && compilePath(item, index)} */}
           {pathname === "/fotos" && item.beschikbaar && <LinkedinPost foto={foto} template={item} index={index} company={company} feedType={feedType}></LinkedinPost>}
           {pathname === "/plaatjes" && item.beschikbaar && !item.bewegend && <LinkedinPost foto={foto} template={item} index={index} company={company} feedType={feedType}></LinkedinPost>}
           {pathname === "/shorts" && item.beschikbaar && item.bewegend && !item.long && <LinkedinPost foto={foto} template={item} index={index} company={company} feedType={feedType}></LinkedinPost>}

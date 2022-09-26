@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Switch from "./Switch";
 
 import { FiMoreHorizontal, FiUser, FiUsers } from "react-icons/fi";
 import Highlighter from "react-highlight-words";
 import { useUser } from "../../lib/hooks";
-
 const reactionItems = {
   profiles: [
     {
@@ -24,9 +23,16 @@ const reactionItems = {
 const reaction = ["geweldig", "interessant", "verhelderend"];
 
 const LinkedinPost = (props) => {
-  // props.foto, template, index, company, feedType;
   const user = useUser()[0];
   const extension = props.template.bewegend && !props.foto ? ".gif" : !props.foto ? ".png" : ".jpg";
+  const src = props.foto ? "/pictures/" + props.feedType + "/" + props.index + extension : "/gif/" + props.company + "/" + props.index + extension;
+  const [imgSrc, setImgSrc] = useState(src);
+  const fallbackSrc = props.foto ? "/pictures/" + props.feedType + "/" + props.index + extension : "/gif/" + "automatin" + "/" + props.index + extension;
+
+  useEffect(() => {
+    let newSrc = props.foto ? "/pictures/" + props.feedType + "/" + props.index + extension : "/gif/" + props.company + "/" + props.index + extension;
+    setImgSrc(newSrc);
+  }, [props.company]);
 
   return (
     <div className='w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-3 shadow-lg md:scale-100 md:hover:scale-105 md:hover:rounded-xl md:ease-out md:duration-500'>
@@ -65,6 +71,7 @@ const LinkedinPost = (props) => {
       {/* introtext >> met highlighter om de hashtags te markeren */}
       <div className='p-2 pt-0 text-sm'>
         {!props.foto && <Highlighter highlightClassName='text-linkedin-link bg-white' searchWords={["#" + props.template.name]} autoEscape={true} textToHighlight={props.template.intro} />}
+
         {props.foto && user && "Deze foto ook beschikbaar voor jouw templates? Selecteer wel/niet met de schuif hierboven"}
         <p className='inline'>
           {props.foto && (
@@ -76,12 +83,25 @@ const LinkedinPost = (props) => {
             </span>
           )}
           <span className='text-linkedin-link bg-white'> #{props.index}</span>
+          {!props.foto && props.company !== "automatin" && imgSrc === "/gif/" + "automatin" + "/" + props.index + extension && (
+            <span className='italic text-xs'>
+              <br></br>Dit template nog niet beschikbaar voor dit bedrijf
+            </span>
+          )}
         </p>
       </div>
       {/* image and imageText */}
       <div>
-        {!props.foto && <Image src={"/gif/" + props.company + "/" + props.index + extension} width='300' height='169' layout='intrinsic' alt={props.template.name}></Image>}
-        {props.foto && <Image src={"/pictures/" + props.feedType + "/" + props.index + extension} width='300' height='169' layout='intrinsic' alt={props.template.name}></Image>}
+        <Image
+          src={imgSrc}
+          width='300'
+          height='169'
+          layout='intrinsic'
+          alt={props.template.name}
+          onError={() => {
+            setImgSrc(fallbackSrc);
+          }}
+        ></Image>
         <div className='p-3 -mt-2 bg-linkedin-imagetext font-semibold text-sm'>
           {!props.foto && <p className=''>{props.template.text}</p>}
           {props.foto && <p> Na inloggen kun je zelf aangeven of je deze wel/niet wilt gebruiken</p>}

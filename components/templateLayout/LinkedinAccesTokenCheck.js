@@ -11,9 +11,11 @@ const LinkedinAccesTokenCheck = ({ refresh = false, text = "Je hebt nog geen toe
 
   return (
     <>
-      {user.linkedin.access_token === undefined && <GetMyLinkedinToken cname={cname} sort={sort}></GetMyLinkedinToken>}
-      {user.linkedin.token_expire_date && !compareDate(user.linkedin.token_expire_date) && <GetMyLinkedinToken sort={sort} cname={cname}></GetMyLinkedinToken>}
-      {user && refresh && <GetMyLinkedinToken cname={cname} sort={sort} text={text}></GetMyLinkedinToken>}
+      {user.linkedin.access_token === undefined && !refresh && <GetMyLinkedinToken email={user?.email} text={"Geef toegang tot Linkedin"} cname={cname} sort={sort}></GetMyLinkedinToken>}
+      {user.linkedin.token_expire_date && !compareDate(user.linkedin.token_expire_date) && !refresh && (
+        <GetMyLinkedinToken email={user?.email} text={"Refresh jouw token"} sort={sort} cname={cname}></GetMyLinkedinToken>
+      )}
+      {user && refresh && <GetMyLinkedinToken email={user?.email} cname={cname} sort={sort} text={text}></GetMyLinkedinToken>}
     </>
   );
 };

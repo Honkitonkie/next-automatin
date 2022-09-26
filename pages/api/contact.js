@@ -1,7 +1,7 @@
 export default async function (req, res) {
-  require("dotenv").config();
+  // require("dotenv").config();
 
-  console.log("user: ", process.env.EMAILUSER, "pass", process.env.EMAILPASSWORD);
+  // console.log("user: ", process.env.EMAILUSER, "pass", process.env.EMAILPASSWORD);
 
   let nodemailer = require("nodemailer");
   const transporter = nodemailer.createTransport({
@@ -19,7 +19,7 @@ export default async function (req, res) {
     subject: `${req.body.subject}`,
     //   text: req.body.message + " | Sent from: " + req.body.email,
     html: `
-    <div> Hey,<br> Er is een bericht achtergelaten op vanaf automatin.nl/contact:</div>
+    <div> Hey,<br> Er is een bericht achtergelaten vanaf automatin.nl/contact:</div>
     <div><strong>Message:</strong> ${req.body.message}</div>
     <br/>
     <div><strong>Onderwerp:</strong>Ingevulde onderwerp:  ${req.body.subject}</div>

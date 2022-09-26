@@ -54,7 +54,7 @@ const Footer = () => {
           </div>
           <div className='w-full sm:w-1/2 lg:w-2/12 px-4'>
             <div className='w-full mb-10'>
-              <h4 className='text-dark text-lg font-semibold mb-9 mt-2'>Automatin</h4>
+              <h4 className='text-dark text-lg font-semibold mb-9 mt-2'>Diensten</h4>
               <ul>
                 <li>
                   <Link href='/contact'>
@@ -203,7 +203,7 @@ const Footer = () => {
                   </svg>
                 </a>
               </div>
-              <p className='text-base text-body-color'>&copy; Automatin</p>
+              <p className='text-base text-body-color'>&copy; Automatin 2022</p>
             </div>
           </div>
         </div>

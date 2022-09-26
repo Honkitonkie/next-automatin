@@ -12,15 +12,16 @@ const Callback = () => {
   async function handleSubmit(e) {
     try {
       const user = await useUser({ redirectTo: "/", redirectIfFound: true })[0];
-
       const body = {
         query: getPath.query,
         email: user?.email,
       };
-
-      const res = await fetch("https://www.automatin.nl/api/linkedin/oauth-callback-linkedin", {
+      const res = await fetch("https://automatin.nl/api/linkedin/oauth-callback-linkedin", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
+
         body: JSON.stringify(body),
       });
       if (res.status === 200) {
