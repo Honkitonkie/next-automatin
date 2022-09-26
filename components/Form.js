@@ -87,7 +87,7 @@ const Form = ({ isLogin, errorMessage, onSubmit }) => (
         )}
       </div>
 
-      {errorMessage && <p className='error'>{errorMessage}</p>}
+      {errorMessage && <p className='text-red-500'>{errorMessage}</p>}
     </form>
   </div>
 );

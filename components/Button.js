@@ -71,7 +71,7 @@ function getStyling(sort) {
     case "support":
       return "flex bg-automatin-grey hover:bg-gray-500 text-white md:text-md";
     case "warning":
-      return "bg-standard-warning hover:bg-red-500 text-white md:text-md";
+      return "bg-red-500 hover:bg-red-400 text-white md:text-md";
     default:
       return "";
   }

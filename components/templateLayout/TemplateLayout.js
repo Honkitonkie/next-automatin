@@ -52,7 +52,7 @@ const TemplateLayout = ({ arr }) => {
       <div className='w-full flex justify-center items-center'>
         {examples.map((item, index) => (
           <div key={index}>
-            {counter === index && examples[index] && (
+            {!foto && counter === index && examples[index] && (
               <>
                 <button className='p-3 bg-automatin-blue text-white rounded-xl my-4' cname='capitalize flex' value={examples[index]} onClick={(e) => changeCompanyTemplates(e, index)}>
                   Bekijk met andere branding
