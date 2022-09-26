@@ -12,7 +12,7 @@ const RemoveToken = () => {
         email: user?.email,
       };
       if (user) {
-        const res = await fetch("http://localhost:3000/api/linkedin/remove-token", {
+        const res = await fetch("https://www.automatin.nl/api/linkedin/remove-token", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(body),
@@ -20,7 +20,7 @@ const RemoveToken = () => {
         if (res.status === 200) {
           Router.back();
         } else {
-          throw new Error(await res.text());
+          throw new Error("err at remove-token");
         }
       }
     } catch (error) {

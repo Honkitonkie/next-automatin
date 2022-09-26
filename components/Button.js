@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Button = ({ sort, type, href, text, cname = "", linebreak, handleClick }) => {
+const Button = ({ sort, type, href, text = "", cname = "", linebreak, handleClick }) => {
   const getStyle = getStyling(sort);
   const defaultStyles = "items-center justify-center rounded-md border border-transparent text-base font-medium px-8 py-3 md:py-2 md:px-2";
 
