@@ -1,8 +1,8 @@
 import "../styles/global.css";
-import Head from "next/Head";
+import Head from "next/head";
 import Layout from "../components/globals/Layout";
 import Db from "../lib/db";
-import links from "../static/links.json";
+import links from "https://www.automatin.nl/static/links.json";
 import { useRouter } from "next/router";
 
 export default function MyApp({ Component, pageProps }) {
