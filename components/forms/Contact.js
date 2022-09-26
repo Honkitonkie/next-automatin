@@ -57,6 +57,8 @@ const Contact = () => {
               Your email
             </label>
             <input
+              pattern='[^()/><\][\\\x22,;|]+'
+              title='Voor de veiligheid van jouw gegevens accepteren wij geen brackets, haken of slashes in dit veld'
               onChange={(e) => {
                 updateEmail(e);
               }}
@@ -73,6 +75,8 @@ const Contact = () => {
               Onderwerp
             </label>
             <input
+              pattern='[^()/><\][\\\x22,;|]+'
+              title='Voor de veiligheid van jouw gegevens accepteren wij geen brackets, haken of slashes in dit veld'
               onChange={(e) => {
                 updateSubject(e);
               }}

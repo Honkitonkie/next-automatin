@@ -8,6 +8,8 @@ const Form = ({ isLogin, errorMessage, onSubmit }) => (
         <label>
           <span>Naam</span>
           <input
+            pattern='[^()/><\][\\\x22,;|]+'
+            title='No special characters!'
             autoComplete='name'
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-6'
             type='text'
@@ -19,8 +21,10 @@ const Form = ({ isLogin, errorMessage, onSubmit }) => (
         <span>Email</span>
         <input
           autoComplete='email'
+          pattern='[^()/><\][\\\x22,;|]+'
+          title='Voor de veiligheid van jouw gegevens accepteren wij geen brackets, haken of slashes in dit veld'
           className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-6'
-          type='text'
+          type='email'
           name='email'
           required
         />
@@ -30,6 +34,8 @@ const Form = ({ isLogin, errorMessage, onSubmit }) => (
           <span>Bedrijfsnaam</span>
           <input
             autoComplete='company'
+            pattern='[^()/><\][\\\x22,;|]+'
+            title='Voor de veiligheid van jouw gegevens accepteren wij geen brackets, haken of slashes in dit veld'
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-6'
             type='text'
             name='company'
@@ -40,6 +46,8 @@ const Form = ({ isLogin, errorMessage, onSubmit }) => (
         <span>Wachtwoord</span>
         <input
           autoComplete='current-password'
+          pattern='[^()/><\][\\\x22,;|]+'
+          title='Voor de veiligheid van jouw gegevens accepteren wij geen brackets, haken of slashes in dit veld'
           className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-6'
           type='password'
           name='password'
@@ -50,6 +58,8 @@ const Form = ({ isLogin, errorMessage, onSubmit }) => (
         <label>
           <span>Herhaal wachtwoord</span>
           <input
+            pattern='[^()/><\][\\\x22,;|]+'
+            title='Voor de veiligheid van jouw gegevens accepteren wij geen brackets, haken of slashes in dit veld'
             autoComplete='repeat-password'
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-6'
             type='password'
