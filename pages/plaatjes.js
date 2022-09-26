@@ -1,5 +1,5 @@
 import React from "react";
-import data from "/static/templates.json";
+import data from "templates.json";
 import TemplateLayout from "../components/templateLayout/TemplateLayout";
 
 const Plaatjes = () => {

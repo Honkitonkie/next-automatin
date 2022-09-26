@@ -4,8 +4,6 @@ import UpdateFeedType from "./../components/forms/Linkedin/UpdateFeedType";
 import UpdateCompanyUrn from "./../components/forms/Linkedin/UpdateCompanyUrn";
 import RemoveToken from "../components/forms/Linkedin/RemoveToken";
 import Image from "next/image";
-import connected from "../static/connected.png";
-import connect from "../static/connect.png";
 import LinkedinAccesTokenCheck from "./../components/templateLayout/LinkedinAccesTokenCheck";
 import ChevronDown from "./../components/icons/ChevronDown";
 import ChevronUp from "./../components/icons/ChevronUp";
@@ -69,7 +67,7 @@ const Settings = () => {
             <div className={showLinkedin ? "p-4 font border border-t-0 border-gray-300 last:rounded-b-xl" : "p-4 border border-t-1 border-gray-300 last:rounded-b-xl"}>
               {linkedinIsConnected && (
                 <div className='flex my-5 text-xs pt-2 gap-4'>
-                  <Image src={connected} alt='connected to linkedin' width={65} height={100}></Image>
+                  <Image src={"/connected.png"} alt='connected to linkedin' width={65} height={100}></Image>
                   <div className='items-center text-left'>
                     <p>Automatin is succesvol gekoppeld met jouw Linkedin, jouw token verloopt over {daysLeft(user.linkedin.token_expire_date.split("T")[0])} dagen.</p>
                     <LinkedinAccesTokenCheck refresh text='Refresh nu' sort='automatin'></LinkedinAccesTokenCheck>
@@ -82,7 +80,7 @@ const Settings = () => {
                   <UpdateFeedType></UpdateFeedType>
                   {user.linkedin.feed_type && <UpdateCompanyUrn></UpdateCompanyUrn>}
                   <div className='items-center text-left'>
-                    <Image src={connect} alt='not connected to linkedin' className='mr-4' width={50} height={100}></Image>
+                    <Image src={"/connect.png"} alt='not connected to linkedin' className='mr-4' width={50} height={100}></Image>
                     <LinkedinAccesTokenCheck refresh text='Verbind Linkedin' sort='automatin'></LinkedinAccesTokenCheck>
                   </div>
                 </div>

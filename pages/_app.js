@@ -2,8 +2,74 @@ import "../styles/global.css";
 import Head from "next/head";
 import Layout from "../components/globals/Layout";
 import Db from "../lib/db";
-import links from "../links.json";
 import { useRouter } from "next/router";
+
+const links = {
+  allLinks: [
+    {
+      text: "Home",
+      url: "/",
+      description: "Krachtige Linkedin updates beginnen hier",
+    },
+    {
+      text: "Instellingen",
+      url: "/settings",
+      description: "Hier kun je jouw instellingen wijzingen. Denk aan je token updaten, abonnnement upgraden en meer..",
+    },
+    {
+      text: "Inschrijven",
+      url: "/signup",
+      description: "Nieuw bij Automatin? Schrijf je dan hier in en koppel jouw account met de gewenste socials",
+    },
+    {
+      text: "Login",
+      url: "/login",
+      description: "Log snel in om templates te kiezen, je token(s) bij te werken of je gegevens te wijzigen",
+    },
+    {
+      text: "Profiel",
+      url: "/profile",
+      description: "Een overzicht van jouw profielgegevens",
+    },
+    {
+      text: "Contact",
+      url: "/contact",
+      description: "Neem contact met ons op via dit formulier of bel/ mail ons.",
+    },
+    {
+      text: "Over",
+      url: "/over",
+      description: "Meer weten over Automatin? Kijk dan hier",
+    },
+    {
+      text: "Galerij",
+      url: "/galerij",
+      description: "Een overzicht van de onze templates",
+      subLinks: [
+        {
+          text: "Korte filmpjes",
+          url: "/shorts",
+          description: "Korte animaties om jouw boodschap kracht bij te zetten",
+        },
+        {
+          text: "Lange filmpjes",
+          url: "/longs",
+          description: "Wat langer filmpjes om meer nadruk te leggen op jouw verhaal",
+        },
+        {
+          text: "Stilstaand",
+          url: "/plaatjes",
+          description: "Statische templates die goed zijn voor de afwisseling",
+        },
+        {
+          text: "Foto's",
+          url: "/fotos",
+          description: "Kies hier welke foto's jij wel/niet in je templates wilt zien verschijnen",
+        },
+      ],
+    },
+  ],
+};
 
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -35,7 +101,7 @@ export default function MyApp({ Component, pageProps }) {
         <link rel='manifest' href='favicon/site.webmanifest'></link>
         <link rel='mask-icon' href='favicon/safari-pinned-tab.svg' color='#5bbad5'></link>
         <title>{title?.text}</title>
-        <meta property='og:image' content='https://www.automatin.nl/static/MetaImage.jpg' />
+        <meta property='og:image' content='https://www.automatin.nl/public/MetaImage.jpg' />
         <meta property='og:description' content={title?.description} />
         <meta property='og:title' content={title?.text} />
       </Head>

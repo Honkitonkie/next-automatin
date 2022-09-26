@@ -2,10 +2,42 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import Logo from "../../automatin.svg";
 import MobileNav from "./Mobile-nav";
 
-import links from "../../static/links.json";
+const links = {
+  navLinks: [
+    {
+      text: "Home",
+      url: "/",
+    },
+    {
+      text: "Over",
+      url: "/over",
+    },
+    {
+      text: "Galerij",
+      url: "/galerij",
+      subLinks: [
+        {
+          text: "Korte filmpjes",
+          url: "/shorts",
+        },
+        {
+          text: "Lange filmpjes",
+          url: "/longs",
+        },
+        {
+          text: "Stilstaand",
+          url: "/plaatjes",
+        },
+        {
+          text: "Foto's",
+          url: "/fotos",
+        },
+      ],
+    },
+  ],
+};
 
 const Navbar = ({ hasUser }) => {
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false);
@@ -39,7 +71,7 @@ const Navbar = ({ hasUser }) => {
       <nav className='bg-white dark:bg-gray-800 shadow overscroll-none max-h-20'>
         <div className='max-w-screen mx-auto px-10 md:px-48 flex items-center justify-between'>
           <a className='flex gap-4 flex-shrink-0 items-center' href='/'>
-            <Image className='h-8 w-8 z-50' src={Logo.src} alt='Automatin logo' width={40} height={40} />
+            <Image className='h-8 w-8 z-50' src='/automatin.svg' alt='Automatin logo' width={40} height={40} />
             <span className='text-automatin-grey hover:text-automatin-orange z-50 text-2xl font-bold tracking-tight text-automatin-grey sm:text-3xl md:text-4xl'>Automatin</span>
           </a>
 

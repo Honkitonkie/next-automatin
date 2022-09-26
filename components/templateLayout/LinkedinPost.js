@@ -3,9 +3,6 @@ import Image from "next/image";
 import Switch from "./Switch";
 
 import { FiMoreHorizontal, FiUser, FiUsers } from "react-icons/fi";
-import LikeIcon from "./static/icons/like_1.png";
-import ThumbsUpIcon from "./static/icons/like.png";
-import CommentIcon from "./static/icons/comment.png";
 import Highlighter from "react-highlight-words";
 import { useUser } from "../../lib/hooks";
 
@@ -18,7 +15,7 @@ const reactionItems = {
     },
     {
       name: "Automatin",
-      src: "automatin.svg",
+      src: "/automatin.svg",
       href: "https://www.linkedin.com/company/54373528/admin/",
     },
   ],
@@ -95,7 +92,7 @@ const LinkedinPost = (props) => {
       <div>
         <div className='flex justify-between items-center p-2 text-xs text-gray-500'>
           <div className='flex gap-1 items-center'>
-            <Image src={LikeIcon} width='16' height='24' layout='intrinsic' alt={props.template.name}></Image>
+            <Image src='/icons/like_1.png' width='16' height='24' layout='intrinsic' alt={props.template.name}></Image>
             <p>{getRandomInt(100)}</p>
           </div>
           <p className='align-right'>{getRandomInt(100)} commentaren</p>
@@ -103,11 +100,11 @@ const LinkedinPost = (props) => {
         <hr></hr>
         <div className='flex items-center justify-center gap-10 text-xs py-4'>
           <div className='flex items-center gap-1 text-gray-500'>
-            <Image src={ThumbsUpIcon} width='15' height='15' layout='intrinsic' alt={props.template.name}></Image>
+            <Image src='/icons/like.png' width='15' height='15' layout='intrinsic' alt={props.template.name}></Image>
             <p>Interresant</p>
           </div>
           <div className='flex items-center gap-1 text-gray-500'>
-            <Image src={CommentIcon} width='15' height='15' layout='intrinsic' alt={props.template.name}></Image>
+            <Image src='/icons/comment.png' width='15' height='15' layout='intrinsic' alt={props.template.name}></Image>
             <p>Commentaar</p>
           </div>
         </div>

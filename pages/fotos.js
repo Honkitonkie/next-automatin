@@ -1,5 +1,5 @@
 import React from "react";
-import data from "/static/pictures/fotos.json";
+import data from "../fotos.json";
 import TemplateLayout from "../components/templateLayout/TemplateLayout";
 
 const Fotos = () => {
