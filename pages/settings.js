@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useUser } from "../lib/hooks";
-import UpdateFeedType from "./../components/forms/Linkedin/UpdateFeedType";
-import UpdateCompanyUrn from "./../components/forms/Linkedin/UpdateCompanyUrn";
+import UpdateFeedType from "../components/forms/Linkedin/UpdateFeedType";
+import UpdateCompanyUrn from "../components/forms/Linkedin/UpdateCompanyUrn";
 import RemoveToken from "../components/forms/Linkedin/RemoveToken";
 import Image from "next/image";
-import LinkedinAccesTokenCheck from "./../components/templateLayout/LinkedinAccesTokenCheck";
-import ChevronDown from "./../components/icons/ChevronDown";
-import ChevronUp from "./../components/icons/ChevronUp";
+import LinkedinAccesTokenCheck from "../components/templateLayout/LinkedinAccesTokenCheck";
+import ChevronDown from "../components/icons/ChevronDown";
+import ChevronUp from "../components/icons/ChevronUp";
 
 import { FiCheck } from "react-icons/fi";
 
