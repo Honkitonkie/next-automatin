@@ -1,5 +1,6 @@
 import "../styles/global.css";
 import Head from "next/head";
+import Script from "next/script";
 import Layout from "../components/globals/Layout";
 import Db from "../lib/db";
 import { useRouter } from "next/router";
@@ -94,6 +95,18 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <Script strategy='lazyOnload' src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
+
+      <Script strategy='lazyOnload'>
+        {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                    page_path: window.location.pathname,
+                    });
+                `}
+      </Script>
       <Head>
         <link rel='apple-touch-icon' sizes='180x180' href='favicon/apple-touch-icon.png'></link>
         <link rel='icon' type='image/png' sizes='32x32' href='favicon/favicon-32x32.png'></link>
