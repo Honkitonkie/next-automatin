@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useUser } from "../lib/hooks";
-import UpdateFeedType from "../components/forms/Linkedin/UpdateFeedType";
-import UpdateCompanyUrn from "../components/forms/Linkedin/UpdateCompanyUrn";
-import RemoveToken from "../components/forms/Linkedin/RemoveToken";
+import UpdateFeedType from "../components/forms/linkedin/Updatefeedtype";
+import UpdateCompanyUrn from "../components/forms/linkedin/Updatecompanyurn";
+import RemoveToken from "../components/forms/linkedin/RemoveToken";
 import Image from "next/image";
 import LinkedinAccesTokenCheck from "../components/templateLayout/LinkedinAccesTokenCheck";
 import ChevronDown from "../components/icons/ChevronDown";

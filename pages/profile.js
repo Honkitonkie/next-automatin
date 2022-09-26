@@ -1,7 +1,7 @@
 import React from "react";
 import { useUser } from "../lib/hooks";
 import Button from "../components/Button";
-import Resetpassword from "../components/forms/resetPass";
+import Resetpassword from "../components/forms/ResetPass";
 
 const Profile = () => {
   const user = useUser({ redirectTo: "/login" })[0];

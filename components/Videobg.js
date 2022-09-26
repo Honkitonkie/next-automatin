@@ -1,4 +1,4 @@
-const Masthead = (props) => {
+const Videobg = (props) => {
   return (
     <div className='max-h-full h-screen max-w-screen flex flex-col justify-center relative z-5'>
       <video autoPlay loop muted playsInline className='relative w-full h-full object-cover -mt-10 z-0 overflow-hidden' style={{ width: "100%", height: "95%" }}>
@@ -9,4 +9,4 @@ const Masthead = (props) => {
   );
 };
 
-export default Masthead;
+export default Videobg;
