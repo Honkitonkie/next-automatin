@@ -9,7 +9,7 @@ const Form = ({ isLogin, errorMessage, onSubmit }) => (
           <span>Naam</span>
           <input
             pattern='[^()/><\][\\\x22,;|]+'
-            title='No special characters!'
+            title='Voor de veiligheid van jouw gegevens accepteren wij geen brackets, haken of slashes in dit veld'
             autoComplete='name'
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-6'
             type='text'
