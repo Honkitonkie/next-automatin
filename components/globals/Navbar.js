@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import Logo from "https://www.automatin.nl/static/automatin.svg";
+import Logo from "../../automatin.svg";
 import MobileNav from "./Mobile-nav";
 
 import links from "../../static/links.json";
