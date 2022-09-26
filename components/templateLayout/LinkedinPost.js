@@ -63,7 +63,7 @@ const LinkedinPost = (props) => {
           <span className='text-gray-400 text-xs'>Bereik ≈10% van jouw volgers</span>
           <span className='text-gray-400 text-xs'>Per post • Zonder moeite! </span>
         </div>
-        {user && <Switch user={user} foto={props.foto} index={props.index} feedType={props.feedType}></Switch>}
+        {user && <Switch foto={props.foto} index={props.index} feedType={props.feedType}></Switch>}
       </div>
       {/* introtext >> met highlighter om de hashtags te markeren */}
       <div className='p-2 pt-0 text-sm'>

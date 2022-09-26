@@ -1,7 +1,5 @@
 module.exports = {
-  env: {
-    automatin_id: "629b18a25bc8144cc83d84c6",
-  },
+  env: {},
   i18n: {
     locales: ["nl"],
     defaultLocale: "nl",
