@@ -2,10 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import Logo from "/public/automatin.svg";
+import Logo from "/static/automatin.svg";
 import MobileNav from "./Mobile-nav";
 
-import links from "../../public/links.json";
+import links from "../../static/links.json";
 
 const Navbar = ({ hasUser }) => {
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false);

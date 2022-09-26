@@ -3,9 +3,9 @@ import Image from "next/image";
 import Switch from "./Switch";
 
 import { FiMoreHorizontal, FiUser, FiUsers } from "react-icons/fi";
-import LikeIcon from "/public/icons/like_1.png";
-import ThumbsUpIcon from "/public/icons/like.png";
-import CommentIcon from "/public/icons/comment.png";
+import LikeIcon from "/static/icons/like_1.png";
+import ThumbsUpIcon from "/static/icons/like.png";
+import CommentIcon from "/static/icons/comment.png";
 import Highlighter from "react-highlight-words";
 import { useUser } from "../../lib/hooks";
 

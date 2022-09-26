@@ -1,4 +1,4 @@
-import Logo from "/public/automatin.png";
+import Logo from "/static/automatin.png";
 import Image from "next/image";
 import Link from "next/link";
 
