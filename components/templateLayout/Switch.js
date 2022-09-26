@@ -1,22 +1,25 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useUser } from "../lib/hooks";
+import React, { useState, useEffect } from "react";
+import { useUser } from "../../lib/hooks";
 
 export default function Switch(props) {
   const user = useUser()[0];
+
   // Server-render loading state
   if (!user || user.isLoggedIn === false) {
     return <div>Loading...</div>;
   }
-  const render = useRef(0);
+
   let initialVal;
   if (user) {
-    if (props.pathname === "/fotos") {
+    if (props.foto) {
       initialVal = user.wantedPics[props.feedType][props.index];
     } else {
-      initialVal = user.linkedin.templates[props.feedType][props.index] || "person";
+      initialVal = user.linkedin.templates[props.feedType][props.index] || "";
     }
   }
+
   const [enabled, setEnabled] = useState(initialVal);
+  const [internal, setInternal] = useState();
   const [errorMsg, setErrorMsg] = useState("");
 
   // LOGIN
@@ -29,14 +32,38 @@ export default function Switch(props) {
       index: props.index,
     };
     try {
-      const res = await fetch("/api/update", {
+      const res = await fetch("/api/linkedin/update-user-from-switch", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
       if (res.status === 200) {
-        // console.log("body", body);
-        // Router.push("/");
+        switch (body.feedType) {
+          case "person":
+            user.linkedin.templates.person[body.index] = body.templateVal;
+            break;
+          case "organization":
+            user.linkedin.templates.organization[body.index] = body.templateVal;
+            break;
+          case "linksboven":
+            user.wantedPics.linksboven[body.index] = body.templateVal;
+            break;
+          case "linksonder":
+            user.wantedPics.linksonder[body.index] = body.templateVal;
+            break;
+          case "rechtsboven":
+            user.wantedPics.rechtsboven[body.index] = body.templateVal;
+            break;
+          case "rechtsonder":
+            user.wantedPics.rechtsonder[body.index] = body.templateVal;
+            break;
+          case "center":
+            user.wantedPics.center[body.index] = body.templateVal;
+            break;
+          default:
+            console.log("no match in feedtype switch");
+        }
+        // console.log("updated user");
       } else {
         throw new Error(await res.text());
       }
@@ -48,21 +75,23 @@ export default function Switch(props) {
   // END LOGINSTUFF
 
   useEffect(() => {
-    render.current++;
-    if (render.current < 2) {
-      let currentValue = props.pathname === "/fotos" ? user.wantedPics[props.feedType][props.index] : user.linkedin.templates[props.feedType][props.index];
-      setEnabled(currentValue);
-      return;
+    if (internal) {
+      handleSubmit();
     }
-    handleSubmit();
   }, [enabled]);
 
+  // user moet hier refreshen...
   useEffect(() => {
-    let currentValue = props.pathname === "/fotos" ? user.wantedPics[props.feedType][props.index] : user.linkedin.templates[props.feedType][props.index];
-    setEnabled(currentValue);
+    setInternal(false);
+    if (props.foto) {
+      setEnabled(user.wantedPics[props.feedType][props.index]);
+    } else {
+      setEnabled(user.linkedin.templates[props.feedType][props.index]);
+    }
   }, [props.feedType]);
 
   const handleSlide = () => {
+    setInternal(true);
     setEnabled(!enabled);
   };
 
@@ -75,15 +104,17 @@ export default function Switch(props) {
               <label className='inline-flex relative items-center cursor-pointer'>
                 <input type='checkbox' className='sr-only peer' checked={enabled} value={props.index} readOnly />
                 <div
-                  onClick={() => {
-                    handleSlide(!enabled, props.index);
+                  onClick={(e) => {
+                    if (e) {
+                      setInternal(true);
+                    }
+                    handleSlide(e);
                   }}
                   className="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-automatin-blue peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-automatin-blue"
                 ></div>
               </label>
             </div>
           </div>
-          <button id='submitButton' type='submit'></button>
         </form>
       )}
     </>

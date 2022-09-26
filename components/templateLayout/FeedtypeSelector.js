@@ -1,18 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useUser } from "../lib/hooks";
+import ChevronDown from "../icons/ChevronDown";
+import ChevronUp from "../icons/ChevronUp";
 
 export default function FeedtypeSelector(props) {
-  const user = useUser()[0];
   const [isOpen, setIsOpen] = useState(false);
-  const init = props.pathname === "/fotos" ? "linksboven" : "person";
-  const [currentVal, setCurrentVal] = useState(init);
-  const fotos = props.pathname === "/fotos";
-
   const fotoFeedTypeOptions = ["linksboven", "linksonder", "rechtsboven", "rechtsonder", "center"];
   const templateFeedTypeOptions = ["person", "organization"];
-  const dropdown = useRef(null);
 
-  useEffect(() => {}, [currentVal]);
+  const dropdown = useRef(null);
 
   const handleSlide = () => {
     setIsOpen(!isOpen);
@@ -20,7 +15,6 @@ export default function FeedtypeSelector(props) {
 
   const handleClick = (e, i) => {
     let wantedVal = lowerCaseFirstLetter(e.target.innerHTML);
-    setCurrentVal(wantedVal);
     props.changeFeedType(wantedVal);
   };
 
@@ -40,72 +34,64 @@ export default function FeedtypeSelector(props) {
   return (
     <>
       <div className='relative text-left'>
+        <div>Selecteer het soort feed </div>
         <div>
           <button
             type='button'
-            className='inline-flex justify-center my-2 w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500'
+            className='inline-flex justify-center items-center my-2 w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-automatin-orange'
             id='menu-button'
-            aria-expanded='true'
+            aria-expanded={isOpen}
             aria-haspopup='true'
             onClick={() => handleSlide((b) => !b)}
             ref={dropdown}
           >
-            {capitalizeFirstLetter(currentVal)}
-            {/* <!-- Heroicon name: solid/chevron-down --> */}
-            <svg className='-mr-1 ml-2 h-5 w-5' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'>
-              <path fillRule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clipRule='evenodd' />
-            </svg>
+            {capitalizeFirstLetter(props.feedType)}
+            {!isOpen && <ChevronDown cname='-mr-1 ml-6 h-4 w-4' strokeWidth={2}></ChevronDown>}
+            {isOpen && <ChevronUp cname='-mr-1 ml-6 h-4 w-4' strokeWidth={2}></ChevronUp>}
           </button>
         </div>
 
-        {/* <!--
-    Dropdown menu, show/hide based on menu state.
-
-    Entering: "transition ease-out duration-100"
-      From: "transform opacity-0 scale-95"
-      To: "transform opacity-100 scale-100"
-    Leaving: "transition ease-in duration-75"
-      From: "transform opacity-100 scale-100"
-      To: "transform opacity-0 scale-95"
-  --> */}
         {isOpen && (
           <div
-            className='origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10'
+            className='origin-top-right absolute left-0 top-18 w-52 rounded-md shadow-lg bg-white hover:bg-grey-100 ring-1 ring-black ring-opacity-5 focus:outline-none z-10'
             role='menu'
             aria-orientation='vertical'
             aria-labelledby='menu-button'
             tabIndex='-1'
           >
-            <div className='py-1' role='none'>
-              {fotos &&
+            <div className='divide-y divide-gray-100' role='none'>
+              {props.foto &&
                 fotoFeedTypeOptions.map((option, i) => (
-                  <a
+                  <button
                     key={i}
                     onClick={(e) => {
                       handleClick(e, i);
                     }}
-                    className='text-gray-700 block px-4 py-2 text-sm'
+                    className={props.feedType === option ? "block w-full py-3 px-4 text-sm bg-grey-100" : "block w-full py-3 px-4 text-sm"}
                     role='menuitem'
                     tabIndex='-1'
                     id={`menu-item-${i}`}
+                    aria-selected={props.feedType === option}
                   >
                     {capitalizeFirstLetter(option)}
-                  </a>
+                  </button>
                 ))}
-              {!fotos &&
+              {!props.foto &&
                 templateFeedTypeOptions.map((option, i) => (
-                  <a
+                  <button
                     key={i}
                     onClick={(e) => {
                       handleClick(e, i);
                     }}
-                    className='text-gray-700 block px-4 py-2 text-sm'
+                    className={
+                      props.feedType === option ? "block w-full py-3 px-4 text-sm text-automatin-orange text-left" : "block w-full hover:text-automatin-orange hover:bg-gray-100 py-3 px-4 text-sm"
+                    }
                     role='menuitem'
                     tabIndex='-1'
                     id={`menu-item-${i}`}
                   >
                     {capitalizeFirstLetter(option)}
-                  </a>
+                  </button>
                 ))}
             </div>
           </div>
@@ -116,9 +102,30 @@ export default function FeedtypeSelector(props) {
 }
 
 function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+  let returnvalue;
+  switch (string) {
+    case "organization":
+      returnvalue = "Feed van een organisatie";
+      break;
+    case "person":
+      returnvalue = "Persoonlijke feed";
+      break;
+    default:
+  }
+  return returnvalue ? returnvalue : string?.charAt(0).toUpperCase() + string?.slice(1);
 }
 function lowerCaseFirstLetter(string) {
-  // used to communicate with database
-  return string.charAt(0).toLowerCase() + string.slice(1);
+  let returnvalue;
+  switch (string) {
+    case "Feed van een organisatie":
+      returnvalue = "organization";
+      break;
+    case "Persoonlijke feed":
+      returnvalue = "person";
+      break;
+    default:
+  }
+  return returnvalue ? returnvalue : string?.charAt(0).toUpperCase() + string?.slice(1);
+  console.log("string", string);
+  return string?.charAt(0).toLowerCase() + string?.slice(1);
 }

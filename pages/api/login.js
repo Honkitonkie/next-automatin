@@ -28,7 +28,7 @@ export default nextConnect()
       // console.log("got a user in nextConnect", user.email);
 
       const session = { ...user };
-      console.log("session", session._doc.email);
+      console.log("session email @nextconnect >> ", session._doc.email);
 
       await setLoginSession(res, session);
 

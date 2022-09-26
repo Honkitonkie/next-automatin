@@ -1,5 +1,6 @@
-import { useUser } from "../lib/hooks";
+import { useUser } from "../../lib/hooks";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const Layout = (props) => {
   const user = useUser();
@@ -16,6 +17,7 @@ const Layout = (props) => {
       <main className='text-automatin-grey overflow-x-hidden bg-automatin-lightGrey min-h-screen'>
         <div className='container'>{props.children}</div>
       </main>
+      <Footer />
     </>
   );
 };

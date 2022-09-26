@@ -1,0 +1,97 @@
+{ "navLinks" : [
+  {
+    "text": "Home",
+    "url": "/"
+  },
+  {
+    "text": "Over",
+    "url": "/over"
+  },
+  {
+    "text": "Galerij",
+    "url": "/galerij",
+    "subLinks": [
+      {
+        "text": "Korte filmpjes",
+        "url": "/shorts"
+      },
+      {
+        "text": "Lange filmpjes",
+        "url": "/longs"
+      },
+      {
+        "text": "Stilstaand",
+        "url": "/plaatjes"
+      },
+      {
+        "text": "Foto's",
+        "url": "/fotos"
+      }
+    ]
+  }
+],
+"allLinks" : [
+  {
+    "text": "Home",
+    "url": "/",
+    "description": "Krachtige Linkedin updates beginnen hier"
+  },
+  {
+    "text": "Instellingen",
+    "url": "/settings",
+    "description": "Hier kun je jouw instellingen wijzingen. Denk aan je token updaten, abonnnement upgraden en meer.."
+  },
+  {
+    "text": "Inschrijven",
+    "url": "/signup",
+    "description": "Nieuw bij Automatin? Schrijf je dan hier in en koppel jouw account met de gewenste socials"
+  },
+  {
+    "text": "Login",
+    "url": "/login",
+    "description": "Log snel in om templates te kiezen, je token(s) bij te werken of je gegevens te wijzigen"
+  },
+  {
+    "text": "Profiel",
+    "url": "/profile",
+    "description": "Een overzicht van jouw profielgegevens"
+  },
+  {
+    "text": "Contact",
+    "url": "/contact",
+    "description": "Neem contact met ons op via dit formulier of bel/ mail ons."
+  },
+  {
+    "text": "Over",
+    "url": "/over",
+    "description": "Meer weten over Automatin? Kijk dan hier"
+  },
+  {
+    "text": "Galerij",
+    "url": "/galerij",
+    "description": "Een overzicht van de onze templates",
+    "subLinks": [
+      {
+        "text": "Korte filmpjes",
+        "url": "/shorts",
+        "description": "Korte animaties om jouw boodschap kracht bij te zetten"
+      },
+      {
+        "text": "Lange filmpjes",
+        "url": "/longs",
+        "description": "Wat langer filmpjes om meer nadruk te leggen op jouw verhaal"
+      },
+      {
+        "text": "Stilstaand",
+        "url": "/plaatjes",
+        "description": "Statische templates die goed zijn voor de afwisseling"
+      },
+      {
+        "text": "Foto's",
+        "url": "/fotos",
+        "description": "Kies hier welke foto's jij wel/niet in je templates wilt zien verschijnen"
+      }
+    ]
+  }
+]
+}

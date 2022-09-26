@@ -217,7 +217,7 @@
     "intro":"#steering valt goed op.",
     "text":"Een krachtige verschijning.",
     "beschikbaar":true,
-    "groep":"zoom",
+    "groep":"steering",
     "bewegend":true,
     "long":false,
     "num":21
@@ -227,22 +227,761 @@
     "intro":"Een sterke animatie die de aandacht grijpt. #steeringWords",
     "text":"Alles gaat woord voor woord.",
     "beschikbaar":true,
-    "groep":"zoom",
+    "groep":"steering",
     "bewegend":true,
     "long":false,
     "num":22
     },
     {
+    "name":"steeringArrive ",
+    "intro":"De #steeringArrive maakt het spannend. Dit zorgt voor anticipatie.",
+    "text":"Het wachten waard!",
+    "beschikbaar":true,
+    "groep":"steering",
+    "bewegend":true,
+    "long":false,
+    "num":23
+    },
+    {
+    "name":"strokeCircus ",
+    "intro":"De kleuren maken er een circus van! Vandaar #strokeCircus.",
+    "text":"Een circus trekt publiek!",
+    "beschikbaar":true,
+    "groep":"strokes",
+    "bewegend":true,
+    "long":false,
+    "num":24
+    },
+    {
+    "name":"movingWord ",
+    "intro":"Het woord beweegt. Daarom heet deze #movingWord.",
+    "text":"Laat je spoor achter op LinkedIn.",
+    "beschikbaar":true,
+    "groep":"strokes",
+    "bewegend":true,
+    "long":false,
+    "num":25
+    },
+    {
+    "name":"flyingWords ",
+    "intro":"De woorden vliegen in beeld, vandaar de titel #flyingWords.",
+    "text":"Je ziet ze vliegen.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":26
+    },
+    {
+    "name":"dvdWords ",
+    "intro":"Een animatie geïnspireerd door de DVD screensaver, vandaar tot #dvdWords benoemd.",
+    "text":"Uit een onverwachte hoek.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":27
+    },
+    {
+    "name":"distortTextWhole",
+    "intro":"Deze gif is gedoopt tot de #distortTextWhole",
+    "text":"Laat je posts zweven als een vlinder.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":28
+    },
+    {
+    "name":"RoundRound",
+    "intro":"Dit is de #RoundRound.",
+    "text":"Wat de wereld rond maakt.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":29
+    },
+    {
+    "name":"logoTouch",
+    "intro":"De #logoTouch, een uniek template voor elke organisatie.",
+    "text":"Wat de wereld rond maakt.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":30
+    },
+    {
+    "name":"spaceType",
+    "intro":"De eerste van de #spaceType reeks.",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":31
+    },
+    {
+    "name":"spaceType",
+    "intro":"Met vlag en wimpel. #spaceType",
+    "text":"Gebaseerd op van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":32
+    },
+    {
+    "name":"spaceType",
+    "intro":"#spaceType #verycool",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":33
+    },
+    {
+    "name":"spaceType",
+    "intro":"Door dik en dun #spaceType",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":34
+    },
+    {
+    "name":"spaceType",
+    "intro":"Deze #spaceType houdt zich groot",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":35
+    },
+    {
+    "name":"spaceType",
+    "intro":"Deze #spaceType schudt graag dingen op",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":36
+    },
+    {
+    "name":"spaceType",
+    "intro":"Het hangt aan een zijden draadje #spaceType",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":37
+    },
+    {
+    "name":"spaceType",
+    "intro":"De golvende #spaceType",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":38
+    },
+    {
+    "name":"spaceType",
+    "intro":"Hetzelfde idee maar dan heel anders. #spaceType",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":39
+    },
+    {
+    "name":"spaceType",
+    "intro":"Deze #spaceType komt op je af.",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":40
+    },
+    {
+    "name":"spaceType",
+    "intro":"De #spaceType die afstand zoekt.",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":41
+    },
+    {
+    "name":"spaceType",
+    "intro":"De breedste van het stel. #spaceType",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":42
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":43
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":44
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":45
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":46
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":47
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":48
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":49
+    },
+    {
+    "name":"linksRechts",
+    "intro":"De #LinksRechts",
+    "text":"Voor bedrijven die graag het randje opzoeken.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":50
+    },
+    {
+    "name":"vanOnderen",
+    "intro":"De #vanOnderen",
+    "text":"Ideaal voor Top-down organisaties.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":51
+    },
+    {
+    "name":"appear",
+    "intro":"De #appear.",
+    "text":"Een goede verschijning.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":52
+    },
+    {
+    "name":"losseFlodders",
+    "intro":"Dit is #losseFlodders.",
+    "text":"Updates uit de losse pols",
+    "beschikbaar":true,
+    "groep":"flodders",
+    "bewegend":true,
+    "long":false,
+    "num":53
+    },
+    {
+    "name":"trageFlodders",
+    "intro":"Hetzelfde maar dan met langere pauzes. Vandaar #trageFlodders.",
+    "text":"Haastige spoed is zelden goed.",
+    "beschikbaar":true,
+    "groep":"flodders",
+    "bewegend":true,
+    "long":false,
+    "num":54
+    },
+    {
+    "name":"stuiteren",
+    "intro":"#stuiteren. Spreekt voor zich.",
+    "text":"Ideaal voor Top-down organisaties.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":55
+    },    
+    {
+    "name":"letterKunst",
+    "intro":"#letterKunst.",
+    "text":"Hoe letterlijk neem jij het?",
+    "beschikbaar":true,
+    "groep":"letterkunst",
+    "bewegend":true,
+    "long":false,
+    "num":56
+    },    
+    {
+    "name":"letterKunst",
+    "intro":"Meer #letterKunst.",
+    "text":"Hoe letterlijk neem jij het?",
+    "beschikbaar":true,
+    "groep":"letterkunst",
+    "bewegend":true,
+    "long":false,
+    "num":57
+    },    
+    {
+    "name":"letterKunst",
+    "intro":"Meer #letterKunst.",
+    "text":"Hoe letterlijk neem jij het?",
+    "beschikbaar":true,
+    "groep":"letterkunst",
+    "bewegend":true,
+    "long":false,
+    "num":58
+    },    
+    {
+    "name":"letterKunst",
+    "intro":"Meer #letterKunst.",
+    "text":"Hoe letterlijk neem jij het?",
+    "beschikbaar":true,
+    "groep":"letterkunst",
+    "bewegend":true,
+    "long":false,
+    "num":59
+    },    
+    {
+    "name":"letterKunst",
+    "intro":"Meer #letterKunst.",
+    "text":"Hoe letterlijk neem jij het?",
+    "beschikbaar":true,
+    "groep":"letterkunst",
+    "bewegend":true,
+    "long":false,
+    "num":60
+    },    
+    {
+    "name":"letterKunst",
+    "intro":"Meer #letterKunst.",
+    "text":"Hoe letterlijk neem jij het?",
+    "beschikbaar":true,
+    "groep":"letterkunst",
+    "bewegend":true,
+    "long":false,
+    "num":61
+    },    
+    {
+    "name":"letterKunst",
+    "intro":"Meer #letterKunst.",
+    "text":"Hoe letterlijk neem jij het?",
+    "beschikbaar":true,
+    "groep":"letterkunst",
+    "bewegend":true,
+    "long":false,
+    "num":62
+    },    
+    {
+    "name":"letterKunst",
+    "intro":"Meer #letterKunst.",
+    "text":"Hoe letterlijk neem jij het?",
+    "beschikbaar":true,
+    "groep":"letterkunst",
+    "bewegend":true,
+    "long":false,
+    "num":63
+    },    
+    {
+    "name":"letterKunst",
+    "intro":"Meer #letterKunst.",
+    "text":"Hoe letterlijk neem jij het?",
+    "beschikbaar":true,
+    "groep":"letterkunst",
+    "bewegend":true,
+    "long":false,
+    "num":64
+    },    
+    {
+    "name":"letterKunst",
+    "intro":"Meer #letterKunst.",
+    "text":"Hoe letterlijk neem jij het?",
+    "beschikbaar":true,
+    "groep":"letterkunst",
+    "bewegend":true,
+    "long":false,
+    "num":65
+    },    
+    {
+    "name":"loop",
+    "intro":"Meer #loop.",
+    "text":"Neemt de loop met je.",
+    "beschikbaar":true,
+    "groep":"loop",
+    "bewegend":true,
+    "long":false,
+    "num":66
+    },    
+    {
+    "name":"loop",
+    "intro":"Meer #loop.",
+    "text":"Neemt de loop met je.",
+    "beschikbaar":true,
+    "groep":"loop",
+    "bewegend":true,
+    "long":false,
+    "num":67
+    },    
+    {
+    "name":"loop",
+    "intro":"Meer #loop.",
+    "text":"Neemt de loop met je.",
+    "beschikbaar":true,
+    "groep":"loop",
+    "bewegend":true,
+    "long":false,
+    "num":68
+    },    
+    {
+    "name":"loop",
+    "intro":"Meer #loop.",
+    "text":"Neemt de loop met je.",
+    "beschikbaar":true,
+    "groep":"loop",
+    "bewegend":true,
+    "long":false,
+    "num":69
+    },    
+    {
+    "name":"loop",
+    "intro":"Meer #loop.",
+    "text":"Neemt de loop met je.",
+    "beschikbaar":true,
+    "groep":"loop",
+    "bewegend":true,
+    "long":false,
+    "num":70
+    },    
+    {
+    "name":"loop",
+    "intro":"Meer #loop.",
+    "text":"Neemt de loop met je.",
+    "beschikbaar":true,
+    "groep":"loop",
+    "bewegend":true,
+    "long":false,
+    "num":71
+    },    
+    {
+    "name":"loop",
+    "intro":"Meer #loop.",
+    "text":"Neemt de loop met je.",
+    "beschikbaar":true,
+    "groep":"loop",
+    "bewegend":true,
+    "long":false,
+    "num":72
+    },    
+    {
+    "name":"lijn",
+    "intro":"Ergens moet je een #lijn trekken.",
+    "text":"Waar trek jij de lijn.",
+    "beschikbaar":true,
+    "groep":"lijn",
+    "bewegend":true,
+    "long":false,
+    "num":73
+    },    
+    {
+    "name":"lijn",
+    "intro":"Nog een #lijn.",
+    "text":"Zet er een streep onder.",
+    "beschikbaar":true,
+    "groep":"lijn",
+    "bewegend":true,
+    "long":false,
+    "num":74
+    },    
+    {
+    "name":"automatin",
+    "intro":"De #automatin. Nu ook beschikbaar voor jou. ",
+    "text":"Onze favoriet.",
+    "beschikbaar":true,
+    "groep":"lijn",
+    "bewegend":true,
+    "long":false,
+    "num":75
+    },       
+    {
+    "name":"fadeOut",
+    "intro":"#fadeOut.",
+    "text":"Een laatkomer in de fade category.",
+    "beschikbaar":true,
+    "groep":"fade",
+    "bewegend":true,
+    "long":false,
+    "num":76
+    },       
+    {
+    "name":"starMaker",
+    "intro":"#starMaker.",
+    "text":"Ik zie sterren.",
+    "beschikbaar":true,
+    "groep":"starMaker",
+    "bewegend":true,
+    "long":false,
+    "num":77
+    },       
+    {
+    "name":"starMaker",
+    "intro":"#starMaker.",
+    "text":"Even tot rust komen.",
+    "beschikbaar":true,
+    "groep":"starMaker",
+    "bewegend":true,
+    "long":false,
+    "num":78
+    },       
+    {
+    "name":"starMaker",
+    "intro":"#starMaker.",
+    "text":"Hetzelfde, maar dan anders.",
+    "beschikbaar":true,
+    "groep":"starMaker",
+    "bewegend":true,
+    "long":false,
+    "num":79
+    },       
+    {
+    "name":"starMaker",
+    "intro":"#starMaker.",
+    "text":"Hetzelfde, maar dan anders.",
+    "beschikbaar":true,
+    "groep":"starMaker",
+    "bewegend":true,
+    "long":false,
+    "num":80
+    },            
+    {
+    "name":"starMaker",
+    "intro":"#starMaker.",
+    "text":"Waar ben jij trots op?",
+    "beschikbaar":true,
+    "groep":"starMaker",
+    "bewegend":true,
+    "long":false,
+    "num":81
+    },            
+    {
+    "name":"feest",
+    "intro":"#feest.",
+    "text":"Soms is confetti gepast!",
+    "beschikbaar":true,
+    "groep":"feest",
+    "bewegend":true,
+    "long":false,
+    "num":82
+    },            
+    {
+    "name":"feest",
+    "intro":"#feest.",
+    "text":"Wat schrijf jij op je spandoek?",
+    "beschikbaar":true,
+    "groep":"feest",
+    "bewegend":true,
+    "long":false,
+    "num":83
+    },            
+    {
+    "name":"feest",
+    "intro":"#feest.",
+    "text":"Een ander soort spandoek.",
+    "beschikbaar":true,
+    "groep":"feest",
+    "bewegend":true,
+    "long":false,
+    "num":84
+    },            
+    {
+    "name":"mask",
+    "intro":"#mask.",
+    "text":"Brengt je tekst tot leven",
+    "beschikbaar":true,
+    "groep":"mask",
+    "bewegend":true,
+    "long":false,
+    "num":85
+    },            
+    {
+    "name":"mask",
+    "intro":"#mask.",
+    "text":"Brengt je tekst tot leven",
+    "beschikbaar":true,
+    "groep":"mask",
+    "bewegend":true,
+    "long":false,
+    "num":86
+    },            
+    {
+    "name":"mask",
+    "intro":"#mask.",
+    "text":"Brengt je tekst tot leven",
+    "beschikbaar":true,
+    "groep":"mask",
+    "bewegend":true,
+    "long":false,
+    "num":87
+    },            
+    {
+    "name":"starMaker",
+    "intro":"#starMaker.",
+    "text":"Een ster onder de starMakers.",
+    "beschikbaar":true,
+    "groep":"starMaker",
+    "bewegend":true,
+    "long":false,
+    "num":88
+    },            
+    {
+    "name":"starMaker",
+    "intro":"#starMaker.",
+    "text":"Straalt wat meer rust uit.",
+    "beschikbaar":true,
+    "groep":"starMaker",
+    "bewegend":true,
+    "long":false,
+    "num":89
+    },            
+    {
+    "name":"lijn",
+    "intro":"#lijn.",
+    "text":"Elke boodschap een artistieke meesterwerk.",
+    "beschikbaar":true,
+    "groep":"lijn",
+    "bewegend":true,
+    "long":false,
+    "num":90
+    },            
+    {
+    "name":"lijn",
+    "intro":"#lijn.",
+    "text":"Waar trek jij de lijn?.",
+    "beschikbaar":true,
+    "groep":"lijn",
+    "bewegend":true,
+    "long":false,
+    "num":91
+    },            
+    {
+    "name":"achtergrond",
+    "intro":"#achtergrond.",
+    "text":"Een gif die zich op de achtergrond houdt.",
+    "beschikbaar":true,
+    "groep":"achtergrond",
+    "bewegend":true,
+    "long":false,
+    "num":92
+    },            
+    {
+    "name":"achtergrond",
+    "intro":"#achtergrond.",
+    "text":"Een gif die zich op de achtergrond houdt.",
+    "beschikbaar":true,
+    "groep":"achtergrond",
+    "bewegend":true,
+    "long":false,
+    "num":93
+    },            
+    {
+    "name":"achtergrond",
+    "intro":"#achtergrond.",
+    "text":"Een gif die zich op de achtergrond houdt.",
+    "beschikbaar":true,
+    "groep":"achtergrond",
+    "bewegend":true,
+    "long":false,
+    "num":94
+    },            
+    {
+    "name":"achtergrond",
+    "intro":"#achtergrond.",
+    "text":"Een gif die zich op de achtergrond houdt.",
+    "beschikbaar":true,
+    "groep":"achtergrond",
+    "bewegend":true,
+    "long":false,
+    "num":95
+    },            
+    {
+    "name":"achtergrond",
+    "intro":"#achtergrond.",
+    "text":"Een gif die zich op de achtergrond houdt.",
+    "beschikbaar":true,
+    "groep":"achtergrond",
+    "bewegend":true,
+    "long":false,
+    "num":96
+    },                       
+    {
     "name":"confetti",
     "intro":"Het is feest met de confetti achtergrond",
-    "text":"Houd zich op de achtergrond",
+    "text":"Je logo in beeld!",
     "beschikbaar":true,
     "groep":"achtergrond",
     "bewegend":true,
     "long":false,
     "num":97
     }
-
 ],
 "organization":[
     {
@@ -430,7 +1169,7 @@
     "intro":"De #zoomOut is de tegenpool van de ZoomIn",
     "text":"Zoom Out of here.",
     "beschikbaar":true,
-    "groep":"slideIn",
+    "groep":"zoom",
     "bewegend":true,
     "long":false,
     "num":18
@@ -460,7 +1199,7 @@
     "intro":"#steering valt goed op.",
     "text":"Een krachtige verschijning.",
     "beschikbaar":true,
-    "groep":"zoom",
+    "groep":"steering",
     "bewegend":true,
     "long":false,
     "num":21
@@ -470,21 +1209,760 @@
     "intro":"Een sterke animatie die de aandacht grijpt. #steeringWords",
     "text":"Alles gaat woord voor woord.",
     "beschikbaar":true,
-    "groep":"zoom",
+    "groep":"steering",
     "bewegend":true,
     "long":false,
     "num":22
     },
     {
+    "name":"steeringArrive ",
+    "intro":"De #steeringArrive maakt het spannend. Dit zorgt voor anticipatie.",
+    "text":"Het wachten waard!",
+    "beschikbaar":true,
+    "groep":"steering",
+    "bewegend":true,
+    "long":false,
+    "num":23
+    },
+    {
+    "name":"strokeCircus ",
+    "intro":"De kleuren maken er een circus van! Vandaar #strokeCircus.",
+    "text":"Een circus trekt publiek!",
+    "beschikbaar":true,
+    "groep":"strokes",
+    "bewegend":true,
+    "long":false,
+    "num":24
+    },
+    {
+    "name":"movingWord ",
+    "intro":"Het woord beweegt. Daarom heet deze #movingWord.",
+    "text":"Laat je spoor achter op LinkedIn.",
+    "beschikbaar":true,
+    "groep":"strokes",
+    "bewegend":true,
+    "long":false,
+    "num":25
+    },
+    {
+    "name":"flyingWords ",
+    "intro":"De woorden vliegen in beeld, vandaar de titel #flyingWords.",
+    "text":"Je ziet ze vliegen.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":26
+    },
+    {
+    "name":"dvdWords ",
+    "intro":"Een animatie geïnspireerd door de DVD screensaver, vandaar tot #dvdWords benoemd.",
+    "text":"Uit een onverwachte hoek.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":27
+    },
+    {
+    "name":"distortTextWhole",
+    "intro":"Deze gif is gedoopt tot de #distortTextWhole",
+    "text":"Laat je posts zweven als een vlinder.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":28
+    },
+    {
+    "name":"RoundRound",
+    "intro":"Dit is de #RoundRound.",
+    "text":"Wat de wereld rond maakt.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":29
+    },
+    {
+    "name":"logoTouch",
+    "intro":"De #logoTouch, een uniek template voor elke organisatie.",
+    "text":"Wat de wereld rond maakt.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":30
+    },
+    {
+    "name":"spaceType",
+    "intro":"De eerste van de #spaceType reeks.",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":31
+    },
+    {
+    "name":"spaceType",
+    "intro":"Met vlag en wimpel. #spaceType",
+    "text":"Gebaseerd op van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":32
+    },
+    {
+    "name":"spaceType",
+    "intro":"#spaceType #verycool",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":33
+    },
+    {
+    "name":"spaceType",
+    "intro":"Door dik en dun #spaceType",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":34
+    },
+    {
+    "name":"spaceType",
+    "intro":"Deze #spaceType houdt zich groot",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":35
+    },
+    {
+    "name":"spaceType",
+    "intro":"Deze #spaceType schudt graag dingen op",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":36
+    },
+    {
+    "name":"spaceType",
+    "intro":"Het hangt aan een zijden draadje #spaceType",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":37
+    },
+    {
+    "name":"spaceType",
+    "intro":"De golvende #spaceType",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":38
+    },
+    {
+    "name":"spaceType",
+    "intro":"Hetzelfde idee maar dan heel anders. #spaceType",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":39
+    },
+    {
+    "name":"spaceType",
+    "intro":"Deze #spaceType komt op je af.",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":40
+    },
+    {
+    "name":"spaceType",
+    "intro":"De #spaceType die afstand zoekt.",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":41
+    },
+    {
+    "name":"spaceType",
+    "intro":"De breedste van het stel. #spaceType",
+    "text":"Gebaseerd op werk van Kielm - spacetypegenerator.com",
+    "beschikbaar":true,
+    "groep":"spaceTypes",
+    "bewegend":true,
+    "long":false,
+    "num":42
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":43
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":44
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":45
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":46
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":47
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":48
+    },
+    {
+    "name":null,
+    "intro":null,
+    "text":null,
+    "groep":null,
+    "beschikbaar":false,
+    "bewegend":false,
+    "long":false,
+    "num":49
+    },
+    {
+    "name":"linksRechts",
+    "intro":"De #LinksRechts",
+    "text":"Voor bedrijven die graag het randje opzoeken.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":50
+    },
+    {
+    "name":"vanOnderen",
+    "intro":"De #vanOnderen",
+    "text":"Ideaal voor Top-down organisaties.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":51
+    },
+    {
+    "name":"appear",
+    "intro":"De #appear.",
+    "text":"Een goede verschijning.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":52
+    },
+    {
+    "name":"losseFlodders",
+    "intro":"Dit is #losseFlodders.",
+    "text":"Updates uit de losse pols",
+    "beschikbaar":true,
+    "groep":"flodders",
+    "bewegend":true,
+    "long":false,
+    "num":53
+    },
+    {
+    "name":"trageFlodders",
+    "intro":"Hetzelfde maar dan met langere pauzes. Vandaar #trageFlodders.",
+    "text":"Haastige spoed is zelden goed.",
+    "beschikbaar":true,
+    "groep":"flodders",
+    "bewegend":true,
+    "long":false,
+    "num":54
+    },
+    {
+    "name":"stuiteren",
+    "intro":"#stuiteren. Spreekt voor zich.",
+    "text":"Ideaal voor Top-down organisaties.",
+    "beschikbaar":true,
+    "groep":null,
+    "bewegend":true,
+    "long":false,
+    "num":55
+    },    
+    {
+    "name":"letterKunst",
+    "intro":"#letterKunst.",
+    "text":"Hoe letterlijk neem jij het?",
+    "beschikbaar":true,
+    "groep":"letterkunst",
+    "bewegend":true,
+    "long":false,
+    "num":56
+    },    
+    {
+    "name":"letterKunst",
+    "intro":"Meer #letterKunst.",
+    "text":"Hoe letterlijk neem jij het?",
+    "beschikbaar":true,
+    "groep":"letterkunst",
+    "bewegend":true,
+    "long":false,
+    "num":57
+    },    
+    {
+    "name":"letterKunst",
+    "intro":"Meer #letterKunst.",
+    "text":"Hoe letterlijk neem jij het?",
+    "beschikbaar":true,
+    "groep":"letterkunst",
+    "bewegend":true,
+    "long":false,
+    "num":58
+    },    
+    {
+    "name":"letterKunst",
+    "intro":"Meer #letterKunst.",
+    "text":"Hoe letterlijk neem jij het?",
+    "beschikbaar":true,
+    "groep":"letterkunst",
+    "bewegend":true,
+    "long":false,
+    "num":59
+    },    
+    {
+    "name":"letterKunst",
+    "intro":"Meer #letterKunst.",
+    "text":"Hoe letterlijk neem jij het?",
+    "beschikbaar":true,
+    "groep":"letterkunst",
+    "bewegend":true,
+    "long":false,
+    "num":60
+    },    
+    {
+    "name":"letterKunst",
+    "intro":"Meer #letterKunst.",
+    "text":"Hoe letterlijk neem jij het?",
+    "beschikbaar":true,
+    "groep":"letterkunst",
+    "bewegend":true,
+    "long":false,
+    "num":61
+    },    
+    {
+    "name":"letterKunst",
+    "intro":"Meer #letterKunst.",
+    "text":"Hoe letterlijk neem jij het?",
+    "beschikbaar":true,
+    "groep":"letterkunst",
+    "bewegend":true,
+    "long":false,
+    "num":62
+    },    
+    {
+    "name":"letterKunst",
+    "intro":"Meer #letterKunst.",
+    "text":"Hoe letterlijk neem jij het?",
+    "beschikbaar":true,
+    "groep":"letterkunst",
+    "bewegend":true,
+    "long":false,
+    "num":63
+    },    
+    {
+    "name":"letterKunst",
+    "intro":"Meer #letterKunst.",
+    "text":"Hoe letterlijk neem jij het?",
+    "beschikbaar":true,
+    "groep":"letterkunst",
+    "bewegend":true,
+    "long":false,
+    "num":64
+    },    
+    {
+    "name":"letterKunst",
+    "intro":"Meer #letterKunst.",
+    "text":"Hoe letterlijk neem jij het?",
+    "beschikbaar":true,
+    "groep":"letterkunst",
+    "bewegend":true,
+    "long":false,
+    "num":65
+    },    
+    {
+    "name":"loop",
+    "intro":"Meer #loop.",
+    "text":"Neemt de loop met je.",
+    "beschikbaar":true,
+    "groep":"loop",
+    "bewegend":true,
+    "long":false,
+    "num":66
+    },    
+    {
+    "name":"loop",
+    "intro":"Meer #loop.",
+    "text":"Neemt de loop met je.",
+    "beschikbaar":true,
+    "groep":"loop",
+    "bewegend":true,
+    "long":false,
+    "num":67
+    },    
+    {
+    "name":"loop",
+    "intro":"Meer #loop.",
+    "text":"Neemt de loop met je.",
+    "beschikbaar":true,
+    "groep":"loop",
+    "bewegend":true,
+    "long":false,
+    "num":68
+    },    
+    {
+    "name":"loop",
+    "intro":"Meer #loop.",
+    "text":"Neemt de loop met je.",
+    "beschikbaar":true,
+    "groep":"loop",
+    "bewegend":true,
+    "long":false,
+    "num":69
+    },    
+    {
+    "name":"loop",
+    "intro":"Meer #loop.",
+    "text":"Neemt de loop met je.",
+    "beschikbaar":true,
+    "groep":"loop",
+    "bewegend":true,
+    "long":false,
+    "num":70
+    },    
+    {
+    "name":"loop",
+    "intro":"Meer #loop.",
+    "text":"Neemt de loop met je.",
+    "beschikbaar":true,
+    "groep":"loop",
+    "bewegend":true,
+    "long":false,
+    "num":71
+    },    
+    {
+    "name":"loop",
+    "intro":"Meer #loop.",
+    "text":"Neemt de loop met je.",
+    "beschikbaar":true,
+    "groep":"loop",
+    "bewegend":true,
+    "long":false,
+    "num":72
+    },    
+    {
+    "name":"lijn",
+    "intro":"Ergens moet je een #lijn trekken.",
+    "text":"Waar trek jij de lijn.",
+    "beschikbaar":true,
+    "groep":"lijn",
+    "bewegend":true,
+    "long":false,
+    "num":73
+    },    
+    {
+    "name":"lijn",
+    "intro":"Nog een #lijn.",
+    "text":"Zet er een streep onder.",
+    "beschikbaar":true,
+    "groep":"lijn",
+    "bewegend":true,
+    "long":false,
+    "num":74
+    },    
+    {
+    "name":"automatin",
+    "intro":"De #automatin. Nu ook beschikbaar voor jou. ",
+    "text":"Onze favoriet.",
+    "beschikbaar":true,
+    "groep":"lijn",
+    "bewegend":true,
+    "long":false,
+    "num":75
+    },       
+    {
+    "name":"fadeOut",
+    "intro":"#fadeOut.",
+    "text":"Een laatkomer in de fade category.",
+    "beschikbaar":true,
+    "groep":"fade",
+    "bewegend":true,
+    "long":false,
+    "num":76
+    },       
+    {
+    "name":"starMaker",
+    "intro":"#starMaker.",
+    "text":"Ik zie sterren.",
+    "beschikbaar":true,
+    "groep":"starMaker",
+    "bewegend":true,
+    "long":false,
+    "num":77
+    },       
+    {
+    "name":"starMaker",
+    "intro":"#starMaker.",
+    "text":"Even tot rust komen.",
+    "beschikbaar":true,
+    "groep":"starMaker",
+    "bewegend":true,
+    "long":false,
+    "num":78
+    },       
+    {
+    "name":"starMaker",
+    "intro":"#starMaker.",
+    "text":"Hetzelfde, maar dan anders.",
+    "beschikbaar":true,
+    "groep":"starMaker",
+    "bewegend":true,
+    "long":false,
+    "num":79
+    },       
+    {
+    "name":"starMaker",
+    "intro":"#starMaker.",
+    "text":"Hetzelfde, maar dan anders.",
+    "beschikbaar":true,
+    "groep":"starMaker",
+    "bewegend":true,
+    "long":false,
+    "num":80
+    },            
+    {
+    "name":"starMaker",
+    "intro":"#starMaker.",
+    "text":"Waar ben jij trots op?",
+    "beschikbaar":true,
+    "groep":"starMaker",
+    "bewegend":true,
+    "long":false,
+    "num":81
+    },            
+    {
+    "name":"feest",
+    "intro":"#feest.",
+    "text":"Soms is confetti gepast!",
+    "beschikbaar":true,
+    "groep":"feest",
+    "bewegend":true,
+    "long":false,
+    "num":82
+    },            
+    {
+    "name":"feest",
+    "intro":"#feest.",
+    "text":"Wat schrijf jij op je spandoek?",
+    "beschikbaar":true,
+    "groep":"feest",
+    "bewegend":true,
+    "long":false,
+    "num":83
+    },            
+    {
+    "name":"feest",
+    "intro":"#feest.",
+    "text":"Een ander soort spandoek.",
+    "beschikbaar":true,
+    "groep":"feest",
+    "bewegend":true,
+    "long":false,
+    "num":84
+    },            
+    {
+    "name":"mask",
+    "intro":"#mask.",
+    "text":"Brengt je tekst tot leven",
+    "beschikbaar":true,
+    "groep":"mask",
+    "bewegend":true,
+    "long":false,
+    "num":85
+    },            
+    {
+    "name":"mask",
+    "intro":"#mask.",
+    "text":"Brengt je tekst tot leven",
+    "beschikbaar":true,
+    "groep":"mask",
+    "bewegend":true,
+    "long":false,
+    "num":86
+    },            
+    {
+    "name":"mask",
+    "intro":"#mask.",
+    "text":"Brengt je tekst tot leven",
+    "beschikbaar":true,
+    "groep":"mask",
+    "bewegend":true,
+    "long":false,
+    "num":87
+    },            
+    {
+    "name":"starMaker",
+    "intro":"#starMaker.",
+    "text":"Een ster onder de starMakers.",
+    "beschikbaar":true,
+    "groep":"starMaker",
+    "bewegend":true,
+    "long":false,
+    "num":88
+    },            
+    {
+    "name":"starMaker",
+    "intro":"#starMaker.",
+    "text":"Straalt wat meer rust uit.",
+    "beschikbaar":true,
+    "groep":"starMaker",
+    "bewegend":true,
+    "long":false,
+    "num":89
+    },            
+    {
+    "name":"lijn",
+    "intro":"#lijn.",
+    "text":"Elke boodschap een artistieke meesterwerk.",
+    "beschikbaar":true,
+    "groep":"lijn",
+    "bewegend":true,
+    "long":false,
+    "num":90
+    },            
+    {
+    "name":"lijn",
+    "intro":"#lijn.",
+    "text":"Waar trek jij de lijn?.",
+    "beschikbaar":true,
+    "groep":"lijn",
+    "bewegend":true,
+    "long":false,
+    "num":91
+    },            
+    {
+    "name":"achtergrond",
+    "intro":"#achtergrond.",
+    "text":"Een gif die zich op de achtergrond houdt.",
+    "beschikbaar":true,
+    "groep":"achtergrond",
+    "bewegend":true,
+    "long":false,
+    "num":92
+    },            
+    {
+    "name":"achtergrond",
+    "intro":"#achtergrond.",
+    "text":"Een gif die zich op de achtergrond houdt.",
+    "beschikbaar":true,
+    "groep":"achtergrond",
+    "bewegend":true,
+    "long":false,
+    "num":93
+    },            
+    {
+    "name":"achtergrond",
+    "intro":"#achtergrond.",
+    "text":"Een gif die zich op de achtergrond houdt.",
+    "beschikbaar":true,
+    "groep":"achtergrond",
+    "bewegend":true,
+    "long":false,
+    "num":94
+    },            
+    {
+    "name":"achtergrond",
+    "intro":"#achtergrond.",
+    "text":"Een gif die zich op de achtergrond houdt.",
+    "beschikbaar":true,
+    "groep":"achtergrond",
+    "bewegend":true,
+    "long":false,
+    "num":95
+    },            
+    {
+    "name":"achtergrond",
+    "intro":"#achtergrond.",
+    "text":"Een gif die zich op de achtergrond houdt.",
+    "beschikbaar":true,
+    "groep":"achtergrond",
+    "bewegend":true,
+    "long":false,
+    "num":96
+    },                       
+    {
     "name":"confetti",
     "intro":"Het is feest met de confetti achtergrond",
-    "text":"Houd zich op de achtergrond",
+    "text":"Je logo in beeld!",
     "beschikbaar":true,
     "groep":"achtergrond",
     "bewegend":true,
     "long":false,
     "num":97
     }
-
 ]
 }

@@ -1,42 +1,43 @@
+import React from "react";
 import { useUser } from "../lib/hooks";
-import Layout from "./../components/Layout";
+import Button from "../components/Button";
+import Resetpassword from "../components/forms/resetPass";
 
 const Profile = () => {
-  const user = useUser({ redirectTo: "/login" });
-
-  // Server-render loading state
-  if (!user || user.isLoggedIn === false) {
-    return <Layout>Loading...</Layout>;
-  }
+  const user = useUser({ redirectTo: "/login" })[0];
 
   return (
-    <div className='md:w-1/2 mx-auto my-10  text-3xl overflow-x-hidden'>
-      <h1>Profiel</h1>
-      {user[0] && (
-        <>
-          <form>
-            <label for='feedtype'>Op welke feed(s) wil je posten?:</label>
-
-            <select name='feedtype' id='feedtype'>
-              <option value='organisatie'>Organisatie</option>
-              <option value='persoonlijk'>Persoonlijk</option>
-              <option value='allebei'>Persoonlijk &amp; Organisatie</option>
-              <option value='meerdere' disabled>
-                Meerdere organisaties
-              </option>
-            </select>
-          </form>
-          <ol>
-            <li></li>
-
-            <li>Voor welke organisatie wil je gaan posten?</li>
-            <li>Plaats hier een intro om mee te geven aan de url in de comments.</li>
-          </ol>
-
-          <p>Your session:</p>
-          <pre>{JSON.stringify(user, null, 2)}</pre>
-        </>
-      )}
+    <div className='container mx-auto my-10 overflow-x-hidden'>
+      <h1 className='text-4xl font-bold tracking-tight text-automatin-grey sm:text-5xl md:text-6xl my-6'>Jouw Profiel</h1>
+      <div className='my-6'>
+        {!user && (
+          <div className='flex flex-col gap-6'>
+            <p>Je bent nog niet ingelogd.</p>
+            <Button sort='automatin' href={"/login"} text={"Inloggen"}></Button>
+          </div>
+        )}
+        {user && (
+          <div className='flex flex-col gap-6'>
+            <p className='flex gap-2'>
+              <strong>Naam:</strong> {user.name}
+            </p>
+            <p className='flex gap-2'>
+              <strong>Bedrijf:</strong> {user.company}
+            </p>
+            <p className='flex gap-2'>
+              <strong>Email:</strong> {user.email}
+            </p>
+            <p className='flex gap-2'>
+              <strong>Abonnement:</strong> {user.contract}
+            </p>
+            <div className='flex gap-2 items-center font-semibold'>
+              <p>Neem contact op om bovenstaande gegevens te wijzigen</p>
+              <Button sort='automatin' href={"/contact"} text={"Contact"}></Button>
+            </div>
+            <Resetpassword></Resetpassword>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

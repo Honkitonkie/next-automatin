@@ -1,13 +1,13 @@
 import React from "react";
 import Image from "next/image";
-import { FiMoreHorizontal } from "react-icons/fi";
-import { BiUser } from "react-icons/bi";
-import Highlighter from "react-highlight-words";
+import Switch from "./Switch";
+
+import { FiMoreHorizontal, FiUser, FiUsers } from "react-icons/fi";
 import LikeIcon from "/public/icons/like_1.png";
 import ThumbsUpIcon from "/public/icons/like.png";
 import CommentIcon from "/public/icons/comment.png";
-import Switch from "../components/Switch";
-import { useUser } from "../lib/hooks";
+import Highlighter from "react-highlight-words";
+import { useUser } from "../../lib/hooks";
 
 const reactionItems = {
   profiles: [
@@ -27,10 +27,9 @@ const reactionItems = {
 const reaction = ["geweldig", "interessant", "verhelderend"];
 
 const LinkedinPost = (props) => {
-  // foto, template, index, company, feedType;
+  // props.foto, template, index, company, feedType;
   const user = useUser()[0];
-  const foto = props.pathname === "/fotos";
-  const extension = props.template.bewegend && !foto ? ".gif" : !foto ? ".png" : ".jpg";
+  const extension = props.template.bewegend && !props.foto ? ".gif" : !props.foto ? ".png" : ".jpg";
 
   return (
     <div className='w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-3 shadow-lg md:scale-100 md:hover:scale-105 md:hover:rounded-xl md:ease-out md:duration-500'>
@@ -54,26 +53,26 @@ const LinkedinPost = (props) => {
       )}
       <div className='flex p-2'>
         {/* Logo van poster */}
-        <div className=''>
-          <BiUser className='rounded-xl bg-gray-100 mr-2' size='50'></BiUser>
-          {/* <Image src='/automatin.svg' width='48' height='48' layout='intrinsic' className='rounded-xl' alt='logo poster'></Image> */}
+        <div>
+          {props.feedType === "organization" && <FiUsers className='rounded-xl stroke-automatin-grey mr-2' size='50'></FiUsers>}
+          {props.feedType !== "organization" && <FiUser className='rounded-xl stroke-automatin-grey mr-2' size='50'></FiUser>}
         </div>
         {/* Omschrijving poster */}
         <div className='flex flex-col'>
-          <span className='font-semibold text-sm'>{props.company ? capitalizeFirstLetter(props.company) : "Jouw naam hier!"}</span>
+          <span className='font-semibold text-sm capitalize'>{props.company ? props.company : "Jouw naam hier"}</span>
           <span className='text-gray-400 text-xs'>Bereik ≈10% van jouw volgers</span>
           <span className='text-gray-400 text-xs'>Per post • Zonder moeite! </span>
         </div>
-        {user && <Switch pathname={props.pathname} index={props.index} feedType={props.feedType}></Switch>}
+        {user && <Switch user={user} foto={props.foto} index={props.index} feedType={props.feedType}></Switch>}
       </div>
       {/* introtext >> met highlighter om de hashtags te markeren */}
       <div className='p-2 pt-0 text-sm'>
-        {!foto && <Highlighter highlightClassName='text-linkedin-link bg-white' searchWords={["#" + props.template.name]} autoEscape={true} textToHighlight={props.template.intro} />}
-        {foto && user && "Deze foto ook beschikbaar voor jouw templates? Selecteer wel/niet met de schuif hierboven"}
+        {!props.foto && <Highlighter highlightClassName='text-linkedin-link bg-white' searchWords={["#" + props.template.name]} autoEscape={true} textToHighlight={props.template.intro} />}
+        {props.foto && user && "Deze foto ook beschikbaar voor jouw templates? Selecteer wel/niet met de schuif hierboven"}
         <p className='inline'>
-          {foto && (
+          {props.foto && (
             <span>
-              Sommige templates van Automatin gebruiken foto's. Dit is één van die foto's!{" "}
+              Sommige templates van Automatin gebruiken foto's. Dit is één van die foto's!
               <span className='text-linkedin-link bg-white'>
                 #{props.feedType} #{props.template.source}
               </span>
@@ -84,13 +83,13 @@ const LinkedinPost = (props) => {
       </div>
       {/* image and imageText */}
       <div>
-        {!foto && <Image src={"/gif/" + props.company + "/" + props.index + extension} width='300' height='169' layout='intrinsic' alt={props.template.name}></Image>}
-        {foto && <Image src={"/pictures/" + props.feedType + "/" + props.index + extension} width='300' height='169' layout='intrinsic' alt={props.template.name}></Image>}
+        {!props.foto && <Image src={"/gif/" + props.company + "/" + props.index + extension} width='300' height='169' layout='intrinsic' alt={props.template.name}></Image>}
+        {props.foto && <Image src={"/pictures/" + props.feedType + "/" + props.index + extension} width='300' height='169' layout='intrinsic' alt={props.template.name}></Image>}
         <div className='p-3 -mt-2 bg-linkedin-imagetext font-semibold text-sm'>
-          {!foto && <p className=''>{props.template.text}</p>}
-          {foto && <p> Na inloggen kun je zelf aangeven of je deze wel/niet wilt gebruiken</p>}
-          {!foto && <p className='text-xs font-normal text-gray-500'>Met jouw huisstijl • Met jouw content </p>}
-          {foto && <p className='text-xs font-normal text-gray-500'>Met ruimte voor jouw huisstijl en jouw content </p>}
+          {!props.foto && <p className=''>{props.template.text}</p>}
+          {props.foto && <p> Na inloggen kun je zelf aangeven of je deze wel/niet wilt gebruiken</p>}
+          {!props.foto && <p className='text-xs font-normal text-gray-500'>Met jouw huisstijl • Met jouw content </p>}
+          {props.foto && <p className='text-xs font-normal text-gray-500'>Met ruimte voor jouw huisstijl en jouw content </p>}
         </div>
       </div>
       <div>
@@ -121,9 +120,4 @@ export default LinkedinPost;
 
 function getRandomInt(max) {
   return Math.floor(Math.random(3) * max);
-}
-
-// Helper function
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
 }

@@ -5,92 +5,57 @@ import { useRouter } from "next/router";
 import Logo from "/public/automatin.svg";
 import MobileNav from "./Mobile-nav";
 
-const links = [
-  {
-    text: "Home",
-    url: "/",
-    description: "A collection of websites ranging from very basic to complex/complete that illustrate how to accomplish specific tasks within your Gatsby sites.",
-  },
-  {
-    text: "Over",
-    url: "/over",
-    description: "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-  },
-  {
-    // Gallerij moet altijd de laatste in de "links" array blijven om de sublinks goed te mappen
-    text: "Gallerij",
-    url: "/gallerij",
-    description: "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    subLinks: [
-      {
-        text: "Korte filmpjes",
-        url: "/shorts",
-      },
-      {
-        text: "Lange filmpjes",
-        url: "/longs",
-      },
-      {
-        text: "Stilstaand",
-        url: "/plaatjes",
-      },
-      {
-        text: "Foto's",
-        url: "/fotos",
-      },
-    ],
-  },
-];
+import links from "../../public/links.json";
 
 const Navbar = ({ hasUser }) => {
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false);
   const [showSettingsDropdown, setShowSettingsDropdown] = useState(false);
-  const [showGallerijDropdown, setShowGallerijDropdown] = useState(false);
+  const [showgalerijDropdown, setShowgalerijDropdown] = useState(false);
   const router = useRouter();
   const [current, setCurrent] = useState(router.pathname);
   const dropdown = useRef(null);
 
   useEffect(() => {
     // only add the event listener when the dropdown is opened
-    if (!showSettingsDropdown && !mobileMenuIsShown && !showGallerijDropdown) return;
+    if (!showSettingsDropdown && !mobileMenuIsShown && !showgalerijDropdown) return;
     function handleClick(event) {
       if (dropdown.current && !dropdown.current.contains(event.target)) {
         setShowSettingsDropdown(false);
         setMobileMenuIsShown(false);
-        setShowGallerijDropdown(false);
+        setShowgalerijDropdown(false);
       }
     }
     window.addEventListener("click", handleClick);
     // clean up
     return () => window.removeEventListener("click", handleClick);
-  }, [showSettingsDropdown, mobileMenuIsShown, showGallerijDropdown]);
+  }, [showSettingsDropdown, mobileMenuIsShown, showgalerijDropdown]);
 
   const changeCurrent = function (element) {
     setCurrent(element);
   };
-
+  <h1 className='text-4xl font-bold tracking-tight text-automatin-grey sm:text-5xl md:text-6xl my-6'>Instellingen</h1>;
   return (
     <header>
       <nav className='bg-white dark:bg-gray-800 shadow overscroll-none max-h-20'>
         <div className='max-w-screen mx-auto px-10 md:px-48 flex items-center justify-between'>
-          <a className='flex gap-4 flex-shrink-0' href='/'>
-            <Image className='h-8 w-8 z-50' src={Logo.src} alt='Automatin logo' width='30px' height='30px' />
-            <span className='text-automatin-grey text-2xl hover:text-automatin-orange z-50'>Automatin</span>
+          <a className='flex gap-4 flex-shrink-0 items-center' href='/'>
+            <Image className='h-8 w-8 z-50' src={Logo.src} alt='Automatin logo' width={40} height={40} />
+            <span className='text-automatin-grey hover:text-automatin-orange z-50 text-2xl font-bold tracking-tight text-automatin-grey sm:text-3xl md:text-4xl'>Automatin</span>
           </a>
 
           <div className='flex items-center justify-end h-16'>
             <div className='hidden md:block'>
-              <div className='ml-10 flex items-baseline space-x-8'>
-                {links.map((link, i) => (
+              <div className='ml-10 flex items-baseline space-x-8 md:text-lg'>
+                {links.navLinks.map((link, i) => (
                   <div key={i}>
-                    {link.url === "/gallerij" ? (
+                    {link.url === "/galerij" ? (
                       <button
                         className={
                           current === link.url
-                            ? "flex items-center justify-center w-full rounded-md hover:bg-gray-50 dark:hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-500 text-automatin-orange hover:text-automatin-grey"
-                            : "flex items-center justify-center w-full rounded-md hover:bg-gray-50 dark:hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-500 text-automatin-grey hover:text-automatin-orange"
+                            ? "flex items-center justify-center w-full rounded-md hover:bg-gray-50 dark:hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-200 text-automatin-orange hover:text-automatin-grey"
+                            : "flex items-center justify-center w-full rounded-md hover:bg-gray-50 dark:hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-200 text-automatin-grey hover:text-automatin-orange"
                         }
-                        onClick={() => setShowGallerijDropdown((b) => !b)}
+                        onClick={() => setShowgalerijDropdown((b) => !b)}
                         ref={dropdown}
                       >
                         {link.text}
@@ -111,13 +76,13 @@ const Navbar = ({ hasUser }) => {
                 ))}
 
                 {/* <div className='relative inline-block text-left'> */}
-                {showGallerijDropdown && (
-                  <div className='absolute right-52 top-14 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 z-50'>
-                    {links[links.length - 1].subLinks.map((link, i) => (
+                {showgalerijDropdown && (
+                  <div className='absolute md:right-48 sm:right-42 top-14 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 z-50'>
+                    {links.navLinks[links.navLinks.length - 1].subLinks.map((link, i) => (
                       <Link key={i} href={link.url}>
                         <a
                           className='block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600'
-                          onClick={() => setShowGallerijDropdown((b) => !b)}
+                          onClick={() => setShowgalerijDropdown((b) => !b)}
                         >
                           {link.text}
                         </a>
@@ -136,7 +101,7 @@ const Navbar = ({ hasUser }) => {
                       <button
                         onClick={() => setShowSettingsDropdown((b) => !b)}
                         type='button'
-                        className='flex items-center justify-center w-full rounded-md  px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-50 hover:bg-gray-50 dark:hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-500'
+                        className='flex items-center justify-center w-full rounded-md px-4 py-2 text-gray-700 dark:text-gray-50 hover:bg-gray-50 dark:hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-200'
                         id='options-menu'
                       >
                         <svg width='20' fill='currentColor' height='20' className='text-automatin-grey' viewBox='0 0 1792 1792' xmlns='http://www.w3.org/2000/svg'>
@@ -146,7 +111,7 @@ const Navbar = ({ hasUser }) => {
                     </div>
 
                     {hasUser && showSettingsDropdown && (
-                      <div ref={dropdown} className='origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 z-50'>
+                      <div ref={dropdown} className='origin-top-right absolute left-0 mt-2 w-auto rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 z-50'>
                         <div className='py-1 ' role='menu' aria-orientation='vertical' aria-labelledby='options-menu'>
                           <a
                             href='/settings'
@@ -157,7 +122,7 @@ const Navbar = ({ hasUser }) => {
                             }}
                           >
                             <span className='flex flex-col'>
-                              <span>Settings</span>
+                              <span>Instellingen</span>
                             </span>
                           </a>
                           <a
@@ -178,7 +143,7 @@ const Navbar = ({ hasUser }) => {
                             role='menuitem'
                           >
                             <span className='flex flex-col'>
-                              <span>Logout</span>
+                              <span>Uitloggen</span>
                             </span>
                           </a>
                         </div>
@@ -194,7 +159,7 @@ const Navbar = ({ hasUser }) => {
                             role='menuitem'
                           >
                             <span className='flex flex-col'>
-                              <span>Login</span>
+                              <span>Inloggen</span>
                             </span>
                           </a>
                           <a
@@ -203,7 +168,7 @@ const Navbar = ({ hasUser }) => {
                             role='menuitem'
                           >
                             <span className='flex flex-col'>
-                              <span>Sign up</span>
+                              <span>Registreren</span>
                             </span>
                           </a>
                         </div>
@@ -233,7 +198,7 @@ const Navbar = ({ hasUser }) => {
               )}
             </div>
           </div>
-          {mobileMenuIsShown && <MobileNav hasUser={hasUser} links={links} changeCurrent={changeCurrent} closeSelf={() => setMobileMenuIsShown(false)} />}
+          {mobileMenuIsShown && <MobileNav hasUser={hasUser} links={links.navLinks} changeCurrent={changeCurrent} closeSelf={() => setMobileMenuIsShown(false)} />}
         </div>
       </nav>
     </header>

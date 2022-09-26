@@ -16,16 +16,16 @@ const MobileNav = ({ links, closeSelf, hasUser }) => {
 
       {/* Bottom section */}
       <div className='flex flex-col justify-end'>
-        <div className='flex flex-col gap-2 items-baseline w-full pt-6'>
-          <ul className='text-automatin-grey mx-auto'>
-            {/* links inladen m.u.v. /gallerij */}
+        <div className='flex flex-col items-baseline w-full pt-6'>
+          <ul className='flex-col w-full space-y-2 text-automatin-grey mx-auto text-xl text-center'>
+            {/* links inladen m.u.v. /galerij */}
             {links
-              .filter((item) => item.url !== "/gallerij")
+              .filter((item) => item.url !== "/galerij")
               .map((link, i) => (
                 <li key={i}>
-                  <Link href={link.url}>
+                  <Link className='w-full' href={link.url}>
                     <a
-                      className={current === link.url ? "text-automatin-orange hover:text-automatin-grey" : "text-automatin-grey hover:text-automatin-orange"}
+                      className={current === link.url ? "text-automatin-orange hover:text-automatin-grey w-full block w-full" : "text-automatin-grey hover:text-automatin-orange block w-full"}
                       onClick={
                         (() => {
                           changeCurrent(link.url);
@@ -39,11 +39,14 @@ const MobileNav = ({ links, closeSelf, hasUser }) => {
                 </li>
               ))}
 
-            {/* sublinks van gallerij inladen */}
+            {/* sublinks van galerij inladen */}
             {links[links.length - 1].subLinks.map((sublink, i) => (
               <li key={i}>
                 <Link href={sublink.url}>
-                  <a className={current === sublink.url ? "text-automatin-orange hover:text-automatin-grey" : "text-automatin-grey hover:text-automatin-orange"} onClick={closeSelf}>
+                  <a
+                    className={current === sublink.url ? "text-automatin-orange hover:text-automatin-grey block w-full" : "text-automatin-grey hover:text-automatin-orange block w-full"}
+                    onClick={closeSelf}
+                  >
                     {sublink.text}
                   </a>
                 </Link>
@@ -53,13 +56,18 @@ const MobileNav = ({ links, closeSelf, hasUser }) => {
             {hasUser ? (
               <>
                 <li>
+                  <Link href='/settings'>
+                    <a className='block w-full'>Instellingen</a>
+                  </Link>
+                </li>
+                <li>
                   <Link href='/profile'>
-                    <a>Profiel</a>
+                    <a className='block w-full'>Profiel</a>
                   </Link>
                 </li>
                 <li>
                   <Link href='api/logout'>
-                    <a>Log uit</a>
+                    <a className='block w-full'>Log uit</a>
                   </Link>
                 </li>
               </>

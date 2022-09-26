@@ -6,9 +6,17 @@ module.exports = {
     extend: {
       colors: {
         // automatin
+        standard: {
+          succes: "#22bb33",
+          warning: "#bb2124",
+          info: "#f0ad4e",
+          grey: "#aaaaaa",
+          blue: "#5bc0de",
+        },
         automatin: {
           blue: "#4874AE",
           orange: "#D1703C",
+          orangeLight: "#f5945f",
           grey: "#3F3D56",
           lightGrey: "#F2F0F2",
         },
@@ -29,9 +37,9 @@ module.exports = {
       },
     },
     fontFamily: {
-      head: '"Roboto", "Noto Serif"',
+      serif: '"Roboto", "Noto Serif"',
       sans: '"Montserrat", "Noto Serif"',
-      serif: '"apple-system", "system-ui","Segoe UI", Helvetica, Arial',
+      head: '"apple-system", "system-ui","Segoe UI", Helvetica, Arial',
     },
   },
   plugins: [],

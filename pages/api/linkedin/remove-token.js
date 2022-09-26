@@ -1,10 +1,12 @@
-import { updateUser } from "../../lib/user";
+import { removeAccessToken } from "../../../lib/user";
 
-export default async function update(req, res) {
+export default async function removeToken(req, res) {
   try {
-    await updateUser(req.body)
+    console.log("req.body.email", req.body.email);
+    console.log("req.body", req.body);
+    await removeAccessToken(req.body.email)
       .then((user) => {
-        res.status(200).send(user);
+        res.status(200).send("removed token");
       })
       .catch((error) => {
         console.error(error);

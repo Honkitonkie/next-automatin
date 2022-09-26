@@ -21,16 +21,16 @@ const Signup = () => {
     };
 
     if (body.password !== e.currentTarget.rpassword.value) {
-      setErrorMsg(`The passwords don't match`);
+      setErrorMsg(`Wachtwoorden zijn niet gelijk`);
       return;
     }
     if (body.email === undefined || body.email === "") {
-      setErrorMsg(`Email is required`);
+      setErrorMsg(`Email is verplicht`);
       return;
     }
 
     if (!validateEmail(body.email)) {
-      setErrorMsg(`Invalid email`);
+      setErrorMsg(`Ongeldige email`);
       return;
     }
 
