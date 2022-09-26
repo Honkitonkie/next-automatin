@@ -71,7 +71,7 @@ const Navbar = ({ hasUser }) => {
       <nav className='bg-white dark:bg-gray-800 shadow overscroll-none max-h-20'>
         <div className='max-w-screen mx-auto px-10 md:px-48 flex items-center justify-between'>
           <a className='flex gap-4 flex-shrink-0 items-center' href='/'>
-            <Image className='h-8 w-8 z-50' src='/automatin.svg' alt='Automatin logo' width={40} height={40} />
+            <Image className='h-8 w-8 z-50' src='/Automatin.svg' alt='Automatin logo' width={40} height={40} />
             <span className='text-automatin-grey hover:text-automatin-orange z-50 text-2xl font-bold tracking-tight text-automatin-grey sm:text-3xl md:text-4xl'>Automatin</span>
           </a>
 

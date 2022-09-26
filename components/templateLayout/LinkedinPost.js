@@ -15,7 +15,7 @@ const reactionItems = {
     },
     {
       name: "Automatin",
-      src: "/automatin.svg",
+      src: "/Automatin.svg",
       href: "https://www.linkedin.com/company/54373528/admin/",
     },
   ],

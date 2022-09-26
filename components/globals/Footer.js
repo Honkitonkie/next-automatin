@@ -1,4 +1,3 @@
-// import Logo from "../../automatin.png";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,7 +9,7 @@ const Footer = () => {
           <div className='w-full sm:w-2/3 lg:w-3/12 px-4'>
             <div className='w-full'>
               <a href='/' className='inline-block max-w-[220px] mb-6 flex items-center'>
-                <Image className='bg-white rounded-full' src='/automatin.png' alt='Automatin logo' width='40%' height='40%' />
+                <Image className='bg-white rounded-full' src='/Automatin.png' alt='Automatin logo' width='40%' height='40%' />
                 <span className='text-white hover:text-automatin-orange text-2xl font-bold tracking-tight text-automatin-grey sm:text-2xl md:text-3xl ml-1'>Automatin</span>
               </a>
               <p className='text-base text-body-color mb-7'>Krachtige geautomatiseerde LinkedIn updates.</p>

@@ -101,7 +101,7 @@ export default function MyApp({ Component, pageProps }) {
         <link rel='manifest' href='favicon/site.webmanifest'></link>
         <link rel='mask-icon' href='favicon/safari-pinned-tab.svg' color='#5bbad5'></link>
         <title>{title?.text}</title>
-        <meta property='og:image' content='https://www.automatin.nl/public/MetaImage.jpg' />
+        <meta property='og:image' content='/MetaImage.jpg' />
         <meta property='og:description' content={title?.description} />
         <meta property='og:title' content={title?.text} />
       </Head>
