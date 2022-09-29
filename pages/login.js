@@ -7,6 +7,7 @@ const Login = () => {
   useUser({ redirectTo: "/", redirectIfFound: true });
 
   const [errorMsg, setErrorMsg] = useState("");
+  const [succes, setSucces] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -25,6 +26,7 @@ const Login = () => {
         body: JSON.stringify(body),
       });
       if (res.status === 200) {
+        setSucces("200");
         Router.back();
       } else {
         throw new Error(await res.text());
@@ -38,6 +40,7 @@ const Login = () => {
   return (
     <div className='container'>
       <Form isLogin errorMessage={errorMsg} onSubmit={handleSubmit} />
+      {succes ? <p className='text-green-500'>Inloggen gelukt</p> : <></>}
     </div>
   );
 };

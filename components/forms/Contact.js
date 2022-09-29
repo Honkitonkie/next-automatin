@@ -66,7 +66,7 @@ const Contact = () => {
               id='email'
               className='shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light'
               placeholder={user ? user.email : "info@automatin.nl"}
-              value={user ? user.email : ""}
+              value={user ? user.email : email}
               required
             ></input>
           </div>
@@ -101,7 +101,7 @@ const Contact = () => {
               placeholder='Type hier je bericht...'
             ></textarea>
           </div>
-          <Button type={"submit"} text={"Vertuur bericht"} sort={"cta-bigger"} handleClick={handleClick} cname={"my-10 mx-auto"}></Button>
+          <Button type={"submit"} text={"Verstuur bericht"} sort={"cta-bigger"} handleClick={handleClick} cname={"my-10 mx-auto"}></Button>
         </form>
       </div>
     </section>

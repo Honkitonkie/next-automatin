@@ -9,7 +9,7 @@ const Over = () => {
   return (
     <>
       <h1 className='text-4xl font-bold tracking-tight text-automatin-grey sm:text-5xl md:text-6xl my-16'>Waar gaat het over</h1>
-      <Hero titleOne={"Een focus op "} titleTwo={"jouw updates"} text={"Automatin deelt de laatste ontwikkelingen van jouw bedrijf automatisch met je netwerk op Linkedin."}>
+      <Hero titleOne={"Focus op "} titleTwo={"jouw updates"} text={"Automatin deelt de laatste ontwikkelingen van jouw bedrijf automatisch met je netwerk op Linkedin."}>
         <div className='mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start'>
           <div className='rounded-md shadow'>
             <Link href={user ? "/settings" : "/signup"}>
