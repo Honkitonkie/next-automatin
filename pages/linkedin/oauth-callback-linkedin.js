@@ -8,6 +8,7 @@ const Callback = () => {
   console.log("getPath", getPath);
   const [errorMsg, setErrorMsg] = useState("");
 
+  console.log("window.location", window.location.search);
   if (getPath.query) {
     handleSubmit();
   }
@@ -32,6 +33,7 @@ const Callback = () => {
       if (res.status === 200) {
         Router.push("/profile");
       } else {
+        setErrorMsg(res.error.message);
         throw new Error(await res.text());
       }
     } catch (error) {
