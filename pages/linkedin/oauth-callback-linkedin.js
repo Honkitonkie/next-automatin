@@ -23,7 +23,7 @@ const Callback = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        mode: "same-origin"
+        mode: "same-origin",
         credentials: "same-origin", // include, *same-origin, omit
         redirect: "follow",
         referrerPolicy: "same-origin",
