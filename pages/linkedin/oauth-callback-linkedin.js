@@ -20,7 +20,13 @@ const Callback = () => {
       };
       const res = await fetch("https://automatin.nl/api/linkedin/oauth-callback-linkedin", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
+        mode: "same-origin"
+        credentials: "same-origin", // include, *same-origin, omit
+        redirect: "follow",
+        referrerPolicy: "same-origin",
         body: JSON.stringify(body),
       });
       if (res.status === 200) {
