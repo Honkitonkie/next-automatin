@@ -8,7 +8,6 @@ const Callback = () => {
   console.log("getPath", getPath);
   const [errorMsg, setErrorMsg] = useState("");
 
-  console.log("window.location", window.location.search);
   if (getPath.query) {
     handleSubmit();
   }
@@ -23,11 +22,13 @@ const Callback = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Content-Type": "text/html",
         },
-        mode: "same-origin",
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
         credentials: "same-origin", // include, *same-origin, omit
-        redirect: "follow",
-        referrerPolicy: "same-origin",
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin,
         body: JSON.stringify(body),
       });
       if (res.status === 200) {
