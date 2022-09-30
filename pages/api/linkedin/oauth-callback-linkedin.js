@@ -3,7 +3,7 @@ import { getAccessToken } from "../../../lib/user";
 export default async function LinkedinCallback(req, res) {
   try {
     const backURL = req.headers.referer || "/";
-    console.log("running LinkedinCallback");
+    console.log("running LinkedinCallback!!!!!!!!!");
     await getAccessToken(req.body)
       .then(() => {
         res.status(200).redirect(backURL);
