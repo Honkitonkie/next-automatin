@@ -5,6 +5,7 @@ export default async function LinkedinCallback(req, res) {
     const backURL = req.headers.referer || "/";
     await getAccessToken(req.body)
       .then(() => {
+        res.status(200).send("succesfully updated token");
         res.status(200).redirect(backURL);
       })
       .catch((error) => {
