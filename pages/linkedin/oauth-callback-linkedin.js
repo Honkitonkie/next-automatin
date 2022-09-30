@@ -26,7 +26,7 @@ const Callback = () => {
       if (res.status === 200) {
         Router.push("/profile");
       } else {
-        throw new Error(res.error);
+        throw new Error(res);
         // throw new Error(await res.text());
       }
     } catch (error) {

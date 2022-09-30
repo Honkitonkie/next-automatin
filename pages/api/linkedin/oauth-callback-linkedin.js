@@ -10,6 +10,7 @@ export default async function LinkedinCallback(req, res) {
       .catch((error) => {
         console.error(error);
         res.status(401).send(error.message);
+        res.status(405).send(error.message);
       });
     setTimeout(function () {
       res.send();
@@ -17,6 +18,7 @@ export default async function LinkedinCallback(req, res) {
   } catch (error) {
     console.error(error);
     res.status(401).send(error.message);
+    res.status(405).send(error.message);
     res.end();
   }
 }
