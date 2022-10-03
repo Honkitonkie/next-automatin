@@ -14,7 +14,9 @@ const RemoveToken = () => {
       if (user) {
         const res = await fetch("https://automatin.nl/api/linkedin/remove-token", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify(body),
         });
         if (res.status === 200) {
