@@ -41,7 +41,16 @@ const Signup = () => {
           body: JSON.stringify(body),
         });
         if (res.status === 200) {
-          Router.push("/login");
+          const anotherRes = await fetch("/api/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+          });
+          if (anotherRes.status === 200) {
+            Router.push("/settings");
+          } else {
+            Router.push("/login");
+          }
         } else {
           throw new Error(await res.text());
         }

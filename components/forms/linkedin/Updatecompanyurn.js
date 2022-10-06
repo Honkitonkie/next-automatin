@@ -30,8 +30,8 @@ const UpdateCompanyUrn = () => {
   async function updateUserCompanyUrn() {
     if (errorMsg) setErrorMsg("");
     const body = {
-      email: user[0]?.email,
-      organizationUrnSelector: organizationUrnSelector,
+      email: String(user[0]?.email),
+      organizationUrnSelector: String(organizationUrnSelector),
     };
     try {
       const res = await fetch("/api/linkedin/update-user-company-urn", {

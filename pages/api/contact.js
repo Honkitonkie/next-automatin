@@ -1,19 +1,9 @@
+import { setTransporter } from "../../lib/nodemailer-auth";
+
 export default async function (req, res) {
-  require("dotenv").config();
-
   let nodemailer = require("nodemailer");
-
-  console.log("user: ", process.env.EMAILUSER, "pass", process.env.EMAILPASSWORD);
-
-  const transporter = nodemailer.createTransport({
-    port: 465,
-    host: process.env.EMAILUSER,
-    auth: {
-      user: process.env.EMAILUSER,
-      pass: process.env.EMAILPASSWORD,
-    },
-    secure: true,
-  });
+  const transporterObject = await setTransporter();
+  const transporter = nodemailer.createTransport(transporterObject);
   const mailData = {
     from: "info@automatin.nl",
     to: "info@automatin.nl",

@@ -10,30 +10,42 @@ const Contact = () => {
   const [subject, setSubject] = useState();
   const [message, setMessage] = useState();
 
+  const testString = function (aString) {
+    return aString.matchAll(/^[^a-zA-Z0-9]+$/g) ? true : false;
+  };
+
   async function handleClick() {
-    if (errorMsg) setErrorMsg("");
-    const body = {
-      email: email || user?.email,
-      subject: subject,
-      message: message,
-    };
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-      if (res.status === 200) {
-        setSuccesMsg("200");
-        console.log("body", body);
-      } else {
-        console.log("Failed request with body", body);
-        throw new Error(await res.text());
+    if (email === undefined) setErrorMsg("Email is verplicht");
+    if (subject === undefined) setErrorMsg("Geen onderwerp gekozen");
+    if (message === undefined) setErrorMsg("Je bericht mag niet leeg zijn");
+    if (testString(subject)) setErrorMsg("Speciale karakters zijn niet toegestaan in je onderwerp");
+    if (testString(message)) setErrorMsg("Speciale karakters zijn niet toegestaan in je bericht");
+
+    if (!errorMsg) {
+      const body = {
+        email: String(email || user?.email),
+        subject: String(subject),
+        message: String(message),
+      };
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+        if (res.status === 200) {
+          setSuccesMsg("200");
+          console.log("body", body);
+        } else {
+          console.log("Failed request with body", body);
+          throw new Error(await res.text());
+        }
+      } catch (error) {
+        console.error("An unexpected error happened occurred:", error);
+        setErrorMsg(error.message);
       }
-    } catch (error) {
-      console.error("An unexpected error happened occurred:", error);
-      setErrorMsg(error.message);
     }
+    if (errorMsg) setErrorMsg("");
   }
   const updateEmail = (e) => {
     setEmail(e.target.value);

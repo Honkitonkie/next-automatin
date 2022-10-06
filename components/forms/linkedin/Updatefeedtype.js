@@ -27,8 +27,8 @@ const UpdateFeedType = () => {
   async function updateFeedType() {
     if (errorMsg) setErrorMsg("");
     const body = {
-      email: user[0]?.email,
-      feedTypeSelector: feedTypeSelector,
+      email: String(user[0]?.email),
+      feedTypeSelector: String(feedTypeSelector),
     };
     try {
       const res = await fetch("/api/linkedin/update-user-feedtype", {

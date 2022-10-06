@@ -14,8 +14,8 @@ const Login = () => {
     if (errorMsg) setErrorMsg("");
 
     const body = {
-      email: e.currentTarget.email.value,
-      password: e.currentTarget.password.value,
+      email: String(e.currentTarget.email.value),
+      password: String(e.currentTarget.password.value),
     };
 
     try {
@@ -25,11 +25,6 @@ const Login = () => {
         body: JSON.stringify(body),
       });
       if (res.status === 200) {
-        const res = await fetch("/api/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body),
-        });
         setSucces("200");
         Router.back();
       } else {

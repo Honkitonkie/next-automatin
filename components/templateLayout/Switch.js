@@ -26,10 +26,10 @@ export default function Switch(props) {
   async function handleSubmit() {
     if (errorMsg) setErrorMsg("");
     const body = {
-      email: user?.email,
-      feedType: props.feedType,
+      email: String(user?.email),
+      feedType: String(props.feedType),
       templateVal: enabled,
-      index: props.index,
+      index: String(props.index),
     };
     try {
       const res = await fetch("/api/linkedin/update-user-from-switch", {

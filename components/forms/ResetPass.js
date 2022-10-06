@@ -29,12 +29,12 @@ const ResetPassword = () => {
       }
 
       const body = {
-        password: changePass,
-        password2: changePassFollow,
-        resetPasswordToken: router.query.token,
-        secret: secret,
-        client_id: client_id,
-        email: user.email,
+        password: String(changePass),
+        password2: String(changePassFollow),
+        resetPasswordToken: String(router.query.token),
+        secret: String(secret),
+        client_id: String(client_id),
+        email: String(user.email),
       };
       if (!errorMessage) {
         const res = await fetch("/api/update-password", {
