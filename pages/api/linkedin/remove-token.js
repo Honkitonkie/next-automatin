@@ -2,15 +2,12 @@ import { removeAccessToken } from "../../../lib/user";
 
 export default async function removeToken(req, res) {
   try {
-    console.log("req.body.email", req.body.email);
-    console.log("req.body", req.body);
     await removeAccessToken(req.body.email)
       .then((user) => {
-        res.status(200).send("removed token");
+        res.status(200).redirect("/settings?removeLinkedinToken=verwijderd");
       })
       .catch((error) => {
-        console.error(error);
-        res.status(401).send(error.message);
+        res.status(409).redirect("/settings?removeLinkedinToken=failed");
       });
     setTimeout(function () {
       res.send();

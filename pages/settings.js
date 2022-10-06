@@ -7,15 +7,15 @@ import Image from "next/image";
 import LinkedinAccesTokenCheck from "../components/templateLayout/LinkedinAccesTokenCheck";
 import ChevronDown from "../components/icons/ChevronDown";
 import ChevronUp from "../components/icons/ChevronUp";
-
 import { FiCheck } from "react-icons/fi";
+import { useRouter } from "next/router";
 
 const Settings = () => {
-  const user = useUser({ redirectTo: "/login" })[0];
-  const [errorMsg, setErrorMsg] = useState("");
+  const user = useUser()[0];
   const [showLinkedin, setShowLinkedin] = useState(true);
   const [showFacebook, setShowFacebook] = useState(true);
   const [showInstagram, setShowInstagram] = useState(true);
+  const router = useRouter();
 
   // Server-render loading state
   if (!user || user.isLoggedIn === false) {
@@ -33,6 +33,24 @@ const Settings = () => {
       case "instagram":
         break;
       default:
+    }
+  }
+
+  function handleMessage() {
+    if ((router.query && router.query.linkedinAcces) || (router.query && router.query.removeLinkedinToken)) {
+      if (router.query.linkedinAcces === "refresh") {
+        return <div className='text-green-500'>Automatin is succesvol gekoppeld.</div>;
+      } else if (router.query.removeLinkedinToken === "verwijderd") {
+        return <div className='text-green-500'>Jouw token is verwijderd.</div>;
+      } else if (router.query.linkedinAcces === "failedRefresh") {
+        return <div className='text-red-500'>Er ging iets fout</div>;
+      } else if (router.query.removeLinkedinToken === "failed") {
+        return <div className='text-red-500'>Er ging iets fout</div>;
+      } else {
+        return;
+      }
+    } else {
+      return;
     }
   }
 
@@ -66,17 +84,21 @@ const Settings = () => {
           <div id='accordion-collapse-body-1' className={showLinkedin ? "" : "hidden"} aria-labelledby='accordion-collapse-heading-1'>
             <div className={showLinkedin ? "p-4 font border border-t-0 border-gray-300 last:rounded-b-xl" : "p-4 border border-t-1 border-gray-300 last:rounded-b-xl"}>
               {linkedinIsConnected && (
-                <div className='flex my-5 text-xs pt-2 gap-4'>
-                  <Image src={"/connected.png"} alt='connected to linkedin' width={65} height={100}></Image>
-                  <div className='items-center text-left'>
+                <div className='flex flex-col my-5 text-xs pt-2 gap-4'>
+                  <UpdateFeedType></UpdateFeedType>
+                  {user.linkedin.feed_type && <UpdateCompanyUrn></UpdateCompanyUrn>}
+                  <div className='flex'>
+                    <Image src={"/connected.png"} alt='connected to linkedin' className='mr-4' width={50} height={100}></Image>
                     <p>Automatin is succesvol gekoppeld met jouw Linkedin, jouw token verloopt over {daysLeft(user.linkedin.token_expire_date.split("T")[0])} dagen.</p>
-                    <LinkedinAccesTokenCheck refresh text='Refresh nu' sort='automatin'></LinkedinAccesTokenCheck>
-                    {user.linkedin.access_token && <RemoveToken text='Verwijder token' sort={"warning"}></RemoveToken>}
+                  </div>
+                  <div className='items-center text-left'>
+                    <LinkedinAccesTokenCheck refresh text='Refresh jouw token' sort='automatin'></LinkedinAccesTokenCheck>
+                    {user.linkedin.access_token && <RemoveToken email={user?.email} text='Verwijder token' sort={"warning"}></RemoveToken>}
                   </div>
                 </div>
               )}
               {user && !linkedinIsConnected && (
-                <div className='flex my-5 text-xs pt-2 gap-4'>
+                <div className='flex flex-col md:flex-row my-5 text-xs pt-2 gap-4'>
                   <UpdateFeedType></UpdateFeedType>
                   {user.linkedin.feed_type && <UpdateCompanyUrn></UpdateCompanyUrn>}
                   <div className='items-center text-left'>
@@ -85,6 +107,7 @@ const Settings = () => {
                   </div>
                 </div>
               )}
+              {handleMessage()}
             </div>
           </div>
         </div>

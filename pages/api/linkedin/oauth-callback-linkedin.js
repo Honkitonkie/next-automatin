@@ -2,14 +2,12 @@ import { getAccessToken } from "../../../lib/user";
 
 export default async function LinkedinCallback(req, res) {
   try {
-    const backURL = req.headers.referer || "/settings";
     await getAccessToken(req.query)
       .then(() => {
-        res.status(200).redirect(backURL);
+        res.status(200).redirect("/settings?linkedinAcces=refresh");
       })
       .catch((error) => {
-        console.error(error);
-        res.status(401).send(error.message);
+        res.status(409).redirect("/settingslinkedinAcces=failedRefresh");
       });
     setTimeout(function () {
       res.send();

@@ -44,7 +44,7 @@ const SellingPoints = () => {
               </svg>
             </div>
             <h3 className='mb-2 text-xl font-bold dark:text-white'>Branding</h3>
-            <p>Automatin helpt jou om je uitingen verzorgt voor de dag te laten komen en implementeert jouw huistijl en branding in alle post.</p>
+            <p>Automatin helpt jou om je uitingen verzorgt voor de dag te laten komen en implementeert jouw huistijl en branding in alle posts.</p>
           </div>
           <div>
             <div className='flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900'>

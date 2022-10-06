@@ -2,7 +2,6 @@ import { updateAccessToken } from "../../../lib/user";
 
 export default async function authenticate(req, res) {
   try {
-    console.log("running");
     await updateAccessToken()
       .then((data) => {
         res
