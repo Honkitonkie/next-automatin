@@ -4,7 +4,7 @@ import Button from "../components/Button";
 import Resetpassword from "../components/forms/ResetPass";
 
 const Profile = () => {
-  const user = useUser({ redirectTo: "/login" })[0];
+  const user = useUser()[0];
 
   return (
     <div className='container mx-auto my-10 overflow-x-hidden'>

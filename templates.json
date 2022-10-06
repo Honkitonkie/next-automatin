@@ -174,7 +174,7 @@
     },
     {
     "name":"zoomIn",
-    "intro":"De #zoomIn duwt je boodschap vriendelijk in het gezicht geduwd.",
+    "intro":"De #zoomIn duwt je boodschap in zicht.",
     "text":"Ook de oudere doelgroep bereiken? Neem dan de zoomIn!.",
     "beschikbaar":true,
     "groep":"zoom",
@@ -1156,7 +1156,7 @@
     },
     {
     "name":"zoomIn",
-    "intro":"De #zoomIn duwt je boodschap vriendelijk in het gezicht geduwd.",
+    "intro":"De #zoomIn duwt je boodschap vriendelijk in zicht.",
     "text":"Ook de oudere doelgroep bereiken? Neem dan de zoomIn!.",
     "beschikbaar":true,
     "groep":"zoom",

@@ -5,6 +5,7 @@ import { useUser } from "../../lib/hooks";
 const Contact = () => {
   const user = useUser()[0];
   const [errorMsg, setErrorMsg] = useState("");
+  const [succesMsg, setSuccesMsg] = useState("");
   const [email, setEmail] = useState(user?.email);
   const [subject, setSubject] = useState();
   const [message, setMessage] = useState();
@@ -12,7 +13,7 @@ const Contact = () => {
   async function handleClick() {
     if (errorMsg) setErrorMsg("");
     const body = {
-      email: email,
+      email: email || user?.email,
       subject: subject,
       message: message,
     };
@@ -23,8 +24,10 @@ const Contact = () => {
         body: JSON.stringify(body),
       });
       if (res.status === 200) {
+        setSuccesMsg("200");
         console.log("body", body);
       } else {
+        console.log("Failed request with body", body);
         throw new Error(await res.text());
       }
     } catch (error) {
@@ -59,14 +62,14 @@ const Contact = () => {
             <input
               pattern='[^()/><\][\\\x22,;|]+'
               title='Voor de veiligheid van jouw gegevens accepteren wij geen brackets, haken of slashes in dit veld'
-              onChange={(e) => {
-                updateEmail(e);
-              }}
               type='email'
               id='email'
               className='shadow-sm bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light'
               placeholder={user ? user.email : "info@automatin.nl"}
               value={user ? user.email : email}
+              onChange={(e) => {
+                updateEmail(e);
+              }}
               required
             ></input>
           </div>
@@ -103,6 +106,8 @@ const Contact = () => {
           </div>
           <Button type={"submit"} text={"Verstuur bericht"} sort={"cta-bigger"} handleClick={handleClick} cname={"my-10 mx-auto"}></Button>
         </form>
+        {errorMsg && <div className='text-red-500'>{errorMsg}</div>}
+        {succesMsg && <div className='text-green-500'>{succesMsg}</div>}
       </div>
     </section>
   );

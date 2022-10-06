@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useUser } from "../../lib/hooks";
 
 const ResetPassword = () => {
-  const user = useUser({ redirectTo: "/login" })[0];
+  const user = useUser()[0];
   const [changePass, setChangePass] = useState("");
   const [changePassFollow, setChangePassFollow] = useState("");
   const [errorMessage, setErrorMessage] = useState("");

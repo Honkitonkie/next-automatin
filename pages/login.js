@@ -4,8 +4,7 @@ import Form from "../components/Form";
 import { useUser } from "../lib/hooks";
 
 const Login = () => {
-  useUser({ redirectTo: "/", redirectIfFound: true });
-
+  const user = useUser();
   const [errorMsg, setErrorMsg] = useState("");
   const [succes, setSucces] = useState("");
 
@@ -26,6 +25,11 @@ const Login = () => {
         body: JSON.stringify(body),
       });
       if (res.status === 200) {
+        const res = await fetch("/api/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
         setSucces("200");
         Router.back();
       } else {
@@ -39,8 +43,8 @@ const Login = () => {
 
   return (
     <div className='container'>
-      <Form isLogin errorMessage={errorMsg} onSubmit={handleSubmit} />
-      {succes ? <p className='text-green-500'>Inloggen gelukt</p> : <></>}
+      {user && <Form isLogin errorMessage={errorMsg} onSubmit={handleSubmit} />}
+      {succes ? <p className='container text-green-500'>Inloggen gelukt</p> : <></>}
     </div>
   );
 };

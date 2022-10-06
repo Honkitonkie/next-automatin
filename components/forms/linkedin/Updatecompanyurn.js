@@ -3,7 +3,7 @@ import { useUser } from "../../../lib/hooks";
 import Layout from "../../globals/Layout";
 
 const UpdateCompanyUrn = () => {
-  const user = useUser({ redirectTo: "/login" });
+  const user = useUser();
   const [errorMsg, setErrorMsg] = useState("");
 
   // Server-render loading state
