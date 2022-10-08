@@ -85,7 +85,7 @@ const LinkedinPost = (props) => {
           <span className='text-linkedin-link bg-white'> #{props.index}</span>
           {!props.foto && props.company !== "automatin" && imgSrc === "/gif/" + "automatin" + "/" + props.index + extension && (
             <span className='italic text-xs'>
-              <br></br>Dit template nog niet beschikbaar voor dit bedrijf
+              <br></br>Een voorbeeld van dit template is nog niet beschikbaar in de huisstijl van dit bedrijf.
             </span>
           )}
         </p>
