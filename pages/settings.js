@@ -36,7 +36,8 @@ const Settings = () => {
     }
   }
 
-  function handleMessage() {
+  // force hard refresh after login or signup and display succes and/or error messages
+  function handleQueryInput() {
     if ((router.query && router.query.linkedinAcces) || (router.query && router.query.removeLinkedinToken)) {
       if (router.query.linkedinAcces === "refresh") {
         return <div className='text-green-500'>Automatin is succesvol gekoppeld.</div>;
@@ -107,7 +108,7 @@ const Settings = () => {
                   </div>
                 </div>
               )}
-              {handleMessage()}
+              {handleQueryInput()}
             </div>
           </div>
         </div>

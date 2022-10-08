@@ -26,7 +26,7 @@ const Login = () => {
       });
       if (res.status === 200) {
         setSucces("200");
-        Router.back();
+        Router.push("/settings");
       } else {
         throw new Error(await res.text());
       }

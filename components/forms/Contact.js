@@ -44,8 +44,9 @@ const Contact = () => {
         console.error("An unexpected error happened occurred:", error);
         setErrorMsg(error.message);
       }
+    } else {
+      if (errorMsg) setErrorMsg("");
     }
-    if (errorMsg) setErrorMsg("");
   }
   const updateEmail = (e) => {
     setEmail(e.target.value);

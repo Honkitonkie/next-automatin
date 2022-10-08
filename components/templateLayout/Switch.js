@@ -24,52 +24,57 @@ export default function Switch(props) {
 
   // LOGIN
   async function handleSubmit() {
-    if (errorMsg) setErrorMsg("");
-    const body = {
-      email: String(user?.email),
-      feedType: String(props.feedType),
-      templateVal: enabled,
-      index: String(props.index),
-    };
-    try {
-      const res = await fetch("/api/linkedin/update-user-from-switch", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-      if (res.status === 200) {
-        switch (body.feedType) {
-          case "person":
-            user.linkedin.templates.person[body.index] = body.templateVal;
-            break;
-          case "organization":
-            user.linkedin.templates.organization[body.index] = body.templateVal;
-            break;
-          case "linksboven":
-            user.wantedPics.linksboven[body.index] = body.templateVal;
-            break;
-          case "linksonder":
-            user.wantedPics.linksonder[body.index] = body.templateVal;
-            break;
-          case "rechtsboven":
-            user.wantedPics.rechtsboven[body.index] = body.templateVal;
-            break;
-          case "rechtsonder":
-            user.wantedPics.rechtsonder[body.index] = body.templateVal;
-            break;
-          case "center":
-            user.wantedPics.center[body.index] = body.templateVal;
-            break;
-          default:
-            console.log("no match in feedtype switch");
+    if (!user.email) setErrorMsg("Geen email");
+    if (!props.feedType) setErrorMsg("Geen feedType");
+    if (!props.index) setErrorMsg("Geen index");
+    if (!errorMsg) {
+      const body = {
+        feedType: String(props.feedType),
+        templateVal: enabled,
+        index: String(props.index),
+        email: String(user.email),
+      };
+      try {
+        const res = await fetch("/api/linkedin/update-user-from-switch", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+        if (res.status === 200) {
+          switch (body.feedType) {
+            case "person":
+              user.linkedin.templates.person[body.index] = body.templateVal;
+              break;
+            case "organization":
+              user.linkedin.templates.organization[body.index] = body.templateVal;
+              break;
+            case "linksboven":
+              user.wantedPics.linksboven[body.index] = body.templateVal;
+              break;
+            case "linksonder":
+              user.wantedPics.linksonder[body.index] = body.templateVal;
+              break;
+            case "rechtsboven":
+              user.wantedPics.rechtsboven[body.index] = body.templateVal;
+              break;
+            case "rechtsonder":
+              user.wantedPics.rechtsonder[body.index] = body.templateVal;
+              break;
+            case "center":
+              user.wantedPics.center[body.index] = body.templateVal;
+              break;
+            default:
+              console.log("no match in feedtype switch");
+          }
+          // console.log("updated user");
+        } else {
+          if (errorMsg) setErrorMsg("");
+          throw new Error(await res.text());
         }
-        // console.log("updated user");
-      } else {
-        throw new Error(await res.text());
+      } catch (error) {
+        console.error("An unexpected error happened occurred:", error);
+        setErrorMsg(error.message);
       }
-    } catch (error) {
-      console.error("An unexpected error happened occurred:", error);
-      setErrorMsg(error.message);
     }
   }
   // END LOGINSTUFF
@@ -113,6 +118,7 @@ export default function Switch(props) {
                   className="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-automatin-blue peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-automatin-blue"
                 ></div>
               </label>
+              {errorMsg && errorMsg}
             </div>
           </div>
         </form>
