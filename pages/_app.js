@@ -10,42 +10,43 @@ const links = {
     {
       text: "Home",
       url: "/",
-      description: "Krachtige Linkedin updates beginnen hier",
+      description: "Krachtige Linkedin updates beginnen hier,  wij zorgen dat jouw laatste updates automatisch gedeeld worden met je netwerk.",
     },
     {
       text: "Instellingen",
       url: "/settings",
-      description: "Hier kun je jouw instellingen wijzingen. Denk aan je token updaten, abonnnement upgraden en meer..",
+      description: "Hier kun je jouw instellingen wijzingen. Denk aan het aanmaken of updaten van token om mee te posten op Linkedin, of een ander gekozen medium, je abonnnement upgraden en meer..",
     },
     {
       text: "Inschrijven",
       url: "/signup",
-      description: "Nieuw bij Automatin? Schrijf je dan hier in en koppel jouw account met de gewenste socials",
+      description:
+        "Nieuw bij Automatin? Schrijf je dan hier in en koppel jouw account met de gewenste socials, stel in waar je posts zichtbaar worden en zorg dat je jouw laatste updates deelt met je netwerk.",
     },
     {
       text: "Login",
       url: "/login",
-      description: "Log snel in om templates te kiezen, je token(s) bij te werken of je gegevens te wijzigen",
+      description: "Log snel in om templates te kiezen die jij wilt inzetten op je socials, je token(s) aan te maken en/of bij te werken om het geautomatiseerd posten te starten",
     },
     {
       text: "Profiel",
       url: "/profile",
-      description: "Een overzicht van jouw profielgegevens",
+      description: "Hier vind je een overzicht van jouw profielgegevens, klopt er iets niet. Laat het dan weten via ons contactformulier",
     },
     {
       text: "Contact",
       url: "/contact",
-      description: "Neem contact met ons op via dit formulier of bel/ mail ons.",
+      description: "Neem contact met ons op via dit formulier of bel/ mail ons via info@automatin.nl en/of het nummer in de footer.",
     },
     {
       text: "Over",
       url: "/over",
-      description: "Meer weten over Automatin? Kijk dan hier",
+      description: "Meer weten over Automatin? We vertellen je graag meer, begin je orientatie hier. Mocht je daarna nog vragen hebben, laat het dan vooral weten via ons contactformulier",
     },
     {
       text: "Galerij",
       url: "/galerij",
-      description: "Een overzicht van de onze templates",
+      description: "Een overzicht van de onze templates, deze templates zijn beschikbaar voor jouw posts en dienen als voorbeeld voor jou om aan te geven wat je kunt verwachten ",
       subLinks: [
         {
           text: "Korte filmpjes",
@@ -117,6 +118,7 @@ export default function MyApp({ Component, pageProps }) {
         <meta property='og:image' content='/MetaImage.jpg' />
         <meta property='og:description' content={title?.description} />
         <meta property='og:title' content={title?.text} />
+        <meta name='author' content='Honkitonkie' />
       </Head>
       <Layout>
         <Component {...pageProps} />
