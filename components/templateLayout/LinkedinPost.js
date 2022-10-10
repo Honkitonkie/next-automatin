@@ -121,7 +121,7 @@ const LinkedinPost = (props) => {
         <div className='flex items-center justify-center gap-10 text-xs py-4'>
           <div className='flex items-center gap-1 text-gray-500'>
             <Image src='/icons/like.png' width='15' height='15' layout='intrinsic' alt={props.template.name}></Image>
-            <p>Interresant</p>
+            <p>interessant</p>
           </div>
           <div className='flex items-center gap-1 text-gray-500'>
             <Image src='/icons/comment.png' width='15' height='15' layout='intrinsic' alt={props.template.name}></Image>

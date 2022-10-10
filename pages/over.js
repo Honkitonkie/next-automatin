@@ -19,7 +19,7 @@ const Over = () => {
             </Link>
           </div>
           <div className='mt-3 sm:mt-0 sm:ml-3'>
-            <Link href='/shorts'>
+            <Link href='/shorts?demo=true'>
               <span className='flex w-full items-center justify-center rounded-md border border-transparent bg-automatin-grey px-8 py-3 text-base font-medium text-white hover:bg-gray-500 md:py-4 md:px-10 md:text-lg'>
                 Demo
               </span>
@@ -27,7 +27,7 @@ const Over = () => {
           </div>
         </div>
       </Hero>
-      <section className='my-36'>
+      <section id='orientatie' className='my-36'>
         <h2 className='text-center text-4xl tracking-tight font-extrabold dark:text-white'>Per medium minstens</h2>
         <div className='max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6'>
           <dl className='grid max-w-screen-md gap-8 mx-auto sm:grid-cols-2 dark:text-white'>

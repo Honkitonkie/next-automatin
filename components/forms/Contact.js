@@ -10,42 +10,29 @@ const Contact = () => {
   const [subject, setSubject] = useState();
   const [message, setMessage] = useState();
 
-  const testString = function (aString) {
-    return aString.matchAll(/^[^a-zA-Z0-9]+$/g) ? true : false;
-  };
-
-  async function handleClick() {
-    if (email === undefined) setErrorMsg("Email is verplicht");
-    if (subject === undefined) setErrorMsg("Geen onderwerp gekozen");
-    if (message === undefined) setErrorMsg("Je bericht mag niet leeg zijn");
-    if (testString(subject)) setErrorMsg("Speciale karakters zijn niet toegestaan in je onderwerp");
-    if (testString(message)) setErrorMsg("Speciale karakters zijn niet toegestaan in je bericht");
-
-    if (!errorMsg) {
-      const body = {
-        email: String(email || user?.email),
-        subject: String(subject),
-        message: String(message),
-      };
-      try {
-        const res = await fetch("/api/contact", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body),
-        });
-        if (res.status === 200) {
-          setSuccesMsg("200");
-          console.log("body", body);
-        } else {
-          console.log("Failed request with body", body);
-          throw new Error(await res.text());
-        }
-      } catch (error) {
-        console.error("An unexpected error happened occurred:", error);
-        setErrorMsg(error.message);
+  async function handleClick(e) {
+    e.preventDefault();
+    const body = {
+      email: String(email || user?.email),
+      subject: String(subject),
+      message: String(message),
+    };
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      const error = await res.json();
+      if (res.status === 200) {
+        setErrorMsg("");
+        setSuccesMsg("Mail verstuurd");
+      } else {
+        setErrorMsg(error.error);
       }
-    } else {
-      if (errorMsg) setErrorMsg("");
+    } catch (error) {
+      console.error("An unexpected error happened occurred:", error);
+      setErrorMsg(error.message);
     }
   }
   const updateEmail = (e) => {
@@ -117,10 +104,18 @@ const Contact = () => {
               placeholder='Type hier je bericht...'
             ></textarea>
           </div>
-          <Button type={"submit"} text={"Verstuur bericht"} sort={"cta-bigger"} handleClick={handleClick} cname={"my-10 mx-auto"}></Button>
+          {errorMsg && <div className='text-red-500'>{errorMsg}</div>}
+          {succesMsg && <div className='text-green-500'>{succesMsg}</div>}
+          <Button
+            type={"submit"}
+            text={"Verstuur bericht"}
+            sort={"cta-bigger"}
+            handleClick={(e) => {
+              handleClick(e);
+            }}
+            cname={"my-10 mx-auto"}
+          ></Button>
         </form>
-        {errorMsg && <div className='text-red-500'>{errorMsg}</div>}
-        {succesMsg && <div className='text-green-500'>{succesMsg}</div>}
       </div>
     </section>
   );

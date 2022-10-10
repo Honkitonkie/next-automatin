@@ -7,10 +7,10 @@ const Signup = () => {
   const user = useUser();
 
   const [errorMsg, setErrorMsg] = useState("");
+  const [succesMsg, setSuccesMsg] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (errorMsg) setErrorMsg("");
 
     const body = {
       username: e.currentTarget.username.value,
@@ -40,6 +40,8 @@ const Signup = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(body),
         });
+        const error = await res.json();
+
         if (res.status === 200) {
           const anotherRes = await fetch("/api/login", {
             method: "POST",
@@ -47,23 +49,27 @@ const Signup = () => {
             body: JSON.stringify(body),
           });
           if (anotherRes.status === 200) {
+            setSuccesMsg("Account aangemaakt & ingelogd");
             Router.push("/settings");
           } else {
+            setErrorMsg("Log in om door te gaan");
             Router.push("/login");
           }
         } else {
-          throw new Error(await res.text());
+          setErrorMsg(error.error);
         }
       } catch (error) {
         console.error("An unexpected error happened occurred:", error);
         setErrorMsg(error.message);
       }
+    } else {
+      if (errorMsg) setErrorMsg("");
     }
   }
 
   return (
     <div className='container'>
-      <Form isLogin={false} errorMessage={errorMsg} onSubmit={handleSubmit} />
+      <Form isLogin={false} succesMessage={succesMsg} errorMessage={errorMsg} onSubmit={handleSubmit} />
     </div>
   );
 };

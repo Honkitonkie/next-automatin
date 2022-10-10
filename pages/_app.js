@@ -52,11 +52,11 @@ const links = {
           url: "/shorts",
           description: "Korte animaties om jouw boodschap kracht bij te zetten",
         },
-        {
-          text: "Lange filmpjes",
-          url: "/longs",
-          description: "Wat langer filmpjes om meer nadruk te leggen op jouw verhaal",
-        },
+        // {
+        //   text: "Lange filmpjes",
+        //   url: "/longs",
+        //   description: "Wat langere filmpjes om meer nadruk te leggen op jouw verhaal",
+        // },
         {
           text: "Stilstaand",
           url: "/plaatjes",

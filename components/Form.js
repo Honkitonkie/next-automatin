@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Form = ({ isLogin, errorMessage, onSubmit }) => (
+const Form = ({ isLogin, errorMessage, succesMessage, onSubmit }) => (
   <div>
     {isLogin ? <h1 className='md:w-1/2 mx-auto my-10 text-3xl'>Log in</h1> : <h1 className='md:w-1/2 mx-auto my-10 text-3xl'>Schrijf je in</h1>}
     <form className='md:w-1/2 mx-auto flex-col' onSubmit={onSubmit}>
@@ -98,6 +98,7 @@ const Form = ({ isLogin, errorMessage, onSubmit }) => (
       </div>
 
       {errorMessage && <p className='text-red-500'>{errorMessage}</p>}
+      {succesMessage && <p className='text-green-500'>{succesMessage}</p>}
     </form>
   </div>
 );

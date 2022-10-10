@@ -8,7 +8,7 @@
     "text":"Ik heb er de woorden niet voor.",
     "groep":null,
     "bewegend":false,
-    "beschikbaar":false,
+    "beschikbaar":true,
     "long":false,
     "num":0
     },
@@ -990,7 +990,7 @@
     "text":"Ik heb er de woorden niet voor.",
     "groep":null,
     "bewegend":false,
-    "beschikbaar":false,
+    "beschikbaar":true,
     "long":false,
     "num":0
     },

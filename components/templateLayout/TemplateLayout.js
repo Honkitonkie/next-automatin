@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import LinkedinPost from "./LinkedinPost";
+import LinkedinPostDemo from "./LinkedinPostDemo";
 import FeedtypeSelector from "./FeedtypeSelector";
 import LinkedinAccesTokenCheck from "./LinkedinAccesTokenCheck";
 import { useRouter } from "next/router";
@@ -19,17 +20,25 @@ const TemplateLayout = ({ arr }) => {
   const [foto] = useState(pathname === "/fotos");
   const [feedType, setFeedType] = useState(current);
   const [counter, setCounter] = useState(1);
-
+  const [demo, setDemo] = useState("");
+  const render = useRef(0);
   const examples = pathname === "/plaatjes" ? ["automatin", "keser", "suc6"] : ["automatin", "keser", "suc6", "quaestus", "luke", "inextern", "careervalue"];
   const changeFeedType = (arg, i) => {
     setFeedType(arg);
   };
 
+  render.current++;
+  if (query.demo && render.current === 1) {
+    setDemo(true);
+  }
+
   useEffect(() => {
     router.push(
       {
         pathname: pathname,
-        query: { company: company },
+        query: {
+          company: company,
+        },
       },
       undefined,
       {}
@@ -49,12 +58,15 @@ const TemplateLayout = ({ arr }) => {
 
   return (
     <>
-      <div className='w-full flex justify-center items-center'>
+      <div className={demo ? "w-full flex justify-center items-center" : "w-full flex justify-center items-center gap-2"}>
+        <button className='p-3 bg-automatin-blue text-white rounded-md my-2' cname='capitalize flex' onClick={(e) => setDemo(!demo)}>
+          {demo ? "Sluit demo" : "Demo"}
+        </button>
         {examples.map((item, index) => (
           <div key={index}>
-            {!foto && counter === index && examples[index] && (
+            {!foto && !demo && counter === index && examples[index] && (
               <>
-                <button className='p-3 bg-automatin-blue text-white rounded-md my-4' cname='capitalize flex' value={examples[index]} onClick={(e) => changeCompanyTemplates(e, index)}>
+                <button className='p-3 bg-automatin-grey text-white rounded-md my-2' cname='capitalize flex' value={examples[index]} onClick={(e) => changeCompanyTemplates(e, index)}>
                   Bekijk met andere branding
                 </button>
               </>
@@ -62,6 +74,7 @@ const TemplateLayout = ({ arr }) => {
           </div>
         ))}
       </div>
+      <div className='w-full flex justify-center'>{demo && <LinkedinPostDemo foto={pathname === "/fotos" || pathname === "/plaatjes"} company={company} feedType={feedType}></LinkedinPostDemo>}</div>
 
       {/* Als user zorg dan voor een selectie van de feedtype */}
       {user[0] && (

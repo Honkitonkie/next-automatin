@@ -99,11 +99,11 @@ const Settings = () => {
                 </div>
               )}
               {user && !linkedinIsConnected && (
-                <div className='flex flex-col md:flex-row my-5 text-xs pt-2 gap-4'>
+                <div className='flex flex-col my-5 text-xs pt-2 gap-4'>
                   <UpdateFeedType></UpdateFeedType>
                   {user.linkedin.feed_type && <UpdateCompanyUrn></UpdateCompanyUrn>}
-                  <div className='items-center text-left'>
-                    <Image src={"/connect.png"} alt='not connected to linkedin' className='mr-4' width={50} height={100}></Image>
+                  <div className='items-center text-left flex gap-4'>
+                    <Image src={"/connect.png"} alt='not connected to linkedin' width={50} height={100}></Image>
                     <LinkedinAccesTokenCheck refresh text='Verbind Linkedin' sort='automatin'></LinkedinAccesTokenCheck>
                   </div>
                 </div>

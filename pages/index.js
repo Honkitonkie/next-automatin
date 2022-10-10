@@ -29,7 +29,7 @@ const Home = () => {
         </div>
         <p className='text-2xl md:text-3xl mt-4 text-center sm:text-left w-3/4 mx-auto sm:w-full sm:mx-0'>voor geautomatiseerde social updates</p>
         <div className='flex mt-8 gap-4 flex flex-wrap justify-center md:justify-start'>
-          <Button href={"/over"} sort={"cta-bigger"} text={"Begin oriëntatie"}></Button>
+          <Button href={"/over#orientatie"} sort={"cta-bigger"} text={"Begin oriëntatie"}></Button>
           <Button href={"/shorts"} sort={"support-bigger"} text={"Bekijk templates"}></Button>
         </div>
       </Videobg>

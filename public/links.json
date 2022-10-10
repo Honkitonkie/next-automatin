@@ -8,6 +8,10 @@
     "url": "/over"
   },
   {
+    "text": "Contact",
+    "url": "/contact"
+  },
+  {
     "text": "Galerij",
     "url": "/galerij",
     "subLinks": [
@@ -15,10 +19,10 @@
         "text": "Korte filmpjes",
         "url": "/shorts"
       },
-      {
-        "text": "Lange filmpjes",
-        "url": "/longs"
-      },
+      // {
+      //   "text": "Lange filmpjes",
+      //   "url": "/longs"
+      // },
       {
         "text": "Stilstaand",
         "url": "/plaatjes"
@@ -76,11 +80,11 @@
         "url": "/shorts",
         "description": "Korte animaties om jouw boodschap kracht bij te zetten"
       },
-      {
-        "text": "Lange filmpjes",
-        "url": "/longs",
-        "description": "Wat langer filmpjes om meer nadruk te leggen op jouw verhaal"
-      },
+      // {
+      //   "text": "Lange filmpjes",
+      //   "url": "/longs",
+      //   "description": "Wat langer filmpjes om meer nadruk te leggen op jouw verhaal"
+      // },
       {
         "text": "Stilstaand",
         "url": "/plaatjes",

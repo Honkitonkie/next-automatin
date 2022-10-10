@@ -15,6 +15,10 @@ const links = {
       url: "/over",
     },
     {
+      text: "Contact",
+      url: "/contact",
+    },
+    {
       text: "Galerij",
       url: "/galerij",
       subLinks: [
@@ -22,10 +26,10 @@ const links = {
           text: "Korte filmpjes",
           url: "/shorts",
         },
-        {
-          text: "Lange filmpjes",
-          url: "/longs",
-        },
+        // {
+        //   text: "Lange filmpjes",
+        //   url: "/longs",
+        // },
         {
           text: "Stilstaand",
           url: "/plaatjes",
