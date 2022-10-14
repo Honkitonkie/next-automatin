@@ -4,7 +4,7 @@
       "source": "/api/linkedin/oauth-callback-linkedin",
       "headers": [
         { "key": "Access-Control-Allow-Credentials", "value": "true" },
-        { "key": "Access-Control-Allow-Origin", "value": "https://www.linkedin.com/" },
+        { "key": "Access-Control-Allow-Origin", "value": "www.linkedin.com" },
         { "key": "Access-Control-Allow-Methods", "value": "GET,POST" }
       ]
     }
