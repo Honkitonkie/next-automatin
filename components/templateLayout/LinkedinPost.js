@@ -5,6 +5,8 @@ import Switch from "./Switch";
 import { FiMoreHorizontal, FiUser, FiUsers } from "react-icons/fi";
 import Highlighter from "react-highlight-words";
 import { useUser } from "../../lib/hooks";
+import { useRouter } from "next/router";
+
 const reactionItems = {
   profiles: [
     {
@@ -24,15 +26,20 @@ const reaction = ["geweldig", "interessant", "verhelderend"];
 
 const LinkedinPost = (props) => {
   const user = useUser()[0];
-  const extension = props.template.bewegend && !props.foto ? ".gif" : !props.foto ? ".png" : ".jpg";
-  const src = props.foto ? "/pictures/" + props.feedType + "/" + props.index + extension : "/gif/" + props.company + "/" + props.index + extension;
+  const extension = props.index === 29 ? ".gif" : props.template.bewegend && !props.foto ? ".webm" : !props.foto ? ".png" : ".jpg";
+  const src = props.foto ? "/pictures/" + props.feedType + "/" + props.index + extension : "/gif/" + String(props.company) + "/" + props.index + extension;
   const [imgSrc, setImgSrc] = useState(src);
   const fallbackSrc = props.foto ? "/pictures/" + props.feedType + "/" + props.index + extension : "/gif/" + "automatin" + "/" + props.index + extension;
+  const { query } = useRouter();
 
   useEffect(() => {
     let newSrc = props.foto ? "/pictures/" + props.feedType + "/" + props.index + extension : "/gif/" + props.company + "/" + props.index + extension;
     setImgSrc(newSrc);
   }, [props.company]);
+
+  async function handleError(e) {
+    console.log("handle it");
+  }
 
   return (
     <div className='w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-3 shadow-lg md:scale-100 md:hover:scale-105 md:hover:rounded-xl md:ease-out md:duration-500'>
@@ -92,16 +99,69 @@ const LinkedinPost = (props) => {
       </div>
       {/* image and imageText */}
       <div>
-        <Image
-          src={imgSrc}
-          width='300'
-          height='169'
-          layout='intrinsic'
-          alt={props.template.name}
-          onError={() => {
-            setImgSrc(fallbackSrc);
-          }}
-        ></Image>
+        {!props.foto && props.company === query.company && props.index >= 11 && props.index != 29 && (
+          <video autoPlay loop muted playsInline key={props.index} className='template relative w-full h-full object-cover overflow-hidden' style={{ width: "300", height: "169" }}>
+            <source
+              src={imgSrc}
+              type='video/webm;'
+              alt={props.template.name}
+              onError={(e) => {
+                handleError(e);
+              }}
+            />
+            <source
+              src={fallbackSrc}
+              type='video/webm;'
+              alt={props.template.name}
+              onError={(e) => {
+                handleError(e);
+              }}
+            />
+          </video>
+        )}
+        {props.foto && (
+          <>
+            <Image
+              src={imgSrc}
+              width='300'
+              height='169'
+              layout='intrinsic'
+              alt={props.template.name}
+              onError={() => {
+                setImgSrc(fallbackSrc);
+              }}
+            ></Image>
+          </>
+        )}
+        {!props.foto && props.index < 11 && (
+          <>
+            <Image
+              src={imgSrc}
+              width='300'
+              height='169'
+              layout='intrinsic'
+              alt={props.template.name}
+              onError={() => {
+                setImgSrc(fallbackSrc);
+              }}
+            ></Image>
+          </>
+        )}
+        {/* template 29 is een uitzondering omdat dit nog steeds een gof is */}
+        {props.index === 29 && (
+          <>
+            <Image
+              src={imgSrc}
+              width='300'
+              height='169'
+              layout='intrinsic'
+              alt={props.template.name}
+              onError={() => {
+                setImgSrc(fallbackSrc);
+              }}
+            ></Image>
+          </>
+        )}
         <div className='p-3 -mt-2 bg-linkedin-imagetext font-semibold text-sm'>
           {!props.foto && <p className=''>{props.template.text}</p>}
           {props.foto && <p> Na inloggen kun je zelf aangeven of je deze wel/niet wilt gebruiken</p>}

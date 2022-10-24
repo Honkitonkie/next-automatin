@@ -5,8 +5,6 @@ import { FiMoreHorizontal, FiUser, FiUsers } from "react-icons/fi";
 
 const LinkedinPostDemo = (props) => {
   const [showText, setShowText] = useState(false);
-
-  console.log("props.foto", props.foto);
   const template = props.foto
     ? {
         name: "plaatjesdemo",

@@ -22,7 +22,7 @@ const TemplateLayout = ({ arr }) => {
   const [counter, setCounter] = useState(1);
   const [demo, setDemo] = useState("");
   const render = useRef(0);
-  const examples = pathname === "/plaatjes" ? ["automatin", "keser", "suc6"] : ["automatin", "keser", "suc6", "quaestus", "luke", "inextern", "careervalue"];
+  const examples = pathname === "/plaatjes" ? ["automatin", "keser", "suc6"] : ["automatin", "keser", "suc6"];
   const changeFeedType = (arg, i) => {
     setFeedType(arg);
   };
