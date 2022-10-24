@@ -117,7 +117,7 @@ export default function MyApp({ Component, pageProps }) {
         <title>{title?.text}</title>
         <meta name='theme-color' content='#F2F0F2'></meta>
         <meta property='og:image' content='/MetaImage.jpg' />
-        <meta property='og:description' content={title?.description} />
+        <meta property='og:description' content={title?.description || "Krachtige updates die volledig geautomatiseerd vanaf jouw website op je gewenste social kanaal tevoorschijn komen"} />
         <meta property='og:title' content={title?.text} />
         <meta name='author' content='Honkitonkie' />
         <meta httpEquiv='Content-Type' content='text/html; charset=utf-8'></meta>

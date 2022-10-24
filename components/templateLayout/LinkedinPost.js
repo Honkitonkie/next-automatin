@@ -181,7 +181,7 @@ const LinkedinPost = (props) => {
       <div>
         <div className='flex justify-between items-center p-2 text-xs text-gray-500'>
           <div className='flex gap-1 items-center'>
-            <Image src='/icons/like_1.png' width={15} height={15} layout='intrinsic' alt={props.template.name}></Image>
+            <Image src='/icons/like_1.png' width={16} height={24} layout='intrinsic' alt={props.template.name}></Image>
             <p>{getRandomInt(100)}</p>
           </div>
           <p className='align-right'>{getRandomInt(100)} commentaren</p>
