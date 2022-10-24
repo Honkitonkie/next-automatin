@@ -4,6 +4,7 @@ import Switch from "./Switch";
 
 import { FiMoreHorizontal, FiUser, FiUsers } from "react-icons/fi";
 import Highlighter from "react-highlight-words";
+import { useInView } from "react-intersection-observer";
 import { useUser } from "../../lib/hooks";
 import { useRouter } from "next/router";
 
@@ -26,6 +27,10 @@ const reaction = ["geweldig", "interessant", "verhelderend"];
 
 const LinkedinPost = (props) => {
   const user = useUser()[0];
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
   const extension = props.index === 29 ? ".gif" : props.template.bewegend && !props.foto ? ".webm" : !props.foto ? ".png" : ".jpg";
   const src = props.foto ? "/pictures/" + props.feedType + "/" + props.index + extension : "/gif/" + String(props.company) + "/" + props.index + extension;
   const [imgSrc, setImgSrc] = useState(src);
@@ -100,24 +105,28 @@ const LinkedinPost = (props) => {
       {/* image and imageText */}
       <div>
         {!props.foto && props.company === query.company && props.index >= 11 && props.index != 29 && (
-          <video autoPlay loop muted playsInline key={props.index} className='template relative w-full h-full object-cover overflow-hidden' style={{ width: "300", height: "169" }}>
-            <source
-              src={imgSrc}
-              type='video/webm;'
-              alt={props.template.name}
-              onError={(e) => {
-                handleError(e);
-              }}
-            />
-            <source
-              src={fallbackSrc}
-              type='video/webm;'
-              alt={props.template.name}
-              onError={(e) => {
-                handleError(e);
-              }}
-            />
-          </video>
+          <div key={props.index} ref={ref}>
+            {inView && (
+              <video inView autoPlay loop muted playsInline className='template relative w-full h-full object-cover overflow-hidden' style={{ width: "300", height: "169" }}>
+                <source
+                  src={imgSrc}
+                  type='video/webm;'
+                  alt={props.template.name}
+                  onError={(e) => {
+                    handleError(e);
+                  }}
+                />
+                <source
+                  src={fallbackSrc}
+                  type='video/webm;'
+                  alt={props.template.name}
+                  onError={(e) => {
+                    handleError(e);
+                  }}
+                />
+              </video>
+            )}
+          </div>
         )}
         {props.foto && (
           <>
