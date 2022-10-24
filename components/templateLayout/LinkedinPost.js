@@ -31,7 +31,7 @@ const LinkedinPost = (props) => {
     /* Optional options */
     threshold: 0,
   });
-  const extension = props.index === 29 ? ".gif" : props.template.bewegend && !props.foto ? ".webm" : !props.foto ? ".png" : ".jpg";
+  const extension = props.index === 29 && !props.foto ? ".gif" : props.template.bewegend && !props.foto ? ".webm" : !props.foto ? ".png" : ".jpg";
   const src = props.foto ? "/pictures/" + props.feedType + "/" + props.index + extension : "/gif/" + String(props.company) + "/" + props.index + extension;
   const [imgSrc, setImgSrc] = useState(src);
   const fallbackSrc = props.foto ? "/pictures/" + props.feedType + "/" + props.index + extension : "/gif/" + "automatin" + "/" + props.index + extension;
@@ -157,7 +157,7 @@ const LinkedinPost = (props) => {
           </>
         )}
         {/* template 29 is een uitzondering omdat dit nog steeds een gof is */}
-        {props.index === 29 && (
+        {!props.foto && props.index === 29 && (
           <>
             <Image
               src={imgSrc}
