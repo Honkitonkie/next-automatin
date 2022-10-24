@@ -52,7 +52,7 @@ const LinkedinPost = (props) => {
       {props.index % 7 === 1 && (
         <>
           <div className='flex text-xs p-2 items-center'>
-            <Image className='rounded-t-lg' src={reactionItems.profiles[props.index % reactionItems.profiles.length].src} width='24' height='24' layout='intrinsic' alt={props.template.name}></Image>
+            <Image className='rounded-t-lg' src={reactionItems.profiles[props.index % reactionItems.profiles.length].src} width={24} height={24} layout='intrinsic' alt={props.template.name}></Image>
             <p className='mr-1'>
               <a href={reactionItems.profiles[props.index % reactionItems.profiles.length].href} className='ml-2 font-semibold align-center'>
                 {reactionItems.profiles[props.index % reactionItems.profiles.length].name}
@@ -161,8 +161,8 @@ const LinkedinPost = (props) => {
           <>
             <Image
               src={imgSrc}
-              width='300'
-              height='169'
+              width={300}
+              height={169}
               layout='intrinsic'
               alt={props.template.name}
               onError={() => {
@@ -181,7 +181,7 @@ const LinkedinPost = (props) => {
       <div>
         <div className='flex justify-between items-center p-2 text-xs text-gray-500'>
           <div className='flex gap-1 items-center'>
-            <Image src='/icons/like_1.png' width='16' height='24' layout='intrinsic' alt={props.template.name}></Image>
+            <Image src='/icons/like_1.png' width={15} height={15} layout='intrinsic' alt={props.template.name}></Image>
             <p>{getRandomInt(100)}</p>
           </div>
           <p className='align-right'>{getRandomInt(100)} commentaren</p>
@@ -189,11 +189,11 @@ const LinkedinPost = (props) => {
         <hr></hr>
         <div className='flex items-center justify-center gap-10 text-xs py-4'>
           <div className='flex items-center gap-1 text-gray-500'>
-            <Image src='/icons/like.png' width='15' height='15' layout='intrinsic' alt={props.template.name}></Image>
+            <Image src='/icons/like.png' width={15} height={15} layout='intrinsic' alt={props.template.name}></Image>
             <p>interessant</p>
           </div>
           <div className='flex items-center gap-1 text-gray-500'>
-            <Image src='/icons/comment.png' width='15' height='15' layout='intrinsic' alt={props.template.name}></Image>
+            <Image src='/icons/comment.png' width={15} height={15} layout='intrinsic' alt={props.template.name}></Image>
             <p>Commentaar</p>
           </div>
         </div>
