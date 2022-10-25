@@ -3,6 +3,9 @@ import { useUser } from "../lib/hooks";
 import UpdateFeedType from "../components/forms/linkedin/Updatefeedtype";
 import UpdateCompanyUrn from "../components/forms/linkedin/Updatecompanyurn";
 import RemoveToken from "../components/forms/linkedin/RemoveToken";
+
+import UpdateAddComment from "../components/forms/linkedin/UpdateAddComment";
+
 import Image from "next/image";
 import LinkedinAccesTokenCheck from "../components/templateLayout/LinkedinAccesTokenCheck";
 import ChevronDown from "../components/icons/ChevronDown";
@@ -87,11 +90,15 @@ const Settings = () => {
               {linkedinIsConnected && (
                 <div className='flex flex-col my-5 text-xs pt-2 gap-4'>
                   <UpdateFeedType></UpdateFeedType>
+
                   {user.linkedin.feed_type && <UpdateCompanyUrn></UpdateCompanyUrn>}
+                  {user && <UpdateAddComment></UpdateAddComment>}
+
                   <div className='flex'>
                     <Image src={"/connected.png"} alt='connected to linkedin' className='mr-4' width={50} height={100}></Image>
                     <p>Automatin is succesvol gekoppeld met jouw Linkedin, jouw token verloopt over {daysLeft(user.linkedin.token_expire_date.split("T")[0])} dagen.</p>
                   </div>
+
                   <div className='items-center text-left'>
                     <LinkedinAccesTokenCheck refresh text='Refresh jouw token' sort='automatin'></LinkedinAccesTokenCheck>
                     {user.linkedin.access_token && <RemoveToken email={user?.email} text='Verwijder token' sort={"warning"}></RemoveToken>}
@@ -108,6 +115,7 @@ const Settings = () => {
                   </div>
                 </div>
               )}
+
               {handleQueryInput()}
             </div>
           </div>

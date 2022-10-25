@@ -23,14 +23,14 @@ const Home = () => {
               loop: true,
             }}
             onInit={(typewriter) => {
-              typewriter.typeString("Automatisering").pauseFor(2500).deleteChars(14).typeString("Branding").pauseFor(250).deleteChars(8).typeString("Optimalisatie").pauseFor(500).start();
+              typewriter.typeString("Branding").pauseFor(250).deleteChars(8).typeString("Optimalisatie").pauseFor(500).deleteChars(16).typeString("Templates").start();
             }}
           />
         </div>
         <p className='text-2xl md:text-3xl mt-4 text-center sm:text-left w-3/4 mx-auto sm:w-full sm:mx-0'>voor geautomatiseerde social updates</p>
         <div className='flex mt-8 gap-4 flex flex-wrap justify-center md:justify-start'>
-          <Button href={"/over#orientatie"} sort={"cta-bigger"} text={"Begin oriëntatie"}></Button>
-          <Button href={"/shorts"} sort={"support-bigger"} text={"Bekijk templates"}></Button>
+          <Button aria-label={"orientatie"} href={"/over#orientatie"} sort={"cta-bigger"} text={"Begin oriëntatie"}></Button>
+          <Button aria-label={"korte videos"} href={"/shorts"} sort={"support-bigger"} text={"Bekijk templates"}></Button>
         </div>
       </Videobg>
 

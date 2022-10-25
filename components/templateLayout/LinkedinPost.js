@@ -107,7 +107,7 @@ const LinkedinPost = (props) => {
         {!props.foto && props.company === query.company && props.index >= 11 && props.index != 29 && (
           <div key={props.index} ref={ref}>
             {inView && (
-              <video inView autoPlay loop muted playsInline className='template relative w-full h-full object-cover overflow-hidden' style={{ width: "300", height: "169" }}>
+              <video autoPlay loop muted playsInline className='template relative w-full h-full object-cover overflow-hidden' style={{ width: "300", height: "169" }}>
                 <source
                   src={imgSrc}
                   type='video/webm;'

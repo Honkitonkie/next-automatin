@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Button = ({ sort, type, href, text = "", cname = "", linebreak, handleClick }) => {
+const Button = ({ sort, type, href, text = "", cname = "", linebreak, ariaLabel = text, handleClick }) => {
   const getStyle = getStyling(sort);
   const defaultStyles = "items-center justify-center rounded-md border border-transparent text-base font-medium px-8 py-3 md:py-2 md:px-2";
 
@@ -12,6 +12,7 @@ const Button = ({ sort, type, href, text = "", cname = "", linebreak, handleClic
       {useLink && handleClick && (
         <Link href={href}>
           <button
+            aria-label={ariaLabel}
             type={type}
             onClick={(e, index) => {
               handleClick(e, index);
@@ -24,7 +25,7 @@ const Button = ({ sort, type, href, text = "", cname = "", linebreak, handleClic
       )}
       {useLink && !handleClick && (
         <Link href={href}>
-          <button type={type} className={style}>
+          <button type={type} className={style} aria-label={ariaLabel}>
             {text}
           </button>
         </Link>
@@ -34,6 +35,7 @@ const Button = ({ sort, type, href, text = "", cname = "", linebreak, handleClic
           {linebreak && <br></br>}
           {handleClick && (
             <button
+              aria-label={ariaLabel}
               type={type}
               onClick={(e, index) => {
                 handleClick(e, index);
@@ -44,7 +46,7 @@ const Button = ({ sort, type, href, text = "", cname = "", linebreak, handleClic
             </button>
           )}
           {!handleClick && (
-            <button type={type} className={style}>
+            <button type={type} className={style} aria-label={ariaLabel}>
               {text}
             </button>
           )}

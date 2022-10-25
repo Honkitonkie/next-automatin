@@ -86,6 +86,7 @@ const Navbar = ({ hasUser }) => {
                   <div key={i}>
                     {link.url === "/galerij" ? (
                       <button
+                        aria-label='open galerij menu'
                         className={
                           current === link.url
                             ? "flex items-center justify-center w-full rounded-md hover:bg-gray-50 dark:hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-200 text-automatin-orange hover:text-automatin-grey"
@@ -136,6 +137,7 @@ const Navbar = ({ hasUser }) => {
                     <div className='hidden md:block'>
                       <button
                         onClick={() => setShowSettingsDropdown((b) => !b)}
+                        aria-label='settings menu'
                         type='button'
                         className='flex items-center justify-center w-full rounded-md px-4 py-2 text-gray-700 dark:text-gray-50 hover:bg-gray-50 dark:hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-200'
                         id='options-menu'
@@ -230,7 +232,7 @@ const Navbar = ({ hasUser }) => {
                 </button>
               ) : (
                 <button
-                  aria-label='hamburger'
+                  aria-label='open menu'
                   onClick={() => setMobileMenuIsShown(true)}
                   className='text-gray-800 dark:text-white hover:text-gray-300 inline-flex items-center justify-center p-2 rounded-md focus:outline-none'
                 >
