@@ -1,8 +1,8 @@
-import { updateAccessToken } from "../../../lib/user";
+import { updateLinkedinAccessToken } from "../../../lib/user";
 
 export default async function authenticate(req, res) {
   try {
-    await updateAccessToken()
+    await updateLinkedinAccessToken()
       .then((data) => {
         res
           .status(200)

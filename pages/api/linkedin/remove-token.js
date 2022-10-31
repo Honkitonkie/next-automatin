@@ -1,8 +1,8 @@
-import { removeAccessToken } from "../../../lib/user";
+import { removeLinkedinAccessToken } from "../../../lib/user";
 
 export default async function removeToken(req, res) {
   try {
-    await removeAccessToken(req.body.email)
+    await removeLinkedinAccessToken(req.body.email)
       .then((user) => {
         res.status(200).redirect("/settings?removeLinkedinToken=verwijderd");
       })

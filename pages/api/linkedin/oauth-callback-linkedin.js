@@ -1,8 +1,8 @@
-import { getAccessToken } from "../../../lib/user";
+import { getLinkedinAccessToken } from "../../../lib/user";
 
 export default async function LinkedinCallback(req, res) {
   try {
-    await getAccessToken(req.query)
+    await getLinkedinAccessToken(req.query)
       .then(() => {
         res.status(200).redirect("/settings?linkedinAcces=refresh");
       })

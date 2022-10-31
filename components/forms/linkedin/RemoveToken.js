@@ -1,6 +1,6 @@
 import Button from "../../Button";
 
-const LinkedinRemoveAccessToken = ({ email, text, cname, sort }) => {
+const LinkedinremoveLinkedinAccessToken = ({ email, text, cname, sort }) => {
   const encodedEmail = encodeURI(email);
   return (
     <>
@@ -13,4 +13,4 @@ const LinkedinRemoveAccessToken = ({ email, text, cname, sort }) => {
     </>
   );
 };
-export default LinkedinRemoveAccessToken;
+export default LinkedinremoveLinkedinAccessToken;

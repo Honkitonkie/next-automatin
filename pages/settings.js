@@ -7,6 +7,7 @@ import RemoveToken from "../components/forms/linkedin/RemoveToken";
 import UpdateAddComment from "../components/forms/linkedin/UpdateAddComment";
 
 import Image from "next/image";
+import FacebookAccesTokenCheck from "../components/forms/facebook/FacebookAccesTokenCheck";
 import LinkedinAccesTokenCheck from "../components/templateLayout/LinkedinAccesTokenCheck";
 import ChevronDown from "../components/icons/ChevronDown";
 import ChevronUp from "../components/icons/ChevronUp";
@@ -32,6 +33,7 @@ const Settings = () => {
         setShowLinkedin(!showLinkedin);
         break;
       case "facebook":
+        setShowFacebook(!showFacebook);
         break;
       case "instagram":
         break;
@@ -116,6 +118,62 @@ const Settings = () => {
                 </div>
               )}
 
+              {handleQueryInput()}
+            </div>
+          </div>
+          {/* facebook accordion*/}
+          <h2 id='accordion-collapse-heading-2' className='text-3xl'>
+            <button
+              type='button'
+              className={
+                showFacebook
+                  ? "flex items-center justify-between w-full p-4 border border-b-0 border-gray-300 first:rounded-t-xl"
+                  : "flex items-center justify-between w-full p-4 border border-b-1 border-gray-300 last:rounded-t-xl last:rounded-b-xl"
+              }
+              data-accordion-target='#accordion-collapse-body-1'
+              aria-expanded={showFacebook ? "true" : "false"}
+              aria-controls='accordion-collapse-body-1'
+              onClick={() => handleClick("facebook")}
+            >
+              <div className='flex items-center'>
+                Facebook koppeling
+                {/* {linkedinIsConnected && <FiCheck stroke='green' className='ml-4' size='40' />} */}
+              </div>
+              {showFacebook && <ChevronDown cname='w-6 h-6 rotate-180 shrink-0'></ChevronDown>}
+              {!showFacebook && <ChevronUp cname='w-6 h-6 rotate-180 shrink-0'></ChevronUp>}
+            </button>
+          </h2>
+          <div id='accordion-collapse-body-1' className={showFacebook ? "" : "hidden"} aria-labelledby='accordion-collapse-heading-1'>
+            <div className={showFacebook ? "p-4 font border border-t-0 border-gray-300 last:rounded-b-xl" : "p-4 border border-t-1 border-gray-300 last:rounded-b-xl"}>
+              {/* {linkedinIsConnected && (
+                <div className='flex flex-col my-5 text-xs pt-2 gap-4'>
+                  <UpdateFeedType></UpdateFeedType>
+
+                  {user.linkedin.feed_type && <UpdateCompanyUrn></UpdateCompanyUrn>}
+                  {user && <UpdateAddComment></UpdateAddComment>}
+
+                  <div className='flex'>
+                    <Image src={"/connected.png"} alt='connected to linkedin' className='mr-4' width={50} height={100}></Image>
+                    <p>Automatin is succesvol gekoppeld met jouw Linkedin, jouw token verloopt over {daysLeft(user.linkedin.token_expire_date.split("T")[0])} dagen.</p>
+                  </div>
+
+                  <div className='items-center text-left'>
+                    <LinkedinAccesTokenCheck refresh text='Refresh jouw token' sort='automatin'></LinkedinAccesTokenCheck>
+                    {user.linkedin.access_token && <RemoveToken email={user?.email} text='Verwijder token' sort={"warning"}></RemoveToken>}
+                  </div>
+                </div>
+              )}
+              {user && !linkedinIsConnected && (
+                <div className='flex flex-col my-5 text-xs pt-2 gap-4'>
+                  <UpdateFeedType></UpdateFeedType>
+                  {user.linkedin.feed_type && <UpdateCompanyUrn></UpdateCompanyUrn>}
+                  <div className='items-center text-left flex gap-4'>
+                    <Image src={"/connect.png"} alt='not connected to linkedin' width={50} height={100}></Image>
+                    <LinkedinAccesTokenCheck refresh text='Verbind Linkedin' sort='automatin'></LinkedinAccesTokenCheck>
+                  </div>
+                </div>
+              )} */}
+              <FacebookAccesTokenCheck></FacebookAccesTokenCheck>
               {handleQueryInput()}
             </div>
           </div>
