@@ -26,6 +26,8 @@ const reactionItems = {
 const reaction = ["geweldig", "interessant", "verhelderend"];
 
 const LinkedinPost = (props) => {
+  // console.log("props", props);
+
   const user = useUser()[0];
   const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -40,11 +42,7 @@ const LinkedinPost = (props) => {
   useEffect(() => {
     let newSrc = props.foto ? "/pictures/" + props.feedType + "/" + props.index + extension : "/gif/" + props.company + "/" + props.index + extension;
     setImgSrc(newSrc);
-  }, [props.company]);
-
-  async function handleError(e) {
-    console.log("handle it");
-  }
+  }, [props.company, props.feedType]);
 
   return (
     <div className='w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-3 shadow-lg md:scale-100 md:hover:scale-105 md:hover:rounded-xl md:ease-out md:duration-500'>
@@ -108,22 +106,8 @@ const LinkedinPost = (props) => {
           <div key={props.index} ref={ref}>
             {inView && (
               <video autoPlay loop muted playsInline className='template relative w-full h-full object-cover overflow-hidden' style={{ width: "300", height: "169" }}>
-                <source
-                  src={imgSrc}
-                  type='video/webm;'
-                  alt={props.template.name}
-                  onError={(e) => {
-                    handleError(e);
-                  }}
-                />
-                <source
-                  src={fallbackSrc}
-                  type='video/webm;'
-                  alt={props.template.name}
-                  onError={(e) => {
-                    handleError(e);
-                  }}
-                />
+                <source src={imgSrc} type='video/webm;' alt={props.template.name} />
+                <source src={fallbackSrc} type='video/webm;' alt={props.template.name} />
               </video>
             )}
           </div>

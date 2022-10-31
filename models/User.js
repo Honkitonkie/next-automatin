@@ -45,6 +45,125 @@ const WantedPicsSchema = mongoose.Schema({
     default: [0],
   },
 });
+
+const SocialSchema = mongoose.Schema({
+  linkedin: {
+    type: Boolean,
+    default: false,
+  },
+  facebook: {
+    type: Boolean,
+    default: false,
+  },
+  instagram: {
+    type: Boolean,
+    default: false,
+  },
+});
+const InstagramSchema = mongoose.Schema({
+  access_token: {
+    type: String,
+  },
+  expires_in: {
+    type: String,
+  },
+  urn: {
+    type: String,
+  },
+  organization_urn: {
+    type: String,
+    default: "Selecteer hier",
+  },
+  addComment: {
+    type: Boolean,
+    default: true,
+  },
+  commentIntro: {
+    type: String,
+    default: "Lees hier verder: ",
+  },
+  creation_date: {
+    type: Date,
+  },
+  token_expire_date: {
+    type: Date,
+  },
+  automatin_client_id: {
+    type: String,
+  },
+  automatin_client_secret: {
+    type: String,
+  },
+  feed_type: {
+    type: Array,
+    default: ["person"],
+  },
+  listCompanies: {
+    type: Array,
+    default: [],
+  },
+  templates: {
+    type: TemplatesSchema,
+  },
+});
+const FacebookSchema = mongoose.Schema({
+  access_token: {
+    type: String,
+  },
+  expires_in: {
+    type: String,
+  },
+  urn: {
+    type: String,
+  },
+  organization_urn: {
+    type: String,
+    default: "Selecteer hier",
+  },
+  addComment: {
+    type: Boolean,
+    default: true,
+  },
+  commentIntro: {
+    type: String,
+    default: "Lees hier verder: ",
+  },
+  creation_date: {
+    type: Date,
+  },
+  token_expire_date: {
+    type: Date,
+  },
+  automatin_client_id: {
+    type: String,
+  },
+  automatin_client_secret: {
+    type: String,
+  },
+  feed_type: {
+    type: Array,
+    default: ["person"],
+  },
+  listCompanies: {
+    type: Array,
+    default: [],
+  },
+  templates: {
+    type: TemplatesSchema,
+  },
+});
+
+const LinkedinFeedtypeSchema = mongoose.Schema({
+  person: {
+    type: Boolean,
+    default: true,
+  },
+  organization: {
+    type: Boolean,
+    default: true,
+  },
+});
+
 const LinkedinSchema = mongoose.Schema({
   access_token: {
     type: String,
@@ -86,8 +205,9 @@ const LinkedinSchema = mongoose.Schema({
     default: [],
   },
   feed_type: {
-    type: String,
-    default: "person",
+    type: Object,
+    type: LinkedinFeedtypeSchema,
+    default: {},
   },
   templates: {
     type: TemplatesSchema,
@@ -143,9 +263,24 @@ const UserSchema = new mongoose.Schema({
     type: WantedPicsSchema,
     default: {},
   },
+  socials: {
+    type: Object,
+    type: SocialSchema,
+    default: {},
+  },
   linkedin: {
     type: Object,
     type: LinkedinSchema,
+    default: {},
+  },
+  facebook: {
+    type: Object,
+    type: FacebookSchema,
+    default: {},
+  },
+  instagram: {
+    type: Object,
+    type: InstagramSchema,
     default: {},
   },
 });
@@ -166,8 +301,5 @@ function fillArray(arr, index, allTrue) {
   }
   return arr;
 }
-
-// const User = mongoose.model("User", UserSchema);
-// module.exports = User;
 
 export default mongoose.models.User || mongoose.model("User", UserSchema);

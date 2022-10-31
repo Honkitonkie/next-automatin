@@ -62,9 +62,7 @@ const UpdateFeedType = () => {
         >
           <option value='organization'>Organisatie</option>
           <option value='person'>Persoonlijk</option>
-          <option value='both' disabled>
-            Persoonlijk &amp; Organisatie
-          </option>
+          <option value='both'>Persoonlijk &amp; Organisatie</option>
           <option className='hover:cursor-not-allowed' value='meerdere' disabled>
             Meerdere organisaties
           </option>

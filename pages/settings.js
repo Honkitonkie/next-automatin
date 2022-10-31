@@ -25,7 +25,7 @@ const Settings = () => {
     return <div>Loading...</div>;
   }
 
-  const linkedinIsConnected = user.linkedin.access_token && user.linkedin.token_expire_date && compareDate(user.linkedin.token_expire_date);
+  const linkedinIsConnected = user.linkedin?.access_token && user.linkedin.token_expire_date && compareDate(user.linkedin.token_expire_date);
   function handleClick(val) {
     switch (val) {
       case "linkedin":

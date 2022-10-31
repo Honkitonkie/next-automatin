@@ -5,7 +5,7 @@ import ChevronUp from "../icons/ChevronUp";
 export default function FeedtypeSelector(props) {
   const [isOpen, setIsOpen] = useState(false);
   const fotoFeedTypeOptions = ["linksboven", "linksonder", "rechtsboven", "rechtsonder", "center"];
-  const templateFeedTypeOptions = ["person", "organization"];
+  const templateFeedTypeOptions = ["person", "organization", "both"];
 
   const dropdown = useRef(null);
 
@@ -33,7 +33,7 @@ export default function FeedtypeSelector(props) {
 
   return (
     <>
-      <div className='relative text-left'>
+      <div className='relative flex flex-col md:flex-row items-center gap-4 text-left'>
         <div>Selecteer het soort feed </div>
         <div>
           <button
@@ -53,7 +53,7 @@ export default function FeedtypeSelector(props) {
 
         {isOpen && (
           <div
-            className='origin-top-right absolute left-0 top-18 w-52 rounded-md shadow-lg bg-white hover:bg-grey-100 ring-1 ring-black ring-opacity-5 focus:outline-none z-10'
+            className='origin-top-right absolute left-0 md:left-52 top-24 md:top-14 w-52 rounded-md shadow-lg bg-white hover:bg-grey-100 ring-1 ring-black ring-opacity-5 focus:outline-none z-10'
             role='menu'
             aria-orientation='vertical'
             aria-labelledby='menu-button'
@@ -84,7 +84,9 @@ export default function FeedtypeSelector(props) {
                       handleClick(e, i);
                     }}
                     className={
-                      props.feedType === option ? "block w-full py-3 px-4 text-sm text-automatin-orange text-left" : "block w-full hover:text-automatin-orange hover:bg-gray-100 py-3 px-4 text-sm"
+                      props.feedType === option
+                        ? "block text-left w-full py-3 px-4 text-sm text-automatin-orange text-left"
+                        : "block text-left w-full hover:text-automatin-orange hover:bg-gray-100 py-3 px-4 text-sm"
                     }
                     role='menuitem'
                     tabIndex='-1'
@@ -110,6 +112,12 @@ function capitalizeFirstLetter(string) {
     case "person":
       returnvalue = "Persoonlijke feed";
       break;
+    case "both":
+      returnvalue = "Allebei";
+      break;
+    case "center":
+      returnvalue = "Midden";
+      break;
     default:
   }
   return returnvalue ? returnvalue : string?.charAt(0).toUpperCase() + string?.slice(1);
@@ -122,6 +130,24 @@ function lowerCaseFirstLetter(string) {
       break;
     case "Persoonlijke feed":
       returnvalue = "person";
+      break;
+    case "Allebei":
+      returnvalue = "both";
+      break;
+    case "Linksboven":
+      returnvalue = "linksboven";
+      break;
+    case "Linksonder":
+      returnvalue = "linksonder";
+      break;
+    case "Rechtsboven":
+      returnvalue = "rechtsboven";
+      break;
+    case "Rechtsonder":
+      returnvalue = "rechtsonder";
+      break;
+    case "Midden":
+      returnvalue = "center";
       break;
     default:
   }

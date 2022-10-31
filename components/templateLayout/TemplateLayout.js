@@ -89,9 +89,8 @@ const TemplateLayout = ({ arr }) => {
       )}
 
       {/* Laat de templates zien (als niet ingelogd pak een willekeurige feedType om wel resultaten zichtbaar te maken)  */}
-      {arr[feedType].map((item, index) => (
+      {arr[pathname === "/fotos" ? feedType : "person"].map((item, index) => (
         <div key={index} className='block font-head'>
-          {/* {index === 1 && compilePath(item, index)} */}
           {pathname === "/fotos" && item.beschikbaar && <LinkedinPost foto={foto} template={item} index={index} company={company} feedType={feedType}></LinkedinPost>}
           {pathname === "/plaatjes" && item.beschikbaar && !item.bewegend && <LinkedinPost foto={foto} template={item} index={index} company={company} feedType={feedType}></LinkedinPost>}
           {pathname === "/shorts" && item.beschikbaar && item.bewegend && !item.long && <LinkedinPost foto={foto} template={item} index={index} company={company} feedType={feedType}></LinkedinPost>}
