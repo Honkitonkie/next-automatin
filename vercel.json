@@ -7,6 +7,14 @@
         { "key": "Access-Control-Allow-Origin", "value": "www.linkedin.com" },
         { "key": "Access-Control-Allow-Methods", "value": "GET,POST" }
       ]
+    },
+    {
+      "source": "/api/facebook/oauth-callback-facebook",
+      "headers": [
+        { "key": "Access-Control-Allow-Credentials", "value": "true" },
+        { "key": "Access-Control-Allow-Origin", "value": "www.facebook.com" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET,POST" }
+      ]
     }
   ]
 }

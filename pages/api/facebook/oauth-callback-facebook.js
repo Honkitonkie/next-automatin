@@ -2,6 +2,7 @@ import { getFacebookAccessToken } from "../../../lib/user";
 
 export default async function FacebookCallback(req, res) {
   try {
+    console.log("run getFacebookAccessToken");
     await getFacebookAccessToken(req.query)
       .then(() => {
         res.status(200).redirect("/settings?facebookAcces=refresh");
