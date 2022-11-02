@@ -9,8 +9,6 @@ const FacebookAccesTokenCheck = ({ refresh = false, text = "Je hebt nog geen toe
     return <Layout>Loading...</Layout>;
   }
 
-  console.log("user.facebook.access_token", user.facebook.access_token);
-
   return (
     <>
       {user.facebook.access_token === undefined && !refresh && <GetMyFacebookToken email={user?.email} text={"Geef toegang tot Facebook"} cname={cname} sort={sort}></GetMyFacebookToken>}
@@ -18,6 +16,12 @@ const FacebookAccesTokenCheck = ({ refresh = false, text = "Je hebt nog geen toe
         <GetMyFacebookToken email={user?.email} text={"Refresh jouw token"} sort={sort} cname={cname}></GetMyFacebookToken>
       )}
       {user && refresh && <GetMyFacebookToken email={user?.email} cname={cname} sort={sort} text={text}></GetMyFacebookToken>}
+
+      <form action='api/facebook/oauth-callback-facebook'>
+        <button className='m-5 p-5 bg-automatin-blue rounded text-white' type='submit' value='submit'>
+          HEY{" "}
+        </button>
+      </form>
     </>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
-import { useUser } from "../../lib/hooks";
-import Layout from "../globals/Layout";
-import GetMyLinkedinToken from "../forms/linkedin/GetMyLinkedinToken";
+import { useUser } from "../../../lib/hooks";
+import Layout from "../../globals/Layout";
+import GetMyLinkedinToken from "./GetMyLinkedinToken";
 
 const LinkedinAccesTokenCheck = ({ refresh = false, text = "Je hebt nog geen toegang jouw Linkedin.", cname, sort }) => {
   const user = useUser()[0];

@@ -1,6 +1,5 @@
 {
   "private": true,
-  "start": "HTTPS=true react-scripts start",
   "scripts": {
     "dev": "next",
     "build": "next build",

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import LinkedinPost from "./LinkedinPost";
 import LinkedinPostDemo from "./LinkedinPostDemo";
 import FeedtypeSelector from "./FeedtypeSelector";
-import LinkedinAccesTokenCheck from "./LinkedinAccesTokenCheck";
+import LinkedinAccesTokenCheck from "../forms/linkedin/LinkedinAccesTokenCheck";
 import { useRouter } from "next/router";
 import { useUser } from "../../lib/hooks";
 

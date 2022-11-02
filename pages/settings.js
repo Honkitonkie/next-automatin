@@ -8,7 +8,7 @@ import UpdateAddComment from "../components/forms/linkedin/UpdateAddComment";
 
 import Image from "next/image";
 import FacebookAccesTokenCheck from "../components/forms/facebook/FacebookAccesTokenCheck";
-import LinkedinAccesTokenCheck from "../components/templateLayout/LinkedinAccesTokenCheck";
+import LinkedinAccesTokenCheck from "../components/forms/linkedin/LinkedinAccesTokenCheck";
 import ChevronDown from "../components/icons/ChevronDown";
 import ChevronUp from "../components/icons/ChevronUp";
 import { FiCheck } from "react-icons/fi";
@@ -42,7 +42,7 @@ const Settings = () => {
   }
 
   // force hard refresh after login or signup and display succes and/or error messages
-  function handleQueryInput() {
+  function handleQueryInputLinkedin() {
     if ((router.query && router.query.linkedinAcces) || (router.query && router.query.removeLinkedinToken)) {
       if (router.query.linkedinAcces === "refresh") {
         return <div className='text-green-500'>Automatin is succesvol gekoppeld.</div>;
@@ -51,6 +51,23 @@ const Settings = () => {
       } else if (router.query.linkedinAcces === "failedRefresh") {
         return <div className='text-red-500'>Er ging iets fout</div>;
       } else if (router.query.removeLinkedinToken === "failed") {
+        return <div className='text-red-500'>Er ging iets fout</div>;
+      } else {
+        return;
+      }
+    } else {
+      return;
+    }
+  }
+  function handleQueryInputFacebook() {
+    if ((router.query && router.query.facebookAcces) || (router.query && router.query.removeFacebookToken)) {
+      if (router.query.facebookAcces === "refresh") {
+        return <div className='text-green-500'>Automatin is succesvol gekoppeld.</div>;
+      } else if (router.query.removeFacebookToken === "verwijderd") {
+        return <div className='text-green-500'>Jouw token is verwijderd.</div>;
+      } else if (router.query.facebookAcces === "failedRefresh") {
+        return <div className='text-red-500'>Er ging iets fout</div>;
+      } else if (router.query.removeFacebookToken === "failed") {
         return <div className='text-red-500'>Er ging iets fout</div>;
       } else {
         return;
@@ -118,7 +135,7 @@ const Settings = () => {
                 </div>
               )}
 
-              {handleQueryInput()}
+              {handleQueryInputLinkedin()}
             </div>
           </div>
           {/* facebook accordion*/}
@@ -173,8 +190,8 @@ const Settings = () => {
                   </div>
                 </div>
               )} */}
-              <FacebookAccesTokenCheck></FacebookAccesTokenCheck>
-              {handleQueryInput()}
+              <FacebookAccesTokenCheck sort={"automatin"}></FacebookAccesTokenCheck>
+              {handleQueryInputFacebook()}
             </div>
           </div>
         </div>
