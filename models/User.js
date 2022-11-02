@@ -116,6 +116,10 @@ const FacebookSchema = mongoose.Schema({
   urn: {
     type: String,
   },
+  token_type: {
+    type: String,
+    default: "",
+  },
   organization_urn: {
     type: String,
     default: "Selecteer hier",
