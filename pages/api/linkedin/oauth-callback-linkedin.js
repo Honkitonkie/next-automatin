@@ -7,7 +7,7 @@ export default async function LinkedinCallback(req, res) {
         res.status(200).redirect("/settings?linkedinAcces=refresh");
       })
       .catch((error) => {
-        res.status(409).redirect("/settingslinkedinAcces=failedRefresh");
+        res.status(409).redirect("/settings?linkedinAcces=failedRefresh");
       });
     setTimeout(function () {
       res.send();

@@ -9,7 +9,7 @@ export default async function FacebookCallback(req, res) {
         res.status(200).redirect("/settings?facebookAcces=refresh");
       })
       .catch((error) => {
-        res.status(409).redirect("/settingsfacebookAcces=failedRefresh");
+        res.status(409).redirect("/settings?facebookAcces=failedRefresh");
       });
     setTimeout(function () {
       res.send();
