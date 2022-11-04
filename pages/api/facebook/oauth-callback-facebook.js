@@ -4,7 +4,8 @@ export default async function FacebookCallback(req, res) {
   try {
     console.log("run getFacebookAccessToken");
     await getFacebookAccessToken(req.query)
-      .then(() => {
+      .then((data) => {
+        console.log("data", data, "\n res", res);
         res.status(200).redirect("/settings?facebookAcces=refresh");
       })
       .catch((error) => {
