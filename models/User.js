@@ -113,7 +113,10 @@ const FacebookSchema = mongoose.Schema({
   expires_in: {
     type: String,
   },
-  urn: {
+  id: {
+    type: String,
+  },
+  name: {
     type: String,
   },
   token_type: {

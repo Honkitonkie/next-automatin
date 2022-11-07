@@ -17,7 +17,12 @@ const FacebookAccesTokenCheck = ({ refresh = false, text = "Je hebt nog geen toe
       )}
       {user && refresh && <GetMyFacebookToken email={user?.email} cname={cname} sort={sort} text={text}></GetMyFacebookToken>}
 
-      <form action='api/facebook/oauth-callback-facebook'>
+      <form action='api/facebook/test' method='POST'>
+        <label for='email'>
+          <span>Naam</span>
+          <input type='text' name='email' id='email' value={user.email} />
+        </label>
+        {/* <input type={text} id='user'></input> */}
         <button className='m-5 p-5 bg-automatin-blue rounded text-white' type='submit' value='submit'>
           HEY{" "}
         </button>

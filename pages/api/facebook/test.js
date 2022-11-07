@@ -1,9 +1,10 @@
-import { getFacebookAccessToken } from "../../../lib/user";
+import { getFacebookTest } from "../../../lib/user";
 
 export default async function FacebookCallback(req, res) {
   try {
-    await getFacebookAccessToken(req.query)
+    await getFacebookTest(req.body.email)
       .then((data) => {
+        console.log("data", data);
         res.status(200).redirect("/settings?facebookAcces=refresh");
       })
       .catch((error) => {
