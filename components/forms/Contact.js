@@ -57,7 +57,7 @@ const Contact = () => {
         <form className='space-y-8'>
           <div>
             <label htmlFor='email' className='block mb-2 text-sm font-medium dark:text-gray-300'>
-              Your email
+              Jouw email
             </label>
             <input
               pattern='[^()/><\][\\\x22,;|]+'

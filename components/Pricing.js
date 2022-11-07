@@ -84,7 +84,7 @@ const Pricing = () => {
           </div>
         </div>
         {/* <!-- Tile 3 --> */}
-        <div className='flex flex-col flex-grow overflow-hidden bg-white rounded-lg shadow-lg hover:scale-105'>
+        {/* <div className='flex flex-col flex-grow overflow-hidden bg-white rounded-lg shadow-lg hover:scale-105'>
           <div className='flex flex-col items-center p-10 bg-automatin-blue text-white'>
             <span className='font-semibold'>Expert</span>
             <div className='flex items-center'>
@@ -120,7 +120,7 @@ const Pricing = () => {
               <button className='flex items-center justify-center w-full h-12 px-6 text-sm uppercase bg-automatin-blue text-white rounded-lg font-semibold hover:bg-blue-400'>Aanmelden</button>
             </Link>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
