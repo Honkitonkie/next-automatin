@@ -138,31 +138,34 @@ const Settings = () => {
               {handleQueryInputLinkedin()}
             </div>
           </div>
+
           {/* facebook accordion*/}
-          <h2 id='accordion-collapse-heading-2' className='text-3xl'>
-            <button
-              type='button'
-              className={
-                showFacebook
-                  ? "flex items-center justify-between w-full p-4 border border-b-0 border-gray-300 first:rounded-t-xl"
-                  : "flex items-center justify-between w-full p-4 border border-b-1 border-gray-300 last:rounded-t-xl last:rounded-b-xl"
-              }
-              data-accordion-target='#accordion-collapse-body-1'
-              aria-expanded={showFacebook ? "true" : "false"}
-              aria-controls='accordion-collapse-body-1'
-              onClick={() => handleClick("facebook")}
-            >
-              <div className='flex items-center'>
-                Facebook koppeling
-                {/* {linkedinIsConnected && <FiCheck stroke='green' className='ml-4' size='40' />} */}
-              </div>
-              {showFacebook && <ChevronDown cname='w-6 h-6 rotate-180 shrink-0'></ChevronDown>}
-              {!showFacebook && <ChevronUp cname='w-6 h-6 rotate-180 shrink-0'></ChevronUp>}
-            </button>
-          </h2>
-          <div id='accordion-collapse-body-1' className={showFacebook ? "" : "hidden"} aria-labelledby='accordion-collapse-heading-1'>
-            <div className={showFacebook ? "p-4 font border border-t-0 border-gray-300 last:rounded-b-xl" : "p-4 border border-t-1 border-gray-300 last:rounded-b-xl"}>
-              {/* {linkedinIsConnected && (
+          {user.email === "info@automatin.nl" && (
+            <>
+              <h2 id='accordion-collapse-heading-2' className='text-3xl'>
+                <button
+                  type='button'
+                  className={
+                    showFacebook
+                      ? "flex items-center justify-between w-full p-4 border border-b-0 border-gray-300 first:rounded-t-xl"
+                      : "flex items-center justify-between w-full p-4 border border-b-1 border-gray-300 last:rounded-t-xl last:rounded-b-xl"
+                  }
+                  data-accordion-target='#accordion-collapse-body-1'
+                  aria-expanded={showFacebook ? "true" : "false"}
+                  aria-controls='accordion-collapse-body-1'
+                  onClick={() => handleClick("facebook")}
+                >
+                  <div className='flex items-center'>
+                    Facebook koppeling
+                    {/* {linkedinIsConnected && <FiCheck stroke='green' className='ml-4' size='40' />} */}
+                  </div>
+                  {showFacebook && <ChevronDown cname='w-6 h-6 rotate-180 shrink-0'></ChevronDown>}
+                  {!showFacebook && <ChevronUp cname='w-6 h-6 rotate-180 shrink-0'></ChevronUp>}
+                </button>
+              </h2>
+              <div id='accordion-collapse-body-1' className={showFacebook ? "" : "hidden"} aria-labelledby='accordion-collapse-heading-1'>
+                <div className={showFacebook ? "p-4 font border border-t-0 border-gray-300 last:rounded-b-xl" : "p-4 border border-t-1 border-gray-300 last:rounded-b-xl"}>
+                  {/* {linkedinIsConnected && (
                 <div className='flex flex-col my-5 text-xs pt-2 gap-4'>
                   <UpdateFeedType></UpdateFeedType>
 
@@ -190,10 +193,12 @@ const Settings = () => {
                   </div>
                 </div>
               )} */}
-              <FacebookAccesTokenCheck sort={"automatin"}></FacebookAccesTokenCheck>
-              {handleQueryInputFacebook()}
-            </div>
-          </div>
+                  <FacebookAccesTokenCheck sort={"automatin"}></FacebookAccesTokenCheck>
+                  {handleQueryInputFacebook()}
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
