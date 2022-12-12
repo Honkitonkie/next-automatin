@@ -52,7 +52,7 @@ const Pricing = () => {
             <span className='font-semibold'>Professioneel</span>
             <div className='flex items-center'>
               <span className='text-3xl'>€</span>
-              <span className='text-6xl font-bold'>35</span>
+              <span className='text-6xl font-bold'>20</span>
               <span className='text-2xl text-gray-200'>p/m</span>
             </div>
           </div>
