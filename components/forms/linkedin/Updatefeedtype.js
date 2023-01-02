@@ -48,26 +48,29 @@ const UpdateFeedType = () => {
   }
   return (
     <>
-      <form className='my-2' onSubmit={updateFeedType}>
-        <label className='pr-5' htmlFor='feedtype'>
-          Op welke feed(s) wil je posten?
-        </label>
-        <select
-          className='rounded p-1 text-center'
-          id='feedtype'
-          value={feedTypeSelector}
-          onChange={(e) => {
-            setFeedTypeSelector(e.target.value);
-          }}
-        >
-          <option value='organization'>Organisatie</option>
-          <option value='person'>Persoonlijk</option>
-          <option value='both'>Persoonlijk &amp; Organisatie</option>
-          <option className='hover:cursor-not-allowed' value='meerdere' disabled>
-            Meerdere organisaties
-          </option>
-        </select>
-      </form>
+      {user && (
+        <form className='my-2' onSubmit={updateFeedType}>
+          <label className='pr-5' htmlFor='feedtype'>
+            Op welke feed(s) wil je posten?
+          </label>
+          <select
+            className='rounded p-1 text-center'
+            id='feedtype'
+            value={feedTypeSelector}
+            onChange={(e) => {
+              setFeedTypeSelector(e.target.value);
+            }}
+          >
+            <option value='organization'>Organisatie</option>
+            <option value='person'>Persoonlijk</option>
+            <option value='both'>Persoonlijk &amp; Organisatie</option>
+            <option className='hover:cursor-not-allowed' value='meerdere' disabled>
+              Meerdere organisaties
+            </option>
+            <option value='Geen'>Geen</option>
+          </select>
+        </form>
+      )}
     </>
   );
 };

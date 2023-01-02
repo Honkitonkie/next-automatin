@@ -51,7 +51,7 @@ const UpdateCompanyUrn = () => {
   }
   return (
     <>
-      {companyOptions.length > 0 && (
+      {user && companyOptions.length > 1 && (
         <form className='my-2' onSubmit={updateUserCompanyUrn}>
           <label className='pr-5' htmlFor='companyUrn'>
             Selecteer welke organisatie
@@ -64,6 +64,28 @@ const UpdateCompanyUrn = () => {
               setOrganizationUrnSelector(e.target.value);
             }}
           >
+            {companyOptions.map((item, index) => (
+              <option key={index} value={item.urn}>
+                {item.name}
+              </option>
+            ))}
+          </select>
+        </form>
+      )}
+      {user && companyOptions.length === 1 && (
+        <form className='my-2' onSubmit={updateUserCompanyUrn}>
+          <label className='pr-5' htmlFor='companyUrn'>
+            Selecteer welke organisatie
+          </label>
+          <select
+            className='rounded p-1 text-center'
+            id='companyUrn'
+            value={organizationUrnSelector}
+            onChange={(e) => {
+              setOrganizationUrnSelector(e.target.value);
+            }}
+          >
+            <option value='Geen'>Geen</option>
             {companyOptions.map((item, index) => (
               <option key={index} value={item.urn}>
                 {item.name}
